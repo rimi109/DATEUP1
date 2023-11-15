@@ -5,20 +5,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Playerが攻撃するときに投げるGameObjectを参照"), SerializeField]
+    private GameObject Player_Shot_Object_;
+
+    [Header("PlayerがStunしたときに表示するGameObejctを参照"), SerializeField]
+    private GameObject Stun_Hiyoko_;
+
+    [Header("Playerが枕を投げる時に表示するGameObjectを参照"), SerializeField]
+    private GameObject Release_makura_;
+
     [Header("Playerが枕を持っているときに表示するGameObjectを参照"),SerializeField]
     private GameObject Hold_makura_;
-
-    [Header("Playerが枕を投げる時に表示するGameObjectを参照"),SerializeField]
-    private GameObject Release_makura_;
 
     [Header("Playerが攻撃をチャージするときに表示するEffectを参照"),SerializeField]
     private GameObject Player_Charge_Effect_;
 
-    [Header("Playerが攻撃するときに投げるGameObjectを参照"),SerializeField]
-    private GameObject Player_Shot_Object_;
-
-    [Header("PlayerがStunしたときに表示するGameObejctを参照"),SerializeField]
-    private GameObject Stun_Hiyoko_;
 
     [Header("Player自身のTransformを参照"),SerializeField]
     private Transform Player_Transform_;
@@ -26,72 +27,67 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerがStunしたときに表示するGameObjectのTransformを参照"),SerializeField]
     private Transform Stun_Hiyoko_Transform_;
 
-    [Header("Playerの枕を投げる発射"),SerializeField]
+    [Header("Playerが枕を投げる際に枕が発射される位置のGameobjectを参照"),SerializeField]
     private Transform Muzzle_Transform_;
 
 
-    [Header(""),SerializeField]
-    private Rigidbody Player_Rd_;
+    [Tooltip("PlayerがChage攻撃を溜めている時間")]
+    private float Player_Shot_Hold_Time_;
+
+    [Tooltip("Playerが攻撃をくらった時のStun時間")]
+    private float Player_Stun_Time_;
+
+    [Header("PlayerのMoveSpeedを参照"), SerializeField]
+    private float Player_Move_Speed_;
+
+    [Header("Playerが枕を投げる時のSpeed"), SerializeField]
+    private float Player_Pillow_Shot_Speed_;
 
 
-    [Header(""),SerializeField]
-    private float Player_Shot_Speed_;
+    [Tooltip("Playerが枕を保持しているかどうかを判定")]
+    private bool Player_Hold_Pillow = true;
 
-    [Header(""),SerializeField]
-    private float Move_Speed_;
+    [Tooltip("PlayerがStunしているかどうかを判定")]
+    private bool Player_Stun_ = false;
 
-    [Tooltip("")]
-    private float Player_Shot_Hold_TIme_;
+    [Tooltip("PlayerがShotを発射可能かどうかを判定")]
+    private bool Player_Shot_flag_ = true;
 
-    [Tooltip("")]
-    private float Shot_Speed_;
-
-    [Tooltip("")]
-    private float Stun_Time_;
+    [Tooltip("PlayerがChargeShotをするとき")]
+    private bool Player_Charge_Shot_Speed_Down_ = false;
 
 
-    [Header(""),SerializeField]
+    [Header("Playerが何人目のPlayerかを指定"), SerializeField]
     private int Player_Numbers_;
 
+    [Header("PlayerのRijidbodyを参照"), SerializeField]
+    private Rigidbody Player_Rd_;
 
-    [Tooltip("")]
-    bool Shot_flag_ = true;
-
-    [Tooltip("")]
-    bool Stun_ = false;
-
-    [Tooltip("")]
-    bool Hold_ = true;
-
-    [Tooltip("")]
-    bool Speed_Down_ = false;
-
-
-    [Header(""),SerializeField]
+    [Header("PlayerのAnimator"),SerializeField]
     private Animator Player_Animation_;
 
-    [Tooltip("")]
-    private PillowScript Pilllo_2;
+    [Tooltip("枕に入っているPillowScriptを参照")]
+    private PillowScript Pillow_;
 
     // Update is called once per frame
     void Update()
     {
-        if (Stun_)
+        if (Player_Stun_)
         {
-            Stun_Time_ += Time.deltaTime;
+            Player_Stun_Time_ += Time.deltaTime;
 
             Stun_Hiyoko_Transform_.transform.Rotate(new Vector3(0, 20, 0));
 
-            if (Stun_Time_ > 1)
+            if (Player_Stun_Time_ > 1)
             {
-                Stun_ = false;
+                Player_Stun_ = false;
                 Stun_Hiyoko_.SetActive(false);
-                Stun_Time_ = 0;
+                Player_Stun_Time_ = 0;
             }
 
         }
 
-        if (Stun_)
+        if (Player_Stun_)
 
             return;
 
@@ -103,16 +99,16 @@ public class PlayerScript : MonoBehaviour
 
         var GamepadValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
         var value = new Vector3(GamepadValue.x, 0, GamepadValue.y);
-        if (value != Vector3.zero && !Speed_Down_)
+        if (value != Vector3.zero && !Player_Charge_Shot_Speed_Down_)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(value);
-            Velocity = value * Move_Speed_;
+            Velocity = value * Player_Move_Speed_;
 
         }
-        else if (value != Vector3.zero && Speed_Down_)
+        else if (value != Vector3.zero && Player_Charge_Shot_Speed_Down_)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(value);
-            Velocity = value * Move_Speed_ / 2;
+            Velocity = value * Player_Move_Speed_ / 2;
         }
         else
         {
@@ -122,50 +118,50 @@ public class PlayerScript : MonoBehaviour
 
         Player_Rd_.velocity = Velocity;
 
-        if (!Shot_flag_)
+        if (!Player_Shot_flag_)
             return;
 
         if (Gamepad.all[Player_Numbers_].aButton.isPressed)
         {
 
-            Player_Shot_Hold_TIme_ += Time.deltaTime;
+            Player_Shot_Hold_Time_ += Time.deltaTime;
             Player_Animation_.SetBool("PlayerAttack", true);
 
             Player_Charge_Effect_.SetActive(true);
 
-            if (Player_Shot_Hold_TIme_ < 0.7f)
+            if (Player_Shot_Hold_Time_ < 0.7f)
             {
 
-                Shot_Speed_ = 10;
+                Player_Pillow_Shot_Speed_ = 10;
 
 
             }
-            else if (Player_Shot_Hold_TIme_ < 1.4f)
+            else if (Player_Shot_Hold_Time_ < 1.4f)
 
             {
 
-                Shot_Speed_ = 30;
+                Player_Pillow_Shot_Speed_ = 30;
             }
             else
             {
-                Shot_Speed_ = 45;
+                Player_Pillow_Shot_Speed_ = 45;
 
             }
 
             Release_makura_.SetActive(true);
             Hold_makura_.SetActive(false);
-            Speed_Down_ = true;
+            Player_Charge_Shot_Speed_Down_ = true;
         }
 
         if (Gamepad.all[Player_Numbers_].aButton.wasReleasedThisFrame)
         {
             Player_Is_Shot_Function();
-            Shot_flag_ = false;
+            Player_Shot_flag_ = false;
             Release_makura_.SetActive(false);
-            Hold_ = false;
-            Speed_Down_ = false;
-            Shot_Speed_ = 0;
-            Player_Shot_Hold_TIme_ = 0;
+            Player_Hold_Pillow = false;
+            Player_Charge_Shot_Speed_Down_ = false;
+            Player_Pillow_Shot_Speed_ = 0;
+            Player_Shot_Hold_Time_ = 0;
             Player_Animation_.SetBool("PlayerAttack", false);
             Player_Charge_Effect_.SetActive(false);
         }
@@ -175,110 +171,110 @@ public class PlayerScript : MonoBehaviour
     {
         GameObject ball = (GameObject)Instantiate(Player_Shot_Object_, Muzzle_Transform_.position, Player_Transform_.rotation);
         Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
-        ballRigidbody.AddForce(Player_Transform_.forward * Shot_Speed_, ForceMode.Impulse);
+        ballRigidbody.AddForce(Player_Transform_.forward * Player_Pillow_Shot_Speed_, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (Stun_)
+        if (Player_Stun_)
             return;
 
         if (collision.gameObject.CompareTag("MakuraOne"))
         {
 
-            Pilllo_2 = collision.gameObject.GetComponent<PillowScript>();
+            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pilllo_2.Pillow_Attack_ && !Hold_)
+            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
             {
-                Hold_ = true;
-                Shot_flag_ = true;
+                Player_Hold_Pillow = true;
+                Player_Shot_flag_ = true;
                 Hold_makura_.SetActive(true);
                 Destroy(collision.gameObject);
             }
 
-            if (!Pilllo_2.Pillow_Attack_)
+            if (!Pillow_.Pillow_Attack_)
             {
-                Pilllo_2.Pillow_Attack_Function();
+                Pillow_.Pillow_Attack_Function();
             }
         }
 
         if (collision.gameObject.CompareTag("MakuraTwo"))
         {
 
-            Pilllo_2 = collision.gameObject.GetComponent<PillowScript>();
+            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pilllo_2.Pillow_Attack_ && !Hold_)
+            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
             {
-                Hold_ = true;
-                Shot_flag_ = true;
+                Player_Hold_Pillow = true;
+                Player_Shot_flag_ = true;
                 Hold_makura_.SetActive(true);
                 Destroy(collision.gameObject);
             }
 
-            if (Pilllo_2.Pillow_Attack_)
+            if (Pillow_.Pillow_Attack_)
             {
                 Stun_Function_();
                 
             }
             else
             {
-                Pilllo_2.Pillow_Attack_Function();
+                Pillow_.Pillow_Attack_Function();
             }
         }
 
         if (collision.gameObject.CompareTag("MakuraThree"))
         {
 
-            Pilllo_2 = collision.gameObject.GetComponent<PillowScript>();
+            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pilllo_2.Pillow_Attack_ && !Hold_)
+            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
             {
-                Hold_ = true;
-                Shot_flag_ = true;
+                Player_Hold_Pillow = true;
+                Player_Shot_flag_ = true;
                 Hold_makura_.SetActive(true);
                 Destroy(collision.gameObject);
             }
 
-            if (Pilllo_2.Pillow_Attack_)
+            if (Pillow_.Pillow_Attack_)
             {
                 Stun_Function_();
             
             }
             else
             {
-                Pilllo_2.Pillow_Attack_Function();
+                Pillow_.Pillow_Attack_Function();
             }
         }
 
         if (collision.gameObject.CompareTag("MakuraFour"))
         {
 
-            Pilllo_2 = collision.gameObject.GetComponent<PillowScript>();
+            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pilllo_2.Pillow_Attack_ && !Hold_)
+            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
             {
-                Hold_ = true;
-                Shot_flag_ = true;
+                Player_Hold_Pillow = true;
+                Player_Shot_flag_ = true;
                 Hold_makura_.SetActive(true);
                 Destroy(collision.gameObject);
             }
 
-            if (Pilllo_2.Pillow_Attack_)
+            if (Pillow_.Pillow_Attack_)
             {
                 Stun_Function_();
             }
             else
             {
-                Pilllo_2.Pillow_Attack_Function();
+                Pillow_.Pillow_Attack_Function();
             }
         }
     }
 
     private void Stun_Function_()
     {
-        Stun_ = true;
+        Player_Stun_ = true;
         Stun_Hiyoko_.SetActive(true);
-        Pilllo_2.Pillow_No_Attack_Function();
+        Pillow_.Pillow_No_Attack_Function();
     }
 }
 
