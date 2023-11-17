@@ -8,8 +8,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Playerが攻撃するときに投げるGameObjectを参照"), SerializeField]
     private GameObject Player_Shot_Object_;
 
-    [Header("PlayerがStunしたときに表示するGameObejctを参照"), SerializeField]
-    private GameObject Stun_Hiyoko_;
+    [Header("PlayerがStunしたときに表示するEffectを参照"), SerializeField]
+    private GameObject Player_Stun_Effect;
 
     [Header("Playerが枕を投げる時に表示するGameObjectを参照"), SerializeField]
     private GameObject Release_makura_;
@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     private Transform Player_Transform_;
 
     [Header("PlayerがStunしたときに表示するGameObjectのTransformを参照"),SerializeField]
-    private Transform Stun_Hiyoko_Transform_;
+    private Transform Player_Stun_Object_Transform_;
 
     [Header("Playerが枕を投げる際に枕が発射される位置のGameobjectを参照"),SerializeField]
     private Transform Muzzle_Transform_;
@@ -60,11 +60,11 @@ public class PlayerScript : MonoBehaviour
     [Header("Playerが何人目のPlayerかを指定"), SerializeField]
     private int Player_Numbers_;
 
-    [Header("PlayerのRijidbodyを参照"), SerializeField]
+    [Header("PlayerのRigidbodyを参照"), SerializeField]
     private Rigidbody Player_Rd_;
 
-    [Header("PlayerのAnimator"),SerializeField]
-    private Animator Player_Animation_;
+    //[Header("PlayerのAnimator"),SerializeField]
+    //private Animator Player_Animation_;
 
     [Tooltip("枕に入っているPillowScriptを参照")]
     private PillowScript Pillow_;
@@ -76,12 +76,12 @@ public class PlayerScript : MonoBehaviour
         {
             Player_Stun_Time_ += Time.deltaTime;
 
-            Stun_Hiyoko_Transform_.transform.Rotate(new Vector3(0, 20, 0));
+            Player_Stun_Object_Transform_.transform.Rotate(new Vector3(0, 20, 0));
 
             if (Player_Stun_Time_ > 1)
             {
                 Player_Stun_ = false;
-                Stun_Hiyoko_.SetActive(false);
+                Player_Stun_Effect.SetActive(false);
                 Player_Stun_Time_ = 0;
             }
 
@@ -125,7 +125,7 @@ public class PlayerScript : MonoBehaviour
         {
 
             Player_Shot_Hold_Time_ += Time.deltaTime;
-            Player_Animation_.SetBool("PlayerAttack", true);
+            //Player_Animation_.SetBool("PlayerAttack", true);
 
             Player_Charge_Effect_.SetActive(true);
 
@@ -162,7 +162,7 @@ public class PlayerScript : MonoBehaviour
             Player_Charge_Shot_Speed_Down_ = false;
             Player_Pillow_Shot_Speed_ = 0;
             Player_Shot_Hold_Time_ = 0;
-            Player_Animation_.SetBool("PlayerAttack", false);
+            //Player_Animation_.SetBool("PlayerAttack", false);
             Player_Charge_Effect_.SetActive(false);
         }
 
@@ -273,7 +273,7 @@ public class PlayerScript : MonoBehaviour
     private void Stun_Function_()
     {
         Player_Stun_ = true;
-        Stun_Hiyoko_.SetActive(true);
+        Player_Stun_Effect.SetActive(true);
         Pillow_.Pillow_No_Attack_Function();
     }
 }

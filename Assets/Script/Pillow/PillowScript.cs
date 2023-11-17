@@ -9,7 +9,7 @@ public class PillowScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Tatami"))
+        if (collision.gameObject.CompareTag("Tatami") || collision.gameObject.CompareTag("Player"))
         {
             Pillow_Attack_ = false;
         }
