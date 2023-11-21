@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8770820420725026736}
   - component: {fileID: 2034278719691528771}
   m_Layer: 0
-  m_Name: makura
-  m_TagString: Untagged
+  m_Name: makura 2
+  m_TagString: MakuraOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
