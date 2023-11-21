@@ -15,7 +15,7 @@ C:/Users/ghal6/DATEUP
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56588
+49989
 Successfully changed project path to: C:/Users/ghal6/DATEUP
 C:/Users/ghal6/DATEUP
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/ghal6/DATEUP
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 78.90 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 89.63 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.11f1 (0a5ca18544bf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -63,92 +63,95 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56792
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005860 seconds.
+Registered in 0.007130 seconds.
 Native extension for WindowsStandalone target not found
+Native extension for Android target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 77.41 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 82.12 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.613 seconds
+- Completed reload, in  0.636 seconds
 Domain Reload Profiling:
-	ReloadAssembly (613ms)
-		BeginReloadAssembly (71ms)
+	ReloadAssembly (636ms)
+		BeginReloadAssembly (66ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (438ms)
-			LoadAssemblies (69ms)
+		EndReloadAssembly (463ms)
+			LoadAssemblies (65ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (108ms)
+			SetupTypeCache (112ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (246ms)
+			RebuildScriptCaches (30ms)
+			SetupLoadedEditorAssemblies (273ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (54ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (78ms)
+				RefreshPlugins (82ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (115ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				ProcessInitializeOnLoadAttributes (93ms)
+				ProcessInitializeOnLoadMethodAttributes (42ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005657 seconds.
+Registered in 0.007429 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\ghal6\DATEUP\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\ghal6\DATEUP\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
+Native extension for Android target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.81 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 89.60 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.023 seconds
+- Completed reload, in  1.323 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1024ms)
-		BeginReloadAssembly (118ms)
+	ReloadAssembly (1324ms)
+		BeginReloadAssembly (235ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (7ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (794ms)
-			LoadAssemblies (87ms)
+			CreateAndSetChildDomain (130ms)
+		EndReloadAssembly (974ms)
+			LoadAssemblies (89ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (268ms)
+			SetupTypeCache (276ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (49ms)
-			SetupLoadedEditorAssemblies (360ms)
+			RebuildScriptCaches (61ms)
+			SetupLoadedEditorAssemblies (512ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (95ms)
-				ProcessInitializeOnLoadAttributes (224ms)
-				ProcessInitializeOnLoadMethodAttributes (26ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				InitializePlatformSupportModulesInManaged (18ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (90ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (280ms)
+				ProcessInitializeOnLoadMethodAttributes (24ms)
+				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.80 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3380 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 27 unused Assets / (113.4 KB). Loaded Objects now: 3837.
-Memory consumption went from 116.2 MB to 116.1 MB.
-Total: 2.796900 ms (FindLiveObjects: 0.250000 ms CreateObjectMapping: 0.203800 ms MarkObjects: 2.262800 ms  DeleteObjects: 0.079600 ms)
+Unloading 3726 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 30 unused Assets / (113.9 KB). Loaded Objects now: 4188.
+Memory consumption went from 132.2 MB to 132.1 MB.
+Total: 3.385800 ms (FindLiveObjects: 0.333300 ms CreateObjectMapping: 0.312000 ms MarkObjects: 2.623900 ms  DeleteObjects: 0.115100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,37 +165,67 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 11112.102114 seconds.
-  path: Assets
-  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79842766b460edbeab6a34051e857a80') in 0.009929 seconds 
+  Time since last request: 301.457237 seconds.
+  path: Assets/Models/Pillow
+  artifactKey: Guid(ec951f5d837f4b041aa86c72e390a8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Pillow using Guid(ec951f5d837f4b041aa86c72e390a8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3fbd5f13f726f894d5863fe7a595cdf') in 0.013931 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.652430 seconds.
-  path: Assets/PreHub
-  artifactKey: Guid(c4aedef49db05b941a24b56f841bf052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PreHub using Guid(c4aedef49db05b941a24b56f841bf052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfc66f3995430b87a218409b0625113a') in 0.006275 seconds 
+  Time since last request: 0.000029 seconds.
+  path: Assets/Models/Pillow/makura.fbx
+  artifactKey: Guid(019f8a07b3359134aaf94f49dc9d9eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Pillow/makura.fbx using Guid(019f8a07b3359134aaf94f49dc9d9eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a86f77e14349e672830a4c70d90f3c4') in 0.175749 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.574971 seconds.
-  path: Assets/Script
-  artifactKey: Guid(8e63354a85ecea7488c48d408f179c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script using Guid(8e63354a85ecea7488c48d408f179c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59375cf1b132c98348a0293cac6d35ad') in 0.006181 seconds 
+  Time since last request: 5.459238 seconds.
+  path: Assets/PreHub/Pillow
+  artifactKey: Guid(b377a1074cf24cb489b3e40dc0f7f850) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow using Guid(b377a1074cf24cb489b3e40dc0f7f850) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67e616d77f913844f4cba8f7a402f025') in 0.004107 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.095281 seconds.
-  path: Assets/Images
-  artifactKey: Guid(d50b0e4de01817045b93bcf14ae06c6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images using Guid(d50b0e4de01817045b93bcf14ae06c6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '352afe038ccc1664b253bc039801f27c') in 0.005941 seconds 
+  Time since last request: 0.055066 seconds.
+  path: Assets/PreHub/Pillow/makura.prefab
+  artifactKey: Guid(37105d9563b5aa342a3f107c6ca70958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura.prefab using Guid(37105d9563b5aa342a3f107c6ca70958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9312d2c618a792497fd4173d90cbb4f4') in 0.013674 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 16.254748 seconds.
-  path: Assets/Material
-  artifactKey: Guid(ed52f35b40dbecb4d994cdba830788ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Material using Guid(ed52f35b40dbecb4d994cdba830788ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dee6b55ccf4fdfb824894f1b215c6864') in 0.006178 seconds 
+  Time since last request: 3.768730 seconds.
+  path: Assets/PreHub/Pillow/makura.prefab
+  artifactKey: Guid(37105d9563b5aa342a3f107c6ca70958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura.prefab using Guid(37105d9563b5aa342a3f107c6ca70958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfa0ffc0130d9ef778fb10ad6d73f12f') in 0.008964 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.525244 seconds.
-  path: Assets/Scenes
-  artifactKey: Guid(6ea315d0fd7389c41b19996891e99ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes using Guid(6ea315d0fd7389c41b19996891e99ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8193726cff86800c54781cdc6d54904') in 0.007313 seconds 
+  Time since last request: 2.916818 seconds.
+  path: Assets/PreHub/Pillow/makura 1.prefab
+  artifactKey: Guid(1ea0672c708a68944a4211f18f7ce614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura 1.prefab using Guid(1ea0672c708a68944a4211f18f7ce614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8f6318092f0f742f45b44d2375b79da') in 0.012053 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.404851 seconds.
+  path: Assets/PreHub/Pillow/makura 2.prefab
+  artifactKey: Guid(35a42687c097d0d479ce89a7165e3e1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura 2.prefab using Guid(35a42687c097d0d479ce89a7165e3e1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4657a884b15b6732fea19f4acf17e903') in 0.011944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.375087 seconds.
+  path: Assets/PreHub/Pillow/makura 3.prefab
+  artifactKey: Guid(d7b3e03e4878f314aa7d8b28b6869b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura 3.prefab using Guid(d7b3e03e4878f314aa7d8b28b6869b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf5f663e1c524a4c668e3dfaaa075795') in 0.011597 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.990573 seconds.
+  path: Assets/PreHub/Pillow/makura1.prefab
+  artifactKey: Guid(37105d9563b5aa342a3f107c6ca70958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura1.prefab using Guid(37105d9563b5aa342a3f107c6ca70958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8e26a0757110b0c50acba9510774095') in 0.014120 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.533529 seconds.
+  path: Assets/PreHub/Pillow/makura4.prefab
+  artifactKey: Guid(d7b3e03e4878f314aa7d8b28b6869b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura4.prefab using Guid(d7b3e03e4878f314aa7d8b28b6869b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9f07304c0166bde15de235ef02dd836') in 0.014226 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.467327 seconds.
+  path: Assets/PreHub/Pillow/makura3.prefab
+  artifactKey: Guid(1ea0672c708a68944a4211f18f7ce614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PreHub/Pillow/makura3.prefab using Guid(1ea0672c708a68944a4211f18f7ce614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '337894372c5b80f90302d752ba17b228') in 0.014606 seconds 
