@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -174,101 +172,101 @@ public class PlayerScript : MonoBehaviour
         ballRigidbody.AddForce(Player_Transform_.forward * Player_Pillow_Shot_Speed_, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (Player_Stun_)
-            return;
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (Player_Stun_)
+    //        return;
 
-        if (collision.gameObject.CompareTag("MakuraOne"))
-        {
+    //    if (collision.gameObject.CompareTag("MakuraOne"))
+    //    {
 
-            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
+    //        Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-            {
-                Player_Hold_Pillow = true;
-                Player_Shot_flag_ = true;
-                Hold_makura_.SetActive(true);
-                Destroy(collision.gameObject);
-            }
+    //        if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
+    //        {
+    //            Player_Hold_Pillow = true;
+    //            Player_Shot_flag_ = true;
+    //            Hold_makura_.SetActive(true);
+    //            Destroy(collision.gameObject);
+    //        }
 
-            if (!Pillow_.Pillow_Attack_)
-            {
-                Pillow_.Pillow_Attack_Function();
-            }
-        }
+    //        if (!Pillow_.Pillow_Attack_)
+    //        {
+    //            Pillow_.Pillow_Attack_Function();
+    //        }
+    //    }
 
-        if (collision.gameObject.CompareTag("MakuraTwo"))
-        {
+    //    if (collision.gameObject.CompareTag("MakuraTwo"))
+    //    {
 
-            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
+    //        Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-            {
-                Player_Hold_Pillow = true;
-                Player_Shot_flag_ = true;
-                Hold_makura_.SetActive(true);
-                Destroy(collision.gameObject);
-            }
+    //        if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
+    //        {
+    //            Player_Hold_Pillow = true;
+    //            Player_Shot_flag_ = true;
+    //            Hold_makura_.SetActive(true);
+    //            Destroy(collision.gameObject);
+    //        }
 
-            if (Pillow_.Pillow_Attack_)
-            {
-                Stun_Function_();
+    //        if (Pillow_.Pillow_Attack_)
+    //        {
+    //            Stun_Function_();
                 
-            }
-            else
-            {
-                Pillow_.Pillow_Attack_Function();
-            }
-        }
+    //        }
+    //        else
+    //        {
+    //            Pillow_.Pillow_Attack_Function();
+    //        }
+    //    }
 
-        if (collision.gameObject.CompareTag("MakuraThree"))
-        {
+    //    if (collision.gameObject.CompareTag("MakuraThree"))
+    //    {
 
-            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
+    //        Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-            {
-                Player_Hold_Pillow = true;
-                Player_Shot_flag_ = true;
-                Hold_makura_.SetActive(true);
-                Destroy(collision.gameObject);
-            }
+    //        if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
+    //        {
+    //            Player_Hold_Pillow = true;
+    //            Player_Shot_flag_ = true;
+    //            Hold_makura_.SetActive(true);
+    //            Destroy(collision.gameObject);
+    //        }
 
-            if (Pillow_.Pillow_Attack_)
-            {
-                Stun_Function_();
+    //        if (Pillow_.Pillow_Attack_)
+    //        {
+    //            Stun_Function_();
             
-            }
-            else
-            {
-                Pillow_.Pillow_Attack_Function();
-            }
-        }
+    //        }
+    //        else
+    //        {
+    //            Pillow_.Pillow_Attack_Function();
+    //        }
+    //    }
 
-        if (collision.gameObject.CompareTag("MakuraFour"))
-        {
+    //    if (collision.gameObject.CompareTag("MakuraFour"))
+    //    {
 
-            Pillow_ = collision.gameObject.GetComponent<PillowScript>();
+    //        Pillow_ = collision.gameObject.GetComponent<PillowScript>();
 
-            if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-            {
-                Player_Hold_Pillow = true;
-                Player_Shot_flag_ = true;
-                Hold_makura_.SetActive(true);
-                Destroy(collision.gameObject);
-            }
+    //        if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
+    //        {
+    //            Player_Hold_Pillow = true;
+    //            Player_Shot_flag_ = true;
+    //            Hold_makura_.SetActive(true);
+    //            Destroy(collision.gameObject);
+    //        }
 
-            if (Pillow_.Pillow_Attack_)
-            {
-                Stun_Function_();
-            }
-            else
-            {
-                Pillow_.Pillow_Attack_Function();
-            }
-        }
-    }
+    //        if (Pillow_.Pillow_Attack_)
+    //        {
+    //            Stun_Function_();
+    //        }
+    //        else
+    //        {
+    //            Pillow_.Pillow_Attack_Function();
+    //        }
+    //    }
+    //}
 
     private void Stun_Function_()
     {
