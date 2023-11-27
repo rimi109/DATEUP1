@@ -806,6 +806,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 137000010175407892, guid: 47228d4b7bdfaa94fbf70257eaa459a1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47228d4b7bdfaa94fbf70257eaa459a1, type: 3}
 --- !u!4 &485773116 stripped
@@ -1320,6 +1324,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &818842936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818842937}
+  - component: {fileID: 818842938}
+  m_Layer: 0
+  m_Name: Attack range
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818842937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818842936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0039, y: 0.005, z: 0.0324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 485773116}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &818842938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818842936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.014066058, y: 0.017038379, z: 0.01934123}
+  m_Center: {x: 0.003953577, y: 0.0022496814, z: -0.0025935485}
 --- !u!1 &820419274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0dc7590af61544ebd77165c0950f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  This_Player_GameObject: {fileID: 872206178}
   Player_Shot_Object_: {fileID: 4996547291295266182, guid: 37105d9563b5aa342a3f107c6ca70958, type: 3}
   Player_Stun_Effect: {fileID: 511498502}
   Release_makura_: {fileID: 4996547291811729270}
