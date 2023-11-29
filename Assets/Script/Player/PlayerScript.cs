@@ -56,16 +56,13 @@ public class PlayerScript : MonoBehaviour
 
     [Tooltip("PlayerがChargeShotをするとき")]
     private bool Player_Charge_Shot_Speed_Down_ = false;
-
+     
 
     [Header("Playerが何人目のPlayerかを指定"), SerializeField]
     private int Player_Numbers_;
 
     [Header("PlayerのRigidbodyを参照"), SerializeField]
     private Rigidbody Player_Rd_;
-
-    //[Header("PlayerのAnimator"),SerializeField]
-    //private Animator Player_Animation_;
 
     [Tooltip("枕に入っているPillowScriptを参照")]
     private PillowScript Pillow_;
@@ -89,7 +86,6 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (Player_Stun_)
-
             return;
 
 
@@ -126,7 +122,6 @@ public class PlayerScript : MonoBehaviour
         {
 
             Player_Shot_Hold_Time_ += Time.deltaTime;
-            //Player_Animation_.SetBool("PlayerAttack", true);
 
             Player_Charge_Effect_.SetActive(true);
 
@@ -163,7 +158,6 @@ public class PlayerScript : MonoBehaviour
             Player_Charge_Shot_Speed_Down_ = false;
             Player_Pillow_Shot_Speed_ = 0;
             Player_Shot_Hold_Time_ = 0;
-            //Player_Animation_.SetBool("PlayerAttack", false);
             Player_Charge_Effect_.SetActive(false);
         }
 
@@ -183,98 +177,7 @@ public class PlayerScript : MonoBehaviour
             This_Player_GameObject.SetActive(false);
         }
 
-        //if (Player_Stun_)
-        //    return;
-
-        //if (collision.gameObject.CompareTag("MakuraOne"))
-        //{
-
-        //    Pillow_ = collision.gameObject.GetComponent<PillowScript>();
-
-        //    if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-        //    {
-        //        Player_Hold_Pillow = true;
-        //        Player_Shot_flag_ = true;
-        //        Hold_makura_.SetActive(true);
-        //        Destroy(collision.gameObject);
-        //    }
-
-        //    if (!Pillow_.Pillow_Attack_)
-        //    {
-        //        Pillow_.Pillow_Attack_Function();
-        //    }
-        //}
-
-        //if (collision.gameObject.CompareTag("MakuraTwo"))
-        //{
-
-        //    Pillow_ = collision.gameObject.GetComponent<PillowScript>();
-
-        //    if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-        //    {
-        //        Player_Hold_Pillow = true;
-        //        Player_Shot_flag_ = true;
-        //        Hold_makura_.SetActive(true);
-        //        Destroy(collision.gameObject);
-        //    }
-
-        //    if (Pillow_.Pillow_Attack_)
-        //    {
-        //        Stun_Function_();
-
-        //    }
-        //    else
-        //    {
-        //        Pillow_.Pillow_Attack_Function();
-        //    }
-        //}
-
-        //if (collision.gameObject.CompareTag("MakuraThree"))
-        //{
-
-        //    Pillow_ = collision.gameObject.GetComponent<PillowScript>();
-
-        //    if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-        //    {
-        //        Player_Hold_Pillow = true;
-        //        Player_Shot_flag_ = true;
-        //        Hold_makura_.SetActive(true);
-        //        Destroy(collision.gameObject);
-        //    }
-
-        //    if (Pillow_.Pillow_Attack_)
-        //    {
-        //        Stun_Function_();
-
-        //    }
-        //    else
-        //    {
-        //        Pillow_.Pillow_Attack_Function();
-        //    }
-        //}
-
-        //if (collision.gameObject.CompareTag("MakuraFour"))
-        //{
-
-        //    Pillow_ = collision.gameObject.GetComponent<PillowScript>();
-
-        //    if (!Pillow_.Pillow_Attack_ && !Player_Hold_Pillow)
-        //    {
-        //        Player_Hold_Pillow = true;
-        //        Player_Shot_flag_ = true;
-        //        Hold_makura_.SetActive(true);
-        //        Destroy(collision.gameObject);
-        //    }
-
-        //    if (Pillow_.Pillow_Attack_)
-        //    {
-        //        Stun_Function_();
-        //    }
-        //    else
-        //    {
-        //        Pillow_.Pillow_Attack_Function();
-        //    }
-        //}
+       
     }
 
     private void Stun_Function_()
