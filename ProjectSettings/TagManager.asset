@@ -7,6 +7,7 @@ TagManager:
   - MakuraOne
   - Tatami
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
