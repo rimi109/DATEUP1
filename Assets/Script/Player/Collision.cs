@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    public float angle = 45f;
+
+    [SerializeField]
+    private  float angle = 45f;
 
     private void OnTriggerStay(Collider other)
     {
@@ -18,6 +20,11 @@ public class Collision : MonoBehaviour
             {
                 if (Physics.Raycast(this.transform.position, posDelta, out RaycastHit hit)) 
                 {
+                    if (hit.collider.CompareTag("Wall"))
+                    {
+                        //Debug.DrawRay(origin, direction * hit.distance, Color.red);
+                    }
+
                     if (hit.collider == other)
                     {
                         Debug.Log("Œ³‹I");
