@@ -11,6 +11,8 @@ TagManager:
   - bluelight
   - redlight
   - PurpleEnemy
+  - greenlight
+  - lightblue
   layers:
   - Default
   - TransparentFX

@@ -7,14 +7,6 @@ public class PillowScript : MonoBehaviour
     [Tooltip("–‚ªUŒ‚’†‚©‚Ç‚¤‚©‚ğ”»’è")]
     public bool Pillow_Attack_ { get; private set; } = true;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Tatami") || collision.gameObject.CompareTag("Player"))
-        {
-            Pillow_Attack_ = false;
-        }
-    }
-
     public void Pillow_No_Attack_Function()
     {
         Pillow_Attack_ = false;
