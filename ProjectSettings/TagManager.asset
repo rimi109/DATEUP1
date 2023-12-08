@@ -8,6 +8,11 @@ TagManager:
   - Tatami
   - Enemy
   - Wall
+  - bluelight
+  - redlight
+  - PurpleEnemy
+  - greenlight
+  - lightblue
   layers:
   - Default
   - TransparentFX

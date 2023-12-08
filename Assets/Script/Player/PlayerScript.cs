@@ -169,17 +169,6 @@ public class PlayerScript : MonoBehaviour
         ballRigidbody.AddForce(Player_Transform_.forward * Player_Pillow_Shot_Speed_, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            This_Player_GameObject.SetActive(false);
-        }
-
-       
-    }
-
     private void Stun_Function_()
     {
         Player_Stun_ = true;
