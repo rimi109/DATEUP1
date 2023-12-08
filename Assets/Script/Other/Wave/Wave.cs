@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
 
     //敵プレハブ
-    public GameObject[] enemyPrefab;
-    //敵ランダム
-    private int number;
+    public GameObject enemyPrefab;
     //時間間隔の最小値
     public float minTime = 0.5f;
     //時間間隔の最大値
@@ -58,16 +55,14 @@ public class Wave : MonoBehaviour
                 //経過時間が生成時間になったとき(生成時間より大きくなったとき)
                 if (time > interval)
                 {
-                    number = Random.Range(0, enemyPrefab.Length);
                     //enemyをインスタンス化する(生成する)
-                    GameObject enemy = Instantiate(enemyPrefab[number]);
+                    GameObject enemy = Instantiate(enemyPrefab);
                     //生成した敵の位置をランダムに設定する
                     enemy.transform.position = GetRandomPosition();
                     //経過時間を初期化して再度時間計測を始める
                     time = 0f;
                     //次に発生する時間間隔を決定する
                     interval = GetRandomTime();
-                    //生成カウンター
                     EnemyCount += 1;
                 }
             }
@@ -86,16 +81,14 @@ public class Wave : MonoBehaviour
                 //経過時間が生成時間になったとき(生成時間より大きくなったとき)
                 if (time > interval)
                 {
-                    number = Random.Range(0, enemyPrefab.Length);
                     //enemyをインスタンス化する(生成する)
-                    GameObject enemy = Instantiate(enemyPrefab[number]);
+                    GameObject enemy = Instantiate(enemyPrefab);
                     //生成した敵の位置をランダムに設定する
                     enemy.transform.position = GetRandomPosition();
                     //経過時間を初期化して再度時間計測を始める
                     time = 0f;
                     //次に発生する時間間隔を決定する
                     interval = GetRandomTime();
-                    //生成カウンター
                     EnemyCount += 1;
                 }
             }
