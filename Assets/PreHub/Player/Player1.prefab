@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d739723dfe1e1184fb6e226bf26af52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySystem: {fileID: 0}
-  Wave1System: {fileID: 0}
-  Wave2System: {fileID: 0}
-  Wave3System: {fileID: 0}
+  EnemySystem: {fileID: 7401046028940282346, guid: e83e75766e603f94da16e75b8da75381, type: 3}
+  Wave1System: {fileID: 4327899278949376197, guid: 440aa85e36e27454a8c2c4c02bc58b0b, type: 3}
+  Wave2System: {fileID: 8922948140629771268, guid: 3615c7d82f461fd499f46c2c1ab24fc9, type: 3}
+  Wave3System: {fileID: 6179818835608920035, guid: 06da06bc3c889524b94d06f0f82fd3e2, type: 3}

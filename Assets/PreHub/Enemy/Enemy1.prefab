@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14823c8188a297242b72f16b083dc4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetR: {fileID: 0}
-  targetG: {fileID: 0}
-  targetB: {fileID: 0}
+  targetR: {fileID: 39669853410008931, guid: 7e89a953874cf6840b19f83016054258, type: 3}
+  targetG: {fileID: 9032100276144514652, guid: 604441d45006c5943951f4609a131f1a, type: 3}
+  targetB: {fileID: 2054738811845498396, guid: 36421813e8cb69c40bf56296900fe670, type: 3}
