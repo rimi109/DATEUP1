@@ -23,7 +23,6 @@ public class RedLightCollision : MonoBehaviour
             {
                 if (taget_position < 95)
                 {
-                    Debug.Log(taget_position);
                     Purple_Attack_Flag = true;
                 }
             }

@@ -22,7 +22,6 @@ public class BlueLightCollision : MonoBehaviour
             {
                 if (taget_position < 95)
                 {
-                    Debug.Log(taget_position);
                     Light_Blue_Attack_Flag = true;
                 }
             }
