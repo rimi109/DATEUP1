@@ -22,7 +22,6 @@ public class GreenLightCollision : MonoBehaviour
             {
                 if (taget_position < 95)
                 {
-                    Debug.Log(taget_position);
                     Yellow_Attack_Flag = true;
                 }
             }

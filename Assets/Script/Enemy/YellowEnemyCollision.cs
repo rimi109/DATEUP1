@@ -13,6 +13,21 @@ public class YellowEnemyCollision : MonoBehaviour
     [Tooltip("—ÎF‚Ìƒ‰ƒCƒg‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ð”»’è")]
     private GreenLightCollision Player_Green_Flag;
 
+    [SerializeField]
+    private ParticleSystem particle;
+
+    [Tooltip("")]
+    private bool ParticleSystem;
+
+    [Header("White‚ÌHp‚ðÝ’è"), SerializeField]
+    private int Purple_Enemy_Hp;
+
+    [Tooltip("")]
+    private float Enemy_Hit_Time = 1.1f;
+
+    [Tooltip("")]
+    private const float Hit_Cool_Time = 1;
+
     private void Start()
     {
         Green_Attack_Flag = false;
@@ -23,7 +38,26 @@ public class YellowEnemyCollision : MonoBehaviour
     {
         if (red_Attack_Flag && Green_Attack_Flag && Player_Green_Flag.Yellow_Attack_Flag)
         {
-            Destroy(this.gameObject);
+            Enemy_Hit_Time += Time.deltaTime;
+
+            if (Enemy_Hit_Time > Hit_Cool_Time)
+            {
+                Purple_Enemy_Hp -= 2;
+                Debug.Log(Purple_Enemy_Hp);
+                Enemy_Hit_Time = 0;
+                if (Purple_Enemy_Hp <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+
+            if (!ParticleSystem)
+            {
+                ParticleSystem newParticle = Instantiate(particle);
+                newParticle.transform.position = this.transform.position;
+                newParticle.Play();
+                ParticleSystem = true;
+            }
         }
     }
 

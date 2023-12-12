@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class LightBlueEnemyCollision : MonoBehaviour
 {
-    [Tooltip("緑のライトが当たっているかを判定")]
+    [Tooltip("緑色のライトが当たっているかを判定")]
     private bool Green_Attack_Flag;
 
     [Tooltip("青色のライトが当たっているかを判定")]
     private bool Blue_Attack_Flag;
 
-    [Tooltip("緑色のライトが当たっているかを判定")]
-    private BlueLightCollision Player_Blue_Flag;
+    [Tooltip("水色のライトが当たっているかを判定")]
+    private BlueLightCollision Player_Light_Blue_Flag;
+
+    [SerializeField]
+    private ParticleSystem particle;
+
+    [Tooltip("")]
+    private bool ParticleSystem;
+
+    [Header("WhiteのHpを設定"), SerializeField]
+    private int Purple_Enemy_Hp;
+
+    [Tooltip("")]
+    private float Enemy_Hit_Time = 1.1f;
+
+    [Tooltip("")]
+    private const float Hit_Cool_Time = 1;
 
     private void Start()
     {
@@ -21,9 +36,28 @@ public class LightBlueEnemyCollision : MonoBehaviour
 
     void Update()
     {
-        if (Blue_Attack_Flag && Green_Attack_Flag && Player_Blue_Flag.Light_Blue_Attack_Flag)
+        if (Blue_Attack_Flag && Green_Attack_Flag && Player_Light_Blue_Flag.Light_Blue_Attack_Flag)
         {
-            Destroy(this.gameObject);
+            Enemy_Hit_Time += Time.deltaTime;
+
+            if (Enemy_Hit_Time > Hit_Cool_Time)
+            {
+                Purple_Enemy_Hp -= 2;
+                Debug.Log(Purple_Enemy_Hp);
+                Enemy_Hit_Time = 0;
+                if (Purple_Enemy_Hp <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+
+            if (!ParticleSystem)
+            {
+                ParticleSystem newParticle = Instantiate(particle);
+                newParticle.transform.position = this.transform.position;
+                newParticle.Play();
+                ParticleSystem = true;
+            }
         }
     }
 
@@ -33,7 +67,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Green_Attack_Flag = true;
-            Player_Blue_Flag = other.gameObject.GetComponent<BlueLightCollision>();
+            Player_Light_Blue_Flag = other.gameObject.GetComponent<BlueLightCollision>();
         }
 
         if (other.gameObject.CompareTag("greenlight"))

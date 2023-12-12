@@ -1,0 +1,308 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.11f1 (0a5ca18544bf) revision 679073'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'ja' Physical Memory: 16204 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/ghal6/DATEUP
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+50184
+Successfully changed project path to: C:/Users/ghal6/DATEUP
+C:/Users/ghal6/DATEUP
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 90.78 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.11f1 (0a5ca18544bf)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ghal6/DATEUP/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3050 Laptop GPU (ID=0x25a2)
+    Vendor:   NVIDIA
+    VRAM:     3991 MB
+    Driver:   30.0.15.1165
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56180
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.341141 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 96.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.298 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5298ms)
+		BeginReloadAssembly (3847ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (1010ms)
+			LoadAssemblies (3849ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (587ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (329ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (69ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (97ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (110ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005439 seconds.
+Android Extension - Scanning For ADB Devices 4511 ms
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ghal6\DATEUP\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ghal6\DATEUP\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 97.87 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  6.795 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6796ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (6490ms)
+			LoadAssemblies (3909ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (786ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (59ms)
+			SetupLoadedEditorAssemblies (1681ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (98ms)
+				BeforeProcessingInitializeOnLoad (105ms)
+				ProcessInitializeOnLoadAttributes (320ms)
+				ProcessInitializeOnLoadMethodAttributes (1136ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4108 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (151.2 KB). Loaded Objects now: 4573.
+Memory consumption went from 149.0 MB to 148.8 MB.
+Total: 3.492900 ms (FindLiveObjects: 0.300300 ms CreateObjectMapping: 0.265100 ms MarkObjects: 2.798100 ms  DeleteObjects: 0.128700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1670.334398 seconds.
+  path: Assets/Scenes/kemuri_normal.unity
+  artifactKey: Guid(02e18f30e66add94a9a0f2c38352476b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/kemuri_normal.unity using Guid(02e18f30e66add94a9a0f2c38352476b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '945ef01c9f7083a92ffb6275203421ee') in 0.012167 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.534706 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Bat/Bat_Color.mat
+  artifactKey: Guid(dc2847452cc2cc74bbd193a78f86030f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Bat/Bat_Color.mat using Guid(dc2847452cc2cc74bbd193a78f86030f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1eda211a9fe5860445f6ccbe3bce72e5') in 0.165398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Assets/Flashlight/Materials/FlashlightReflectorMaterial.mat
+  artifactKey: Guid(0eb0f996ba805c34c9e5dc4df46deb6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Flashlight/Materials/FlashlightReflectorMaterial.mat using Guid(0eb0f996ba805c34c9e5dc4df46deb6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7cc5ef595400a09a7e49e9b351e06f') in 0.033527 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Material/Enemy/GreenEnemy.mat
+  artifactKey: Guid(177a7049ed192b240bc32fab2ccf88b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Material/Enemy/GreenEnemy.mat using Guid(177a7049ed192b240bc32fab2ccf88b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e440f9aa36030d92c4f936e85ed87609') in 0.025967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Ghost/Ghost_Violet.mat
+  artifactKey: Guid(da7164be9b7e1fb45a33679cb7f62648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Ghost/Ghost_Violet.mat using Guid(da7164be9b7e1fb45a33679cb7f62648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1581d08949db967e3f03ebbe1ad50e9') in 0.051933 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbi_Yellow.mat
+  artifactKey: Guid(d0362bd62d67d214c8cf110d5b7c0db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbi_Yellow.mat using Guid(d0362bd62d67d214c8cf110d5b7c0db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5211577aaff55658a698613cfc52bece') in 0.043922 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Material/Enemy/BlueEnemy.mat
+  artifactKey: Guid(bb394e87d3824f345b233eadba748578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Material/Enemy/BlueEnemy.mat using Guid(bb394e87d3824f345b233eadba748578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bf0f912a5c98da268b62689d1efe1ac') in 0.034776 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Assets/Flashlight/Flashlight_Gold/Materials/FlashlightBaseMaterialColor.mat
+  artifactKey: Guid(e413ebf855bf78c45b56f8cd788f0dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Flashlight/Flashlight_Gold/Materials/FlashlightBaseMaterialColor.mat using Guid(e413ebf855bf78c45b56f8cd788f0dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a545ba78ff0b1b5bf0225d376b90250') in 0.071414 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Assets/Flashlight/Materials/GreyMaterial.mat
+  artifactKey: Guid(0dadad7847eae04468663f7258d176b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Flashlight/Materials/GreyMaterial.mat using Guid(0dadad7847eae04468663f7258d176b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02b0deb242bf929c9936513657feeab9') in 0.026908 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Material/Enemy/Purple.mat
+  artifactKey: Guid(47c27c7df7604c149b064f38f94ec905) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Material/Enemy/Purple.mat using Guid(47c27c7df7604c149b064f38f94ec905) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e36c7128af9361aa7f587c25c137d574') in 0.022192 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit_Red.mat
+  artifactKey: Guid(840e02b46f8e9b84c8acf31307797515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit_Red.mat using Guid(840e02b46f8e9b84c8acf31307797515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be0602572db48429a0231323bb92b047') in 0.037986 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Bat/Bat_Yellow.mat
+  artifactKey: Guid(1b23dc953f3a9474490b7b8cfcdf896f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Bat/Bat_Yellow.mat using Guid(1b23dc953f3a9474490b7b8cfcdf896f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85eb9eafef9af910ac236d126bea14e3') in 0.033676 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.unity.probuilder/Content/Resources/Materials/EdgePickerHDRP.mat
+  artifactKey: Guid(980c24c5a501a9a429356d191ad356a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.probuilder/Content/Resources/Materials/EdgePickerHDRP.mat using Guid(980c24c5a501a9a429356d191ad356a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '911b4b2f1188371f850d6b9d72b21a59') in 0.024143 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Slime/Slime_Green.mat
+  artifactKey: Guid(d6a1f0e1963add14bb2658c510969934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Slime/Slime_Green.mat using Guid(d6a1f0e1963add14bb2658c510969934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '092f2b0418accedfbb6fa802b38dcf85') in 0.033321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.unity.probuilder/Content/Resources/Materials/Collider.mat
+  artifactKey: Guid(bbb235fff4f48426b863b36058ab66d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.probuilder/Content/Resources/Materials/Collider.mat using Guid(bbb235fff4f48426b863b36058ab66d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86df834534ac0a151ee725a651f2a9e9') in 0.070693 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Models/Materials/Rabbit Texture.mat
+  artifactKey: Guid(9973888136dbcbc4493eb829101dd989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Models/Materials/Rabbit Texture.mat using Guid(9973888136dbcbc4493eb829101dd989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c482c03116ed6a461bd13a9135fe2d31') in 0.022062 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit_Green.mat
+  artifactKey: Guid(8b0adcf0796ec644895af4a66334843f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit_Green.mat using Guid(8b0adcf0796ec644895af4a66334843f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aae3141b1516a9275adb5ddfb3df8053') in 0.032473 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Packages/com.unity.probuilder/Content/Resources/Materials/InvisibleFace.mat
+  artifactKey: Guid(978bbcf5050244f1b95128c04103f628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.probuilder/Content/Resources/Materials/InvisibleFace.mat using Guid(978bbcf5050244f1b95128c04103f628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab1681e3bf65eaf4f282ce62b3377451') in 0.020959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.unity.probuilder/Content/Resources/Materials/FacePickerHDRP.mat
+  artifactKey: Guid(a53ef0dd76f2fe74eb5f43267d7c0195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.probuilder/Content/Resources/Materials/FacePickerHDRP.mat using Guid(a53ef0dd76f2fe74eb5f43267d7c0195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a035f38229f0636d76d5f3109cf2a4c') in 0.020766 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit Texture.mat
+  artifactKey: Guid(3de902fb39ff65648a365795e880e895) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit Texture.mat using Guid(3de902fb39ff65648a365795e880e895) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee85aa1b7745d2442ce00384085b4e1d') in 0.024184 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Bat/Bat_Green.mat
+  artifactKey: Guid(1945ca08888585540b2dbfd8b76f2b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Bat/Bat_Green.mat using Guid(1945ca08888585540b2dbfd8b76f2b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33c8f7e4c89107b16b27e97a9da11b2e') in 0.032661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Ghost/Ghost_White.mat
+  artifactKey: Guid(e45b40dde5630f3488fd950d7ca4f260) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Ghost/Ghost_White.mat using Guid(e45b40dde5630f3488fd950d7ca4f260) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9682a30cd80bbe0c9804c1b12b4afa62') in 0.038694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit_Cyan.mat
+  artifactKey: Guid(832b7394dd4491445925cb79f82921b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Level 1 Monster Pack/Materials/Rabbit/Rabbit_Cyan.mat using Guid(832b7394dd4491445925cb79f82921b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea89bda844c94737de414b52ed84b359') in 0.033659 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
