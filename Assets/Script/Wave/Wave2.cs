@@ -8,18 +8,6 @@ public class Wave2 : MonoBehaviour
     private EnemyGenerate EnemySystem;
     //敵リスト
     public GameObject[] Enemies = new GameObject[6];
-    //X座標の最小値
-    public float xMinPosition = -10f;
-    //X座標の最大値
-    public float xMaxPosition = 10f;
-    //Y座標の最小値
-    public float yMinPosition = 0f;
-    //Y座標の最大値
-    public float yMaxPosition = 10f;
-    //Z座標の最小値
-    public float zMinPosition = 10f;
-    //Z座標の最大値
-    public float zMaxPosition = 20f;
     //撃破カウンターWave1
     private float wave2Count = 0;
     //Enemy数
@@ -28,7 +16,7 @@ public class Wave2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Shuffle(Enemies);
+        ShuffleEnemy(Enemies);
     }
 
     void Update()
@@ -40,7 +28,7 @@ public class Wave2 : MonoBehaviour
         }
     }
 
-    void Shuffle(GameObject[] num)
+    void ShuffleEnemy(GameObject[] num)
     {
         for (int i = 0; i < num.Length; i++)
         {
@@ -58,8 +46,16 @@ public class Wave2 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(Enemies[0]);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -67,8 +63,16 @@ public class Wave2 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(Enemies[1]);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -76,8 +80,16 @@ public class Wave2 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(Enemies[2]);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -85,8 +97,16 @@ public class Wave2 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(Enemies[3]);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -94,8 +114,16 @@ public class Wave2 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(Enemies[4]);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -103,8 +131,16 @@ public class Wave2 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(Enemies[5]);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
     }
@@ -113,17 +149,4 @@ public class Wave2 : MonoBehaviour
     {
         wave2Count += 1;
     }
-
-    //ランダムな位置を生成する関数
-    private Vector3 GetRandomPosition()
-    {
-        //それぞれの座標をランダムに生成する
-        float x = Random.Range(xMinPosition, xMaxPosition);
-        float y = Random.Range(yMinPosition, yMaxPosition);
-        float z = Random.Range(zMinPosition, zMaxPosition);
-
-        //Vector3型のPositionを返す
-        return new Vector3(x * 60, y, z * 60);
-    }
-
 }

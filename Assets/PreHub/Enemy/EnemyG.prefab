@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2008899006139196707}
   - component: {fileID: 1657134792361527490}
   - component: {fileID: 4651357210209137522}
-  - component: {fileID: 8214009707019350250}
-  - component: {fileID: 4022175437879638763}
+  - component: {fileID: 1203428019053205542}
+  - component: {fileID: -36839462904303484}
   m_Layer: 0
   m_Name: EnemyG
   m_TagString: EnemyW1
@@ -100,7 +100,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &8214009707019350250
+--- !u!195 &1203428019053205542
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4022175437879638763
+--- !u!114 &-36839462904303484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14823c8188a297242b72f16b083dc4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 6017686817041484104, guid: b7ca4f3be48cf9a4b803499a92e7d30c, type: 3}
   targetR: {fileID: 39669853410008931, guid: 7e89a953874cf6840b19f83016054258, type: 3}
   targetG: {fileID: 9032100276144514652, guid: 604441d45006c5943951f4609a131f1a, type: 3}
   targetB: {fileID: 2054738811845498396, guid: 36421813e8cb69c40bf56296900fe670, type: 3}
+  col: {fileID: 4651357210209137522}

@@ -21,19 +21,19 @@ public class PlayerMove : MonoBehaviour
         //Player‚ÌˆÚ“®(‰¼)
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(0f, 0f, 0.5f);
+            transform.Translate(0f, 0f, 0.2f);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(0f, 0f, -0.5f);
+            transform.Translate(0f, 0f, -0.2f);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(-0.5f, 0f, 0f);
+            transform.Translate(-0.2f, 0f, 0f);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(0.5f, 0f, 0f);
+            transform.Translate(0.2f, 0f, 0f);
         }
     }
     void OnCollisionEnter(Collision collision)

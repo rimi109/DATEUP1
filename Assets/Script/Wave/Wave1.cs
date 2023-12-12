@@ -13,19 +13,6 @@ public class Wave1 : MonoBehaviour
     public GameObject enemyPrefabG;
     //敵プレハブ青
     public GameObject enemyPrefabB;
-
-    //X座標の最小値
-    public float xMinPosition = -10f;
-    //X座標の最大値
-    public float xMaxPosition = 10f;
-    //Y座標の最小値
-    public float yMinPosition = 0f;
-    //Y座標の最大値
-    public float yMaxPosition = 10f;
-    //Z座標の最小値
-    public float zMinPosition = 10f;
-    //Z座標の最大値
-    public float zMaxPosition = 20f;
     //撃破カウンターWave1
     private float wave1Count = 0;
     //Enemy数
@@ -34,15 +21,36 @@ public class Wave1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     void Update()
     {
-
         if (EnemyCount == 3 && wave1Count == 3)
         {
             EnemySystem.WaveInterval1();
+        }
+    }
+
+    void ShufflePosX(float[] num)
+    {
+        for (int i = 0; i < num.Length; i++)
+        {
+            float temp = num[i]; // 現在の要素を預けておく
+            int randomIndex = Random.Range(0, num.Length); // 入れ替える先をランダムに選ぶ
+            num[i] = num[randomIndex]; // 現在の要素に上書き
+            num[randomIndex] = temp; // 入れ替え元に預けておいた要素を与える
+        }
+    }
+
+    void ShufflePosZ(float[] num)
+    {
+        for (int i = 0; i < num.Length; i++)
+        {
+            float temp = num[i]; // 現在の要素を預けておく
+            int randomIndex = Random.Range(0, num.Length); // 入れ替える先をランダムに選ぶ
+            num[i] = num[randomIndex]; // 現在の要素に上書き
+            num[randomIndex] = temp; // 入れ替え元に預けておいた要素を与える
         }
     }
 
@@ -53,8 +61,16 @@ public class Wave1 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop   = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(enemyPrefabR);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -62,8 +78,16 @@ public class Wave1 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(enemyPrefabG);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
 
@@ -71,8 +95,16 @@ public class Wave1 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+
+            // rightTop xが右端　yが上端
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
             GameObject enemy = Instantiate(enemyPrefabB);
-            enemy.transform.position = GetRandomPosition();
+            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }
     }
@@ -81,17 +113,4 @@ public class Wave1 : MonoBehaviour
     {
         wave1Count += 1;
     }
-
-    //ランダムな位置を生成する関数
-    private Vector3 GetRandomPosition()
-    {
-        //それぞれの座標をランダムに生成する
-        float x = Random.Range(xMinPosition, xMaxPosition);
-        float y = Random.Range(yMinPosition, yMaxPosition);
-        float z = Random.Range(zMinPosition, zMaxPosition);
-
-        //Vector3型のPositionを返す
-        return new Vector3(x * 60, y, z * 60);
-    }
-
 }

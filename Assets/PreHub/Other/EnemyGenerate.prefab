@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2e7970f7d071243b931a522194f8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaveSystem1: {fileID: 0}
-  WaveSystem2: {fileID: 0}
-  WaveSystem3: {fileID: 0}
+  WaveSystem1: {fileID: 4327899278949376197, guid: 440aa85e36e27454a8c2c4c02bc58b0b, type: 3}
+  WaveSystem2: {fileID: 8922948140629771268, guid: 3615c7d82f461fd499f46c2c1ab24fc9, type: 3}
+  WaveSystem3: {fileID: 6179818835608920035, guid: 06da06bc3c889524b94d06f0f82fd3e2, type: 3}

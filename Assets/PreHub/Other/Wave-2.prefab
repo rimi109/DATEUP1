@@ -46,12 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySystem: {fileID: 7401046028940282346, guid: e83e75766e603f94da16e75b8da75381, type: 3}
   Enemies:
-  - {fileID: 5445347430397245240, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
-  - {fileID: 5445347430397245240, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
-  - {fileID: 5445347430397245240, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
-  - {fileID: 5445347430397245240, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
-  - {fileID: 5445347430397245240, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
-  - {fileID: 5445347430397245240, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
+  - {fileID: 8628083820629061736, guid: 06780801e34c98b49a50b10b433ce69f, type: 3}
+  - {fileID: 8628083820629061736, guid: 06780801e34c98b49a50b10b433ce69f, type: 3}
+  - {fileID: 4987675239343192818, guid: 8c70aa00955e5d441b1d26ae7212df10, type: 3}
+  - {fileID: 4987675239343192818, guid: 8c70aa00955e5d441b1d26ae7212df10, type: 3}
+  - {fileID: 1604900719420815481, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
+  - {fileID: 1604900719420815481, guid: 1a7af489ada689d40be7e44f87ed3051, type: 3}
   xMinPosition: -10
   xMaxPosition: 10
   yMinPosition: 0
