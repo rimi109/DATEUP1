@@ -27,7 +27,7 @@ public class whiteEnemyCollision : MonoBehaviour
     private int White_Enemy_Hp;
 
     [Tooltip("")]
-    private float Enemy_Hit_Time; 
+    private float Enemy_Hit_Time = 1.1f; 
 
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
@@ -50,8 +50,19 @@ public class whiteEnemyCollision : MonoBehaviour
             Player_Green_Flag.Yellow_Attack_Flag          &&
             Player_Purple_Flag.Purple_Attack_Flag)
         
-        { 
-             Destroy(this.gameObject);
+        {
+            Enemy_Hit_Time += Time.deltaTime;
+
+            if (Enemy_Hit_Time > Hit_Cool_Time)
+            {
+                White_Enemy_Hp -= 3;
+                Debug.Log(White_Enemy_Hp);
+                Enemy_Hit_Time = 0;
+                if (White_Enemy_Hp <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 

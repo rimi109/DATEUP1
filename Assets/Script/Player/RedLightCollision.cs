@@ -14,6 +14,7 @@ public class RedLightCollision : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
+
         if (other.gameObject.CompareTag("bluelight"))
         {
             Vector3 posDelta = other.transform.position - this.transform.position;
