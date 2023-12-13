@@ -18,12 +18,10 @@ public class Wave1 : MonoBehaviour
     //Enemy数
     private float EnemyCount = 0;
 
-    private bool fast_flag;
-
     // Start is called before the first frame update
     void Start()
     {
-        fast_flag = false;
+        EnemyCount = 0;
     }
 
     void Update()
@@ -32,7 +30,6 @@ public class Wave1 : MonoBehaviour
         {
             EnemySystem.WaveInterval1();
         }
-        Debug.Log(EnemyCount);
     }
 
     void ShufflePosX(float[] num)
@@ -60,12 +57,6 @@ public class Wave1 : MonoBehaviour
     //Enemiesの出現
     public void wave1()
     {
-        if (!fast_flag)
-        {
-            EnemyCount = 0;
-            fast_flag = true;
-        }
-
         if (EnemyCount == 0 && wave1Count == 0)
         {
             //enemyをインスタンス化する(生成する)
