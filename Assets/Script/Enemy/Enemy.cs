@@ -34,9 +34,9 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         this.rb = GetComponent<Rigidbody>();
 
-        targetR = GameObject.Find("Player1");
-        targetG = GameObject.Find("Player2");
-        targetB = GameObject.Find("Player3");
+        targetR = GameObject.Find("PlayerRed");
+        targetG = GameObject.Find("GreenPlayer");
+        targetB = GameObject.Find("PlayerBlue");
     }
 
     void Update()
