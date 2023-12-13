@@ -3,6 +3,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    [SerializeField]
+    private EnemyGenerate EnemySystem;
+
+    [SerializeField]
+    private Wave1 Wave1System;
+
+    [SerializeField]
+    private Wave2 Wave2System;
+
+    [SerializeField]
+    private Wave3 Wave3System;
+
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
 
@@ -52,12 +65,34 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        //当たったオブジェクトのタグが"Enemy"
+        if (collision.gameObject.CompareTag("EnemyW1"))
         {
+            //衝突した相手オブジェクトを削除する
+            Destroy(collision.gameObject);
+            EnemySystem.wave1Count();
+            Wave1System.CountW1();
+        }
 
+        //当たったオブジェクトのタグが"Enemy"
+        if (collision.gameObject.CompareTag("EnemyW2"))
+        {
+            //衝突した相手オブジェクトを削除する
+            Destroy(collision.gameObject);
+            EnemySystem.wave2Count();
+            Wave2System.CountW2();
+        }
+
+        //当たったオブジェクトのタグが"Enemy"
+        if (collision.gameObject.CompareTag("EnemyW3"))
+        {
+            //衝突した相手オブジェクトを削除する
+            Destroy(collision.gameObject);
+            Wave3System.CountW3();
         }
     }
+
 }
 
