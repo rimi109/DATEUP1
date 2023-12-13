@@ -17,6 +17,9 @@ public class LightBlueEnemyCollision : MonoBehaviour
     private ParticleSystem particle;
 
     [Tooltip("")]
+    private ParticleSystem newParticle;
+
+    [Tooltip("")]
     private bool ParticleSystem;
 
     [Header("WhiteÇÃHpÇê›íË"), SerializeField]
@@ -32,6 +35,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
     {
         Green_Attack_Flag = false;
         Blue_Attack_Flag = false;
+        ParticleSystem = false;
     }
 
     void Update()
@@ -48,12 +52,13 @@ public class LightBlueEnemyCollision : MonoBehaviour
                 if (Purple_Enemy_Hp <= 0)
                 {
                     Destroy(this.gameObject);
+                    Destroy(newParticle);
                 }
             }
 
             if (!ParticleSystem)
             {
-                ParticleSystem newParticle = Instantiate(particle);
+                newParticle = Instantiate(particle);
                 newParticle.transform.position = this.transform.position;
                 newParticle.Play();
                 ParticleSystem = true;
@@ -66,13 +71,13 @@ public class LightBlueEnemyCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("bluelight"))
         {
-            Green_Attack_Flag = true;
             Player_Light_Blue_Flag = other.gameObject.GetComponent<BlueLightCollision>();
+            Blue_Attack_Flag = true;
         }
 
         if (other.gameObject.CompareTag("greenlight"))
         {
-            Blue_Attack_Flag = true;
+            Green_Attack_Flag = true;
         }
     }
 
@@ -81,11 +86,15 @@ public class LightBlueEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("greenlight"))
         {
             Green_Attack_Flag = false;
+            ParticleSystem = false;
+            Destroy(newParticle);
         }
 
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = false;
+            ParticleSystem = false;
+            Destroy(newParticle);
         }
     }
 }

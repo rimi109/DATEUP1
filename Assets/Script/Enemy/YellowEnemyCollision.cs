@@ -13,8 +13,11 @@ public class YellowEnemyCollision : MonoBehaviour
     [Tooltip("—ÎF‚Ìƒ‰ƒCƒg‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ğ”»’è")]
     private GreenLightCollision Player_Green_Flag;
 
-    [SerializeField]
+    [Header(""),SerializeField]
     private ParticleSystem particle;
+
+    [Tooltip("")]
+    private ParticleSystem newParticle;
 
     [Tooltip("")]
     private bool ParticleSystem;
@@ -32,6 +35,7 @@ public class YellowEnemyCollision : MonoBehaviour
     {
         Green_Attack_Flag = false;
         red_Attack_Flag = false;
+        ParticleSystem = false;
     }
 
     void Update()
@@ -48,12 +52,13 @@ public class YellowEnemyCollision : MonoBehaviour
                 if (Purple_Enemy_Hp <= 0)
                 {
                     Destroy(this.gameObject);
+                    Destroy(newParticle);
                 }
             }
 
             if (!ParticleSystem)
             {
-                ParticleSystem newParticle = Instantiate(particle);
+                newParticle = Instantiate(particle);
                 newParticle.transform.position = this.transform.position;
                 newParticle.Play();
                 ParticleSystem = true;
@@ -81,11 +86,15 @@ public class YellowEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("greenlight"))
         {
             Green_Attack_Flag = false;
+            ParticleSystem = false;
+            Destroy(newParticle);
         }
 
         if (other.gameObject.CompareTag("redlight"))
         {
             red_Attack_Flag = false;
+            ParticleSystem = false;
+            Destroy(newParticle);
         }
     }
 }

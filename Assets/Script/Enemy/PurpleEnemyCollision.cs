@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PurpleEnemyCollision : MonoBehaviour
 {
-    [SerializeField]
-    private ParticleSystem particle;
 
     [Tooltip("赤色のライトが当たっているかを判定")]
     private bool Red_Attack_Flag;
@@ -15,6 +13,12 @@ public class PurpleEnemyCollision : MonoBehaviour
 
     [Tooltip("紫色のライトが当たっているかを判定")]
     private RedLightCollision Player_Purple_Flag;
+
+    [SerializeField]
+    private ParticleSystem particle;
+
+    [Tooltip("")]
+    private ParticleSystem newParticle;
 
     [Tooltip("")]
     private bool ParticleSystem;
@@ -49,12 +53,13 @@ public class PurpleEnemyCollision : MonoBehaviour
                 if (Purple_Enemy_Hp <= 0)
                 {
                     Destroy(this.gameObject);
+                    Destroy(newParticle);
                 }
             }
 
             if (!ParticleSystem)
             {
-                ParticleSystem newParticle = Instantiate(particle);
+                newParticle = Instantiate(particle);
                 newParticle.transform.position = this.transform.position;
                 newParticle.Play();
                 ParticleSystem = true;
@@ -83,11 +88,15 @@ public class PurpleEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("redlight"))
         {
             Red_Attack_Flag = false;
+            ParticleSystem = false;
+            Destroy(newParticle);
         }
 
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = false;
+            ParticleSystem = false;
+            Destroy(newParticle);
         }
     }
 }
