@@ -14,6 +14,9 @@ public class health : MonoBehaviour
     [SerializeField]
     private Camera MainCamera;
 
+    [SerializeField]
+    private int HealthCount;
+
     void Update()
     {
         for (int i = 0; i < health_.Length; ++i)
@@ -22,5 +25,11 @@ public class health : MonoBehaviour
             health_[i].transform.position = new Vector3(Green_Player.transform.position.x - 10, Green_Player.transform.position.y + 15, Green_Player.transform.position.z - 4);
             health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y,  health_[i].transform.position.z);
         }
+    }
+
+    public void Health_Function()
+    {
+        HealthCount -= 1;
+        health_[HealthCount].SetActive(false);
     }
 }

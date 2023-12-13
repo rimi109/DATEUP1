@@ -71,7 +71,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabR);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
+            EnemyCount = 1;
         }
 
         if (EnemyCount == 1 && wave1Count == 1)
@@ -88,7 +88,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabG);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
+            EnemyCount = 2;
         }
 
         if (EnemyCount == 2 && wave1Count == 2)
@@ -105,7 +105,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabB);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
+            EnemyCount = 3;
         }
     }
 
