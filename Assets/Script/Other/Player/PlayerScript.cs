@@ -42,7 +42,13 @@ public class PlayerScript : MonoBehaviour
 
     [Header("PlayerのHpのプログラムを参照"),SerializeField]
     private health Player_health;
-    // Update is called once per frame
+
+    [Header(""), SerializeField]
+    private AudioClip Player_AudioClip;
+
+    [Header(""),SerializeField]
+    private  AudioSource audioSource;
+
     void Update()
     {
         if (Gamepad.current == null)
@@ -76,38 +82,37 @@ public class PlayerScript : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("PurpleEnemy"))
-        {
-            Player_health.Health_Function();
-            Player_Hp_image.SetActive(true);
-        }
-
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW1"))
         {
-            //衝突した相手オブジェクトを削除する
-            Destroy(collision.gameObject);
             EnemySystem.wave1Count();
             Wave1System.CountW1();
+            Player_health.Health_Function();
+            Player_Hp_image.SetActive(true);
+            audioSource.PlayOneShot(Player_AudioClip);
             Player_Hp -= 1;
         }
 
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW2"))
         {
-            //衝突した相手オブジェクトを削除する
-            Destroy(collision.gameObject);
+         
             EnemySystem.wave2Count();
             Wave2System.CountW2();
+            Player_health.Health_Function();
+            Player_Hp_image.SetActive(true);
+            audioSource.PlayOneShot(Player_AudioClip);
             Player_Hp -= 1;
         }
 
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW3"))
         {
-            //衝突した相手オブジェクトを削除する
-            Destroy(collision.gameObject);
+         
             Wave3System.CountW3();
+            Player_health.Health_Function();
+            Player_Hp_image.SetActive(true);
+            audioSource.PlayOneShot(Player_AudioClip);
             Player_Hp -= 1;
         }
     }
