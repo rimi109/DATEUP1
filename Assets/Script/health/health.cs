@@ -20,6 +20,17 @@ public class health : MonoBehaviour
     [SerializeField]
     private Color Healt_Color;
 
+    [SerializeField]
+    private GameOverSeceChange gameOverSeceChange;
+
+    [Tooltip("")]
+    private bool GameOverCount;
+
+     void Start()
+    {
+        GameOverCount = false;
+    }
+
     void Update()
     {
         for (int i = 0; i < health_.Length; ++i)
@@ -28,10 +39,19 @@ public class health : MonoBehaviour
             health_[i].transform.position = new Vector3(Green_Player.transform.position.x - 10, Green_Player.transform.position.y + 15, Green_Player.transform.position.z - 4);
             health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y,  health_[i].transform.position.z);
         }
+
+        if (!GameOverCount && Health_Count < 1)
+        {
+            gameOverSeceChange.GameOver();
+            GameOverCount = true;
+        }
     }
 
     public void Health_Function()
     {
+        if (Health_Count < 1)
+            return;
+
         Health_Count -= 1;
         health_[Health_Count].SetActive(false);
     }
