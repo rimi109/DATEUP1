@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 916923983488302029}
   - component: {fileID: 624314706490342063}
   - component: {fileID: 2605939763026508893}
+  - component: {fileID: 8293798803846120520}
   m_Layer: 0
   m_Name: blueEnemy
-  m_TagString: Untagged
+  m_TagString: EnemyW1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +122,20 @@ MonoBehaviour:
   targetG: {fileID: 0}
   targetB: {fileID: 0}
   col: {fileID: 916923983488302029}
+--- !u!114 &8293798803846120520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916923983488302028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e49466a2189e54ebf3f244fa62b2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
+  Purple_Enemy_Hp: 10
 --- !u!1 &1610575892409924809
 GameObject:
   m_ObjectHideFlags: 0

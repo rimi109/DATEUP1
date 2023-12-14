@@ -530,9 +530,10 @@ GameObject:
   - component: {fileID: 6814793277826995470}
   - component: {fileID: 7306600346474011185}
   - component: {fileID: 2548541458182275659}
+  - component: {fileID: -1029099973216111511}
   m_Layer: 0
-  m_Name: RedEnemy
-  m_TagString: Untagged
+  m_Name: RedEnemy 1
+  m_TagString: EnemyW3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,6 +608,20 @@ MonoBehaviour:
   targetG: {fileID: 0}
   targetB: {fileID: 0}
   col: {fileID: 6814793277826995470}
+--- !u!114 &-1029099973216111511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814793277826995471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1589a428340e4734dba9793ecae14734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 187534602998800414, guid: e21ac25f5ed2dd04bb4a4bec77e0a344, type: 3}
+  Purple_Enemy_Hp: 10
 --- !u!1 &7010734675261273369
 GameObject:
   m_ObjectHideFlags: 0

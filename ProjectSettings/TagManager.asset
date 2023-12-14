@@ -13,6 +13,9 @@ TagManager:
   - PurpleEnemy
   - greenlight
   - lightblue
+  - EnemyW1
+  - EnemyW2
+  - EnemyW3
   layers:
   - Default
   - TransparentFX
