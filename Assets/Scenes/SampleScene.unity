@@ -170,12 +170,14 @@ MonoBehaviour:
   This_Player_GameObject: {fileID: 14657303}
   Player_Transform_: {fileID: 14657304}
   Player_Move_Speed_: 18
-  Player_Numbers_: 0
+  Player_Numbers_: 2
   Player_Rd_: {fileID: 14657307}
   PlayerAnimator: {fileID: 14657308}
   Player_Hp: 3
   Player_Hp_image: {fileID: 740432823}
   Player_health: {fileID: 740432825}
+  Player_AudioClip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!136 &14657306
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2062,7 +2064,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2890,7 +2892,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35480
+  m_Name: pb_Mesh25844
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3285,6 +3287,8 @@ MonoBehaviour:
   Player_Hp: 3
   Player_Hp_image: {fileID: 1649790507}
   Player_health: {fileID: 1649790509}
+  Player_AudioClip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!54 &735495194
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4507,7 +4511,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35006
+  m_Name: pb_Mesh25370
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5121,6 +5125,8 @@ MonoBehaviour:
   Player_Hp: 3
   Player_Hp_image: {fileID: 126408192}
   Player_health: {fileID: 126408194}
+  Player_AudioClip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!136 &1553810128
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6789,7 +6795,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34954
+  m_Name: pb_Mesh25318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7583,18 +7589,18 @@ MonoBehaviour:
   EnemySystem: {fileID: 7401046030067507842}
   enemyPrefabW: {fileID: 6532859441527143279, guid: efde03e763fb6fb4dafe30d13412961f, type: 3}
   Enemies:
-  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
-  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
-  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
-  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
-  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
-  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
-  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
-  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
-  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
-  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
-  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
-  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
+  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
+  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
+  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
+  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
+  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
+  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
+  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
+  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
+  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
+  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
+  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
 --- !u!114 &7401046030067507842
 MonoBehaviour:
   m_ObjectHideFlags: 0

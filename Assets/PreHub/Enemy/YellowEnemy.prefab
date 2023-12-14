@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 4095285294832840014}
   - component: {fileID: 1262161949553379768}
   - component: {fileID: 3895342181281568722}
+  - component: {fileID: 4043448661851668989}
   m_Layer: 0
   m_Name: YellowEnemy
   m_TagString: Untagged
@@ -330,6 +331,20 @@ MonoBehaviour:
   targetG: {fileID: 0}
   targetB: {fileID: 0}
   col: {fileID: 4095285294832840014}
+--- !u!114 &4043448661851668989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095285294832840009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf74985a98c0824bb785b0fd4c1d101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 187534602998800414, guid: 6687d54aa5100274b8cebb80b1ea716f, type: 3}
+  Purple_Enemy_Hp: 30
 --- !u!1 &4607645055332156176
 GameObject:
   m_ObjectHideFlags: 0
