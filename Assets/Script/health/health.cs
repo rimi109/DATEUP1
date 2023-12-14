@@ -12,10 +12,13 @@ public class health : MonoBehaviour
     private Transform Green_Player;
 
     [SerializeField]
-    private Camera MainCamera;
+    private Camera Main_Camera;
 
     [SerializeField]
-    private int HealthCount;
+    private int Health_Count;
+
+    [SerializeField]
+    private Color Healt_Color;
 
     void Update()
     {
@@ -29,7 +32,7 @@ public class health : MonoBehaviour
 
     public void Health_Function()
     {
-        HealthCount -= 1;
-        health_[HealthCount].SetActive(false);
+        Health_Count -= 1;
+        health_[Health_Count].SetActive(false);
     }
 }

@@ -34,8 +34,11 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerのAnimatorを参照"), SerializeField]
     private Animator PlayerAnimator;
 
-    [Header(""), SerializeField]
+    [Header("PlayerのHpを指定"), SerializeField]
     private int Player_Hp;
+
+    [Header("Playerのhpの画像を参照"),SerializeField]
+    private GameObject Player_Hp_image;
 
     [Header("PlayerのHpのプログラムを参照"),SerializeField]
     private health Player_health;
@@ -76,6 +79,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("PurpleEnemy"))
         {
             Player_health.Health_Function();
+            Player_Hp_image.SetActive(true);
         }
 
         //当たったオブジェクトのタグが"Enemy"
