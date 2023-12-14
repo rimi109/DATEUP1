@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEnemyCollision : MonoBehaviour
+public class Wave3RedEnemy : MonoBehaviour
 {
-
     [Tooltip("ÔF‚Ìƒ‰ƒCƒg‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ð”»’è")]
     private bool Red_Attack_Flag;
 
@@ -41,7 +40,7 @@ public class RedEnemyCollision : MonoBehaviour
         if (Red_Attack_Flag)
         {
             Enemy_Hit_Time += Time.deltaTime;
-            
+
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
                 Purple_Enemy_Hp -= 2;
@@ -51,7 +50,7 @@ public class RedEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
-                    targetR.Wave1EnemyDestroy();
+                    targetR.Wave3EnemyDestroy();
                 }
             }
 

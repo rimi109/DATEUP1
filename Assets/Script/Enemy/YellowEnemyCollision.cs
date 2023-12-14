@@ -31,11 +31,15 @@ public class YellowEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
+    public PlayerScript targetR;
+
+
     private void Start()
     {
         Green_Attack_Flag = false;
         red_Attack_Flag = false;
         ParticleSystem = false;
+        targetR = GameObject.FindObjectOfType<PlayerScript>();
     }
 
     void Update()
@@ -53,6 +57,7 @@ public class YellowEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
+                    targetR.Wave2EnemyDestroy();
                 }
             }
 

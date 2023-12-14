@@ -64,7 +64,7 @@ public class EnemyGenerate : MonoBehaviour
         Debug.Log(WaveInTime1);
     }
 
-    public void wave2Count()
+    public void wave3Count()
     {
         Wave2count += 1;
     }

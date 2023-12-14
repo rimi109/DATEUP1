@@ -32,11 +32,15 @@ public class PurpleEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
+    public PlayerScript targetR;
+
     private void Start()
     {
         Red_Attack_Flag  = false;
         Blue_Attack_Flag = false;
-        ParticleSystem   = false; 
+        ParticleSystem   = false;
+
+        targetR = GameObject.FindObjectOfType<PlayerScript>();
     }
 
     void Update()
@@ -54,6 +58,7 @@ public class PurpleEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
+                    targetR.Wave2EnemyDestroy();
                 }
             }
 

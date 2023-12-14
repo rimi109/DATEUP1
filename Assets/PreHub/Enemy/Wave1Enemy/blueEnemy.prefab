@@ -79,8 +79,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.59
-  m_Height: 1.25
+  m_Radius: 0.65
+  m_Height: 3.32
   m_Direction: 1
   m_Center: {x: 0, y: 1.63, z: 0}
 --- !u!195 &624314706490342063
@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
   Purple_Enemy_Hp: 10
+  Enemy_Destroy_System: {fileID: 0}
+  targetR: {fileID: 0}
 --- !u!1 &1610575892409924809
 GameObject:
   m_ObjectHideFlags: 0
