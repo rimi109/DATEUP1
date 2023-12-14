@@ -67,8 +67,8 @@ public class Wave1 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
-            var rightTop   = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, Camera.main.farClipPlane - 30.0f));
+            var rightTop   = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, Camera.main.farClipPlane - 100.0f));
 
             // rightTop xが右端　yが上端
             // leftbottom xが左端　yが下端
@@ -84,8 +84,8 @@ public class Wave1 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
             // rightTop xが右端　yが上端
             // leftbottom xが左端　yが下端
@@ -101,8 +101,8 @@ public class Wave1 : MonoBehaviour
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 30.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 30.0f));
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
             // rightTop xが右端　yが上端
             // leftbottom xが左端　yが下端
