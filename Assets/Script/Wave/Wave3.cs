@@ -24,11 +24,6 @@ public class Wave3 : MonoBehaviour
         Shuffle(Enemies);
     }
 
-    void Update()
-    {
-        
-    }
-
     void Shuffle(GameObject[] num)
     {
         for (int i = 0; i < num.Length; i++)

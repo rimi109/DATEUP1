@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class whiteEnemyCollision : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class whiteEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
+                    SceneManager.LoadScene("GameClear");               
                 }
             }
 
