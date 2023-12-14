@@ -15,6 +15,7 @@ public class Wave1 : MonoBehaviour
     public GameObject enemyPrefabB;
     //撃破カウンターWave1
     private float wave1Count = 0;
+
     //Enemy数
     private float EnemyCount = 0;
 
@@ -22,6 +23,7 @@ public class Wave1 : MonoBehaviour
     void Start()
     {
         EnemyCount = 0;
+        wave1Count = 0;
     }
 
     void Update()
@@ -29,6 +31,7 @@ public class Wave1 : MonoBehaviour
         if (EnemyCount == 3 && wave1Count == 3)
         {
             EnemySystem.WaveInterval1();
+          
         }
     }
 
@@ -57,6 +60,9 @@ public class Wave1 : MonoBehaviour
     //Enemiesの出現
     public void wave1()
     {
+        Debug.Log("wave:" + wave1Count);
+        Debug.Log("enem:" + EnemyCount);
+
         if (EnemyCount == 0 && wave1Count == 0)
         {
             //enemyをインスタンス化する(生成する)
@@ -71,7 +77,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabR);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount = 1;
+            EnemyCount += 1;
         }
 
         if (EnemyCount == 1 && wave1Count == 1)
@@ -88,7 +94,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabG);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount = 2;
+            EnemyCount += 1;
         }
 
         if (EnemyCount == 2 && wave1Count == 2)
@@ -105,7 +111,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabB);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount = 3;
+            EnemyCount += 1;
         }
     }
 

@@ -61,6 +61,7 @@ public class EnemyGenerate : MonoBehaviour
     public void WaveInterval1()
     {
         WaveInTime1 += 1.0f * Time.deltaTime;
+        Debug.Log(WaveInTime1);
     }
 
     public void wave2Count()
