@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEnemyCollision : MonoBehaviour
+public class Wave3GreenEnemy : MonoBehaviour
 {
-
-    [Tooltip("赤色のライトが当たっているかを判定")]
-    private bool Red_Attack_Flag;
+    [Tooltip("青色のライトが当たっているかを判定")]
+    private bool Green_Attack_Flag;
 
     [SerializeField]
     private ParticleSystem particle;
@@ -30,18 +29,19 @@ public class RedEnemyCollision : MonoBehaviour
 
     private void Start()
     {
-        Red_Attack_Flag = false;
+        Green_Attack_Flag = false;
         ParticleSystem = false;
 
         targetR = GameObject.FindObjectOfType<PlayerScript>();
+
     }
 
     void Update()
     {
-        if (Red_Attack_Flag)
+        if (Green_Attack_Flag)
         {
             Enemy_Hit_Time += Time.deltaTime;
-            
+
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
                 Purple_Enemy_Hp -= 2;
@@ -51,7 +51,7 @@ public class RedEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
-                    targetR.Wave1EnemyDestroy();
+                    targetR.Wave3EnemyDestroy();
                 }
             }
 
@@ -68,17 +68,17 @@ public class RedEnemyCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("redlight"))
+        if (other.gameObject.CompareTag("greenlight"))
         {
-            Red_Attack_Flag = true;
+            Green_Attack_Flag = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("redlight"))
+        if (other.gameObject.CompareTag("greenlight"))
         {
-            Red_Attack_Flag = false;
+            Green_Attack_Flag = false;
             ParticleSystem = false;
             Destroy(newParticle);
         }

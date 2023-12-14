@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GreenEnemyCollision : MonoBehaviour
 {
+
     [Tooltip("ÂF‚Ìƒ‰ƒCƒg‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ğ”»’è")]
     private bool Green_Attack_Flag;
 
@@ -25,11 +26,19 @@ public class GreenEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
+    [SerializeField]
+    private PlayerScript Enemy_Destroy_System;
+
+    public PlayerScript targetR;
+
 
     private void Start()
     {
         Green_Attack_Flag = false;
         ParticleSystem = false;
+
+        targetR = GameObject.FindObjectOfType<PlayerScript>();
+
     }
 
     void Update()
@@ -47,6 +56,7 @@ public class GreenEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
+                    targetR.Wave1EnemyDestroy();
                 }
             }
 

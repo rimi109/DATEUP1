@@ -14,6 +14,9 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("赤色の敵に当たっているかを判定")]
     private bool Red_Attack_Flag;
 
+    [Tooltip("")]
+    private bool ParticleSystem;
+
     [Tooltip("紫色のライトが当たっているかを判定")]
     private RedLightCollision Player_Purple_Flag;
 
@@ -32,11 +35,19 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
+    [SerializeField]
+    private ParticleSystem particle;
+
+    [Tooltip("")]
+    private ParticleSystem newParticle;
+
+
     private void Start()
     {
         Green_Attack_Flag = false;
-        Blue_Attack_Flag = false;
-        Red_Attack_Flag = false;
+        Blue_Attack_Flag  = false;
+        Red_Attack_Flag   = false;
+        ParticleSystem    = false;
     }
 
     // Update is called once per frame
@@ -61,7 +72,16 @@ public class whiteEnemyCollision : MonoBehaviour
                 if (White_Enemy_Hp <= 0)
                 {
                     Destroy(this.gameObject);
+                    Destroy(newParticle);
                 }
+            }
+
+            if (!ParticleSystem)
+            {
+                newParticle = Instantiate(particle);
+                newParticle.transform.position = this.transform.position;
+                newParticle.Play();
+                ParticleSystem = true;
             }
         }
     }
@@ -93,17 +113,23 @@ public class whiteEnemyCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("bluelight"))
         {
+            ParticleSystem = false;
             Green_Attack_Flag = false;
+            Destroy(newParticle);
         }
 
         if (other.gameObject.CompareTag("greenlight"))
         {
+            ParticleSystem = false;
             Blue_Attack_Flag = false;
+            Destroy(newParticle);
         }
 
         if (other.gameObject.CompareTag("redlight"))
         {
+            ParticleSystem = false;
             Red_Attack_Flag = false;
+            Destroy(newParticle);
         }
     }
 

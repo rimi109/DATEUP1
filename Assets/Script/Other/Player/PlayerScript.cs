@@ -3,18 +3,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    [SerializeField]
+    private EnemyGenerate EnemyGenerateSystem;
 
     [SerializeField]
-    private EnemyGenerate EnemySystem;
+    private Wave1 GameWave1;
 
     [SerializeField]
-    private Wave1 Wave1System;
+    private Wave2 GameWave2;
 
     [SerializeField]
-    private Wave2 Wave2System;
-
-    [SerializeField]
-    private Wave3 Wave3System;
+    private Wave3 GameWave3;
 
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
@@ -48,6 +47,13 @@ public class PlayerScript : MonoBehaviour
 
     [Header(""),SerializeField]
     private  AudioSource audioSource;
+
+    private bool Enemy_Destroy_Flag;
+
+    private void Start()
+    {
+        Enemy_Destroy_Flag = false;
+    }
 
     void Update()
     {
@@ -85,8 +91,7 @@ public class PlayerScript : MonoBehaviour
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW1"))
         {
-            EnemySystem.wave1Count();
-            Wave1System.CountW1();
+
             Player_health.Health_Function();
             Player_Hp_image.SetActive(true);
             audioSource.PlayOneShot(Player_AudioClip);
@@ -96,9 +101,6 @@ public class PlayerScript : MonoBehaviour
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW2"))
         {
-         
-            EnemySystem.wave2Count();
-            Wave2System.CountW2();
             Player_health.Health_Function();
             Player_Hp_image.SetActive(true);
             audioSource.PlayOneShot(Player_AudioClip);
@@ -108,13 +110,29 @@ public class PlayerScript : MonoBehaviour
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW3"))
         {
-         
-            Wave3System.CountW3();
             Player_health.Health_Function();
             Player_Hp_image.SetActive(true);
             audioSource.PlayOneShot(Player_AudioClip);
             Player_Hp -= 1;
         }
     }
+    public void Wave1EnemyDestroy()
+    {
+        EnemyGenerateSystem.wave1Count();
+        GameWave1.CountW1();
+    }
+
+    public void Wave2EnemyDestroy()
+    {
+        EnemyGenerateSystem.wave3Count();
+        GameWave2.CountW2();
+    }
+
+    public void Wave3EnemyDestroy()
+    {
+        EnemyGenerateSystem.wave3Count();
+        GameWave3.CountW3();
+    }
+
 }
 
