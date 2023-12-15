@@ -428,7 +428,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5722291559073791136}
-  - component: {fileID: 5252059903950475949}
   - component: {fileID: 4909620092666340891}
   - component: {fileID: 8094508029921441983}
   - component: {fileID: 3278442524435024396}
@@ -457,21 +456,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 163.226, z: 0}
---- !u!114 &5252059903950475949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4909620092666340890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d74009ac0b0b024dab430902bd27bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 187534602998800414, guid: e5256614263f2f14daac0b17fb197a1e, type: 3}
-  Purple_Enemy_Hp: 15
-  targetR: {fileID: 0}
 --- !u!136 &4909620092666340891
 CapsuleCollider:
   m_ObjectHideFlags: 0
