@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private ParticleSystem particle;
 
+    private bool PlayerHit;
     private bool EffectStart;
     private bool Effect;
 
@@ -23,13 +24,16 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     public CapsuleCollider col;
 
-    private float EffectTime = 0.0f;
+    private float EffectTime;
 
     void Start()
     {
+        EffectTime = 0.0f;
+
         EffectStart = false;
         Effect = false;
         col.enabled = false;
+        PlayerHit = false;
 
         agent = GetComponent<NavMeshAgent>();
         this.rb = GetComponent<Rigidbody>();
@@ -70,22 +74,39 @@ public class Enemy : MonoBehaviour
 
         //this.rb.AddForce(new Vector3(1, 3, 4f), ForceMode.Force);
 
-        if (disR < disG && disR < disB)
+        if (disR < disG && disR < disB && !PlayerHit)
         {
             agent.destination = targetR.transform.position;
             agent.speed = 10.0f;
         }
 
-        else if (disG < disR && disG < disB)
+        else if (disG < disR && disG < disB && !PlayerHit)
         {
             agent.destination = targetG.transform.position;
             agent.speed = 10.0f;
         }
 
-        else
+        else if(!PlayerHit)
         {
             agent.destination = targetB.transform.position;
             agent.speed = 10.0f;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            agent.speed = 0.0f;
+            PlayerHit = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHit = false;
         }
     }
 }

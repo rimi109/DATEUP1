@@ -55,8 +55,8 @@ public class YellowEnemyCollision : MonoBehaviour
                 Enemy_Hit_Time = 0;
                 if (Purple_Enemy_Hp <= 0)
                 {
-                    Destroy(this.gameObject);
                     Destroy(newParticle);
+                    Destroy(this.gameObject);
                     targetR.Wave2EnemyDestroy();
                 }
             }
