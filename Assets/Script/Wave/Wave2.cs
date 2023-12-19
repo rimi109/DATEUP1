@@ -7,10 +7,12 @@ public class Wave2 : MonoBehaviour
     [SerializeField]
     private EnemyGenerate EnemySystem;
     //敵リスト
-    public GameObject[] Enemies = new GameObject[6];
-    //撃破カウンターWave1
+    public GameObject[] Enemies;
+
+    [SerializeField]
     private float wave2Count = 0;
-    //Enemy数
+
+    [SerializeField]
     private float EnemyCount = 0;
 
     // Start is called before the first frame update
@@ -22,7 +24,7 @@ public class Wave2 : MonoBehaviour
     void Update()
     {
 
-        if (wave2Count == 6)
+        if (wave2Count == 60)
         {
             EnemySystem.WaveInterval2();
         }
@@ -42,107 +44,109 @@ public class Wave2 : MonoBehaviour
     //Enemiesの出現
     public void wave2()
     {
-        if (EnemyCount == 0 && wave2Count == 0)
+        for (int i = 0; i< Enemies.Length; ++i)
         {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+            if (EnemyCount == 0 && wave2Count == 0)
+            {
+                //enemyをインスタンス化する(生成する)
+                //生成した敵の位置をランダムに設定する
+                var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+                var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+                // rightTop xが右端　yが上端
+                // leftbottom xが左端　yが下端
+                var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+                var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            GameObject enemy = Instantiate(Enemies[0]);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
+                GameObject enemy = Instantiate(Enemies[i]);
+                enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+                ++EnemyCount;
+            }
         }
+    //    if (EnemyCount == 1 && wave2Count == 0)
+    //    {
+    //        //enemyをインスタンス化する(生成する)
+    //        //生成した敵の位置をランダムに設定する
+    //        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+    //        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-        if (EnemyCount == 1 && wave2Count == 0)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+    //        // rightTop xが右端　yが上端
+    //        // leftbottom xが左端　yが下端
+    //        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+    //        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+    //        GameObject enemy = Instantiate(Enemies[1]);
+    //        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+    //        EnemyCount += 1;
+    //    }
 
-            GameObject enemy = Instantiate(Enemies[1]);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
+    //    if (EnemyCount == 2 && wave2Count == 1)
+    //    {
+    //        //enemyをインスタンス化する(生成する)
+    //        //生成した敵の位置をランダムに設定する
+    //        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+    //        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-        if (EnemyCount == 2 && wave2Count == 1)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+    //        // rightTop xが右端　yが上端
+    //        // leftbottom xが左端　yが下端
+    //        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+    //        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+    //        GameObject enemy = Instantiate(Enemies[2]);
+    //        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+    //        EnemyCount += 1;
+    //    }
 
-            GameObject enemy = Instantiate(Enemies[2]);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
+    //    if (EnemyCount == 3 && wave2Count == 2)
+    //    {
+    //        //enemyをインスタンス化する(生成する)
+    //        //生成した敵の位置をランダムに設定する
+    //        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+    //        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-        if (EnemyCount == 3 && wave2Count == 2)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+    //        // rightTop xが右端　yが上端
+    //        // leftbottom xが左端　yが下端
+    //        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+    //        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+    //        GameObject enemy = Instantiate(Enemies[3]);
+    //        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+    //        EnemyCount += 1;
+    //    }
 
-            GameObject enemy = Instantiate(Enemies[3]);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
+    //    if (EnemyCount == 4 && wave2Count == 3)
+    //    {
+    //        //enemyをインスタンス化する(生成する)
+    //        //生成した敵の位置をランダムに設定する
+    //        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+    //        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-        if (EnemyCount == 4 && wave2Count == 3)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+    //        // rightTop xが右端　yが上端
+    //        // leftbottom xが左端　yが下端
+    //        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+    //        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+    //        GameObject enemy = Instantiate(Enemies[4]);
+    //        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+    //        EnemyCount += 1;
+    //    }
 
-            GameObject enemy = Instantiate(Enemies[4]);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
+    //    if (EnemyCount == 5 && wave2Count == 4)
+    //    {
+    //        //enemyをインスタンス化する(生成する)
+    //        //生成した敵の位置をランダムに設定する
+    //        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+    //        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-        if (EnemyCount == 5 && wave2Count == 4)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+    //        // rightTop xが右端　yが上端
+    //        // leftbottom xが左端　yが下端
+    //        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+    //        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-            GameObject enemy = Instantiate(Enemies[5]);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
+    //        GameObject enemy = Instantiate(Enemies[5]);
+    //        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+    //        EnemyCount += 1;
+    //    }
     }
 
     public void CountW2()
