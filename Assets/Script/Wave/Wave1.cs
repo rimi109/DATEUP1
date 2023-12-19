@@ -60,9 +60,6 @@ public class Wave1 : MonoBehaviour
     //Enemiesの出現
     public void wave1()
     {
-        Debug.Log("wave:" + wave1Count);
-        Debug.Log("enem:" + EnemyCount);
-
         if (EnemyCount == 0 && wave1Count == 0)
         {
             //enemyをインスタンス化する(生成する)
@@ -77,41 +74,7 @@ public class Wave1 : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefabR);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
-
-        if (EnemyCount == 1 && wave1Count == 1)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, -1.0f, Camera.main.farClipPlane - 100.0f));
-
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-            GameObject enemy = Instantiate(enemyPrefabG);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
-        }
-
-        if (EnemyCount == 2 && wave1Count == 2)
-        {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, -1.0f, Camera.main.farClipPlane - 100.0f));
-
-            // rightTop xが右端　yが上端
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-            GameObject enemy = Instantiate(enemyPrefabB);
-            enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            EnemyCount += 1;
+            ++EnemyCount;
         }
     }
 

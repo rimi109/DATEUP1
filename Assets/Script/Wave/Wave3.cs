@@ -8,7 +8,7 @@ public class Wave3 : MonoBehaviour
     [SerializeField]
     private EnemyGenerate EnemySystem;
     //敵プレハブ白
-    public GameObject enemyPrefabW;
+    public GameObject enemyPrefabBoss;
     //敵リスト
     public GameObject[] Enemies = new GameObject[12];
     //撃破カウンターWave1
@@ -56,7 +56,7 @@ public class Wave3 : MonoBehaviour
             var randomPosX = Random.Range(leftBottom.z, rightTop.z);
             var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            GameObject enemy = Instantiate(enemyPrefabW);
+            GameObject enemy = Instantiate(enemyPrefabBoss);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
             EnemyCount += 1;
         }

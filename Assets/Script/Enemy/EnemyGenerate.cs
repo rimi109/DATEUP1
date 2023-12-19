@@ -35,17 +35,17 @@ public class EnemyGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Wave1count < 3)
+        if (Wave1count < 1)
         {
             WaveSystem1.wave1();
         }
 
-        if (Wave1count == 3 && Wave2count < 6 && WaveInTime1 >= 5.0f)
+        if (Wave1count == 1 && Wave2count < 6 && WaveInTime1 >= 5.0f)
         {
             WaveSystem2.wave2();
         }
 
-        if (Wave1count == 3 && Wave2count == 6 && WaveInTime2 >= 5.0f)
+        if (Wave1count == 3 && Wave2count == 60 && WaveInTime2 >= 5.0f)
         {
             WaveSystem3.wave3();
             WaveSystem3.EnemyInterval();

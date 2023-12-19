@@ -185,10 +185,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
+  anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
   targetR: {fileID: 0}
   targetG: {fileID: 0}
   targetB: {fileID: 0}
   col: {fileID: 1394020987180455693}
+  MeshRen: {fileID: 5873091302063430794}
 --- !u!114 &-905748426789517122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +627,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7345792603646099010}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
@@ -11,7 +12,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private ParticleSystem particle;
 
+    //Ä¶‚µ‚½‚¢Animation‚ðŽQÆ]
+    public GameObject anime;
+
     private bool PlayerHit;
+    private bool Anime;
     private bool EffectStart;
     private bool Effect;
 
@@ -23,13 +28,17 @@ public class Enemy : MonoBehaviour
 
     private NavMeshAgent agent;
     public CapsuleCollider col;
+    public Renderer MeshRen;
 
     private float EffectTime;
+    private float AnimeTime;
 
     void Start()
     {
         EffectTime = 0.0f;
+        AnimeTime  = 0.0f;
 
+        Anime = false; 
         EffectStart = false;
         Effect = false;
         col.enabled = false;
@@ -45,7 +54,16 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (!Effect)
+        AnimeTime += 1.0f * Time.deltaTime;
+
+        if(!Anime)
+        {
+            GameObject newAnim = Instantiate(anime);
+            newAnim.transform.position =new Vector3(this.transform.position.x, this.transform.position.y + 10, this.transform.position.z);
+            Anime = true;
+        }
+
+        if (!Effect && AnimeTime >= 2.0f)
         {
             if (!EffectStart)
             {
@@ -55,6 +73,7 @@ public class Enemy : MonoBehaviour
                 Destroy(newParticle, 1.0f);
                 EffectTime += 1.0f * Time.deltaTime;
                 Effect = true;
+                MeshRen.enabled = true;
 
                 if (EffectTime >= 1.0f)
                 {

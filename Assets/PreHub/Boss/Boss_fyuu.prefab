@@ -455,7 +455,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520224765906389133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -591,10 +591,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
+  anime: {fileID: 3853619459707174173, guid: 1a6b2e3c2ffbbf64d813df9c4c1170bb, type: 3}
   targetR: {fileID: 0}
   targetG: {fileID: 0}
   targetB: {fileID: 0}
   col: {fileID: -6062816089192410757}
+  MeshRen: {fileID: 8371428168820762021}
 --- !u!136 &-6062816089192410757
 CapsuleCollider:
   m_ObjectHideFlags: 0
