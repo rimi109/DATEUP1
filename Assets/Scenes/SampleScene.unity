@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.16833964, g: 0.21098241, b: 0.2866168, a: 1}
+  m_IndirectSpecularColor: {r: 0.17133328, g: 0.21459548, b: 0.29163358, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &126408193
 Transform:
   m_ObjectHideFlags: 0
@@ -349,6 +349,7 @@ MonoBehaviour:
   Health_Count: 3
   Healt_Color: {r: 0, g: 0, b: 0, a: 0}
   gameOverSeceChange: {fileID: 87228899}
+  PlayerDieAnimator: {fileID: 4518735583722807173}
 --- !u!1 &137578448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8301412440720529391, guid: 507856225b86b16429763183076d8b7e, type: 3}
@@ -1580,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &740432824
 Transform:
   m_ObjectHideFlags: 0
@@ -1620,6 +1621,7 @@ MonoBehaviour:
   Health_Count: 3
   Healt_Color: {r: 0, g: 0, b: 0, a: 0}
   gameOverSeceChange: {fileID: 87228899}
+  PlayerDieAnimator: {fileID: 3553337084966060207}
 --- !u!1 &751049183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7861594731786546304, guid: 507856225b86b16429763183076d8b7e, type: 3}
@@ -2739,7 +2741,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2428
+  m_Name: pb_Mesh-17312
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3358,7 +3360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1649790508
 Transform:
   m_ObjectHideFlags: 0
@@ -3398,6 +3400,7 @@ MonoBehaviour:
   Health_Count: 3
   Healt_Color: {r: 0, g: 0, b: 0, a: 0}
   gameOverSeceChange: {fileID: 87228899}
+  PlayerDieAnimator: {fileID: 3002009105177745725}
 --- !u!1 &1656144637 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5389482606269166919, guid: 507856225b86b16429763183076d8b7e, type: 3}
@@ -3458,7 +3461,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2278
+  m_Name: pb_Mesh-17162
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4174,7 +4177,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2128
+  m_Name: pb_Mesh-17012
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4725,7 +4728,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
     - target: {fileID: 3002009104753188133, guid: 468e50bd1078a0f4b9063a1bc77b612e, type: 3}
       propertyPath: Player_Move_Speed_
-      value: 30
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3002009104753188133, guid: 468e50bd1078a0f4b9063a1bc77b612e, type: 3}
       propertyPath: EnemyGenerateSystem
@@ -4797,6 +4800,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 468e50bd1078a0f4b9063a1bc77b612e, type: 3}
+--- !u!114 &3002009105177745725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3002009104753188133, guid: 468e50bd1078a0f4b9063a1bc77b612e, type: 3}
+  m_PrefabInstance: {fileID: 3002009105177745724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149266843415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0dc7590af61544ebd77165c0950f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3553337084966060206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4850,7 +4864,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
     - target: {fileID: 3553337084959811511, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
       propertyPath: Player_Move_Speed_
-      value: 30
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3553337084959811511, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
       propertyPath: EnemyGenerateSystem
@@ -4878,7 +4892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946635680861659604, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.9
+      value: -120.2
       objectReference: {fileID: 0}
     - target: {fileID: 3946635680861659604, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4886,7 +4900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946635680861659604, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.391788
+      value: -51.8
       objectReference: {fileID: 0}
     - target: {fileID: 3946635680861659604, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4926,6 +4940,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
+--- !u!114 &3553337084966060207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3553337084959811511, guid: 518fd483f28265843b1ecde8d4f146f7, type: 3}
+  m_PrefabInstance: {fileID: 3553337084966060206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148844968896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0dc7590af61544ebd77165c0950f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4327899279326993856
 Transform:
   m_ObjectHideFlags: 0
@@ -5079,7 +5104,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: Player_Move_Speed_
-      value: 30
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: EnemyGenerateSystem
@@ -5103,6 +5128,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
+--- !u!114 &4518735583722807173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
+  m_PrefabInstance: {fileID: 4518735583722807172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148425850781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0dc7590af61544ebd77165c0950f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6179818835165184602
 GameObject:
   m_ObjectHideFlags: 0

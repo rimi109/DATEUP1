@@ -64,7 +64,7 @@ public class PlayerScript : MonoBehaviour
 
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
         var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp != 0)
+        if (LeftStickvalue != Vector3.zero && Player_Hp >= 1)
         {
             Velocity = LeftStickvalue * Player_Move_Speed_;
             PlayerAnimator.SetBool("walk",true);
@@ -79,7 +79,7 @@ public class PlayerScript : MonoBehaviour
 
         var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
         var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
-        if (RightStickvalue !=  Vector3.zero &&  Player_Hp != 0)
+        if (RightStickvalue !=  Vector3.zero &&  Player_Hp >= 1)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
         }
@@ -134,5 +134,9 @@ public class PlayerScript : MonoBehaviour
         GameWave3.CountW3();
     }
 
+    public void PlayerDieAnimator()
+    {
+        PlayerAnimator.SetBool("Down", true);
+    }
 }
 

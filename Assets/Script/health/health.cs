@@ -26,6 +26,8 @@ public class health : MonoBehaviour
     [Tooltip("")]
     private bool GameOverCount;
 
+    [Header(""), SerializeField]
+    private PlayerScript PlayerDieAnimator;
      void Start()
     {
         GameOverCount = false;
@@ -44,6 +46,7 @@ public class health : MonoBehaviour
         {
             gameOverSeceChange.GameOver();
             GameOverCount = true;
+            PlayerDieAnimator.PlayerDieAnimator();
         }
     }
 
