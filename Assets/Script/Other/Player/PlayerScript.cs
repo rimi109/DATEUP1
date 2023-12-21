@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private Wave3 GameWave3;
-
+    
     [Header("Player‚ÌModel‚ÌGameObject‚ðŽæ“¾"), SerializeField]
     private GameObject This_Player_GameObject;
 

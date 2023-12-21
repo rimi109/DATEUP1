@@ -40,7 +40,7 @@ public class EnemyGenerate : MonoBehaviour
             WaveSystem1.wave1();
         }
 
-        if (Wave1count == 1 && Wave2count < 6 && WaveInTime1 >= 5.0f)
+        if (Wave1count == 1)
         {
             WaveSystem2.wave2();
         }

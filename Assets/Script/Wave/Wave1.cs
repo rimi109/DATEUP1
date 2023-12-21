@@ -7,17 +7,29 @@ public class Wave1 : MonoBehaviour
     [SerializeField]
     private EnemyGenerate EnemySystem;
 
-    //敵プレハブ赤
-    public GameObject enemyPrefabR;
-    //敵プレハブ緑
-    public GameObject enemyPrefabG;
-    //敵プレハブ青
-    public GameObject enemyPrefabB;
+    [Header("単色の敵"), SerializeField]
+    public GameObject[] Enemies;
+
+    [Header("中ボス"), SerializeField]
+    public GameObject[] MediumBoss;
+
+    [SerializeField]
+    private int EnemyCrushingWave1Count = 0;
+
+    [SerializeField]
+    private int EnemySpawnCount = 0;
+
+    [Header("kokokok"), SerializeField]
+    private int EnemyCrushing;
+
     //撃破カウンターWave1
-    private float wave1Count = 0;
+    private int wave1Count = 0;
 
     //Enemy数
-    private float EnemyCount = 0;
+    private int EnemyCount = 0;
+
+    //Medium Boss数
+    private int MediumBossCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,60 +38,94 @@ public class Wave1 : MonoBehaviour
         wave1Count = 0;
     }
 
+    void ShuffleEnemy(GameObject[] num)
+    {
+        for (int i = 0; i < num.Length; i++)
+        {
+            GameObject temp = num[i]; // 現在の要素を預けておく
+            int randomIndex = Random.Range(0, num.Length); // 入れ替える先をランダムに選ぶ
+            num[i] = num[randomIndex]; // 現在の要素に上書き
+            num[randomIndex] = temp; // 入れ替え元に預けておいた要素を与える
+        }
+    }
+
     void Update()
     {
-        if (EnemyCount == 3 && wave1Count == 3)
+        if (EnemyCount == 1 && wave1Count == 1)
         {
             EnemySystem.WaveInterval1();
-          
         }
-    }
 
-    void ShufflePosX(float[] num)
-    {
-        for (int i = 0; i < num.Length; i++)
-        {
-            float temp = num[i]; // 現在の要素を預けておく
-            int randomIndex = Random.Range(0, num.Length); // 入れ替える先をランダムに選ぶ
-            num[i] = num[randomIndex]; // 現在の要素に上書き
-            num[randomIndex] = temp; // 入れ替え元に預けておいた要素を与える
-        }
-    }
-
-    void ShufflePosZ(float[] num)
-    {
-        for (int i = 0; i < num.Length; i++)
-        {
-            float temp = num[i]; // 現在の要素を預けておく
-            int randomIndex = Random.Range(0, num.Length); // 入れ替える先をランダムに選ぶ
-            num[i] = num[randomIndex]; // 現在の要素に上書き
-            num[randomIndex] = temp; // 入れ替え元に預けておいた要素を与える
-        }
+        Debug.Log(EnemyCrushingWave1Count);
     }
 
     //Enemiesの出現
     public void wave1()
     {
-        if (EnemyCount == 0 && wave1Count == 0)
+        if (EnemySpawnCount == 0)
+        {
+            for (int i = 0; i < 6; ++i)
+            {
+                //enemyをインスタンス化する(生成する)
+                //生成した敵の位置をランダムに設定する
+                var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+                var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+                // rightTop xが右端　yが上端                
+                // leftbottom xが左端　yが下端
+                var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+                var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+                GameObject enemy = Instantiate(Enemies[EnemySpawnCount]);
+                enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+                ++EnemySpawnCount;
+            }
+        }
+        else
+        {
+            if (EnemySpawnCount < 20) {
+                var ghosts = GameObject.FindGameObjectsWithTag("EnemyW1");
+                if(ghosts.Length < 6)
+                {
+                    //enemyをインスタンス化する(生成する)
+                    //生成した敵の位置をランダムに設定する
+                    var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+                    var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+                    // rightTop xが右端　yが上端                
+                    // leftbottom xが左端　yが下端
+                    var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+                    var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+                    GameObject enemy = Instantiate(Enemies[Random.Range(0, 3)]);
+                    enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+                    ++EnemySpawnCount;
+                }
+            }
+        }
+
+        if(EnemyCrushingWave1Count >= 20 && MediumBossCount < 1)
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
-            var rightTop   = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, -1.0f, Camera.main.farClipPlane - 100.0f));
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
-            // rightTop xが右端　yが上端
+            // rightTop xが右端　yが上端                
             // leftbottom xが左端　yが下端
             var randomPosX = Random.Range(leftBottom.z, rightTop.z);
             var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            GameObject enemy = Instantiate(enemyPrefabR);
+            GameObject enemy = Instantiate(MediumBoss[Random.Range(0, 3)]);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-            ++EnemyCount;
+
+            ++MediumBossCount;
         }
     }
 
     public void CountW1()
     {
-        wave1Count += 1;
+        ++EnemyCrushingWave1Count;
+        //--EnemySpawnCount;
     }
 }
