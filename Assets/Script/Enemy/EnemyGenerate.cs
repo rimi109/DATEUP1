@@ -35,12 +35,12 @@ public class EnemyGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Wave1count < 1)
+        if (Wave1count < 20)
         {
             WaveSystem1.wave1();
         }
 
-        if (Wave1count == 1)
+        if (Wave1count >= 21)
         {
             WaveSystem2.wave2();
         }

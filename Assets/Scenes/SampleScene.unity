@@ -5004,7 +5004,7 @@ MonoBehaviour:
   - {fileID: 1394020987180455794, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
   - {fileID: 4909620092666340890, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
   - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  EnemyCrushingWave1Count: 20
+  EnemyCrushingWave1Count: 0
   EnemySpawnCount: 0
   EnemyCrushing: 0
 --- !u!1 &4327899279326993862
