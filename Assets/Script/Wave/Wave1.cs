@@ -31,6 +31,14 @@ public class Wave1 : MonoBehaviour
     //Medium Boss数
     private int MediumBossCount = 0;
 
+    //BossBattleEnemy数
+    private int BossBattleCount = 0;
+
+    //BossBattleのEnemy出現Time
+    private float BossBattleTime = 0.0f;
+
+    private bool EnemySpawn = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,12 +64,20 @@ public class Wave1 : MonoBehaviour
             EnemySystem.WaveInterval1();
         }
 
+        if(MediumBossCount >= 5)
+        {
+            BossBattleTime += Time.deltaTime;
+            EnemySpawn = true;
+        }
+
+        Debug.Log(BossBattleTime);
         Debug.Log(EnemyCrushingWave1Count);
     }
 
     //Enemiesの出現
     public void wave1()
     {
+
         if (EnemySpawnCount == 0)
         {
             for (int i = 0; i < 6; ++i)
@@ -83,9 +99,10 @@ public class Wave1 : MonoBehaviour
         }
         else
         {
-            if (EnemySpawnCount < 20) {
+            if (EnemySpawnCount < 20)
+            {
                 var ghosts = GameObject.FindGameObjectsWithTag("EnemyW1");
-                if(ghosts.Length < 6)
+                if (ghosts.Length < 6)
                 {
                     //enemyをインスタンス化する(生成する)
                     //生成した敵の位置をランダムに設定する
@@ -104,7 +121,8 @@ public class Wave1 : MonoBehaviour
             }
         }
 
-        if(EnemyCrushingWave1Count >= 20 && MediumBossCount < 1)
+        //中ボス
+        if (EnemyCrushingWave1Count >= 20 && MediumBossCount < 1)
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
@@ -120,6 +138,92 @@ public class Wave1 : MonoBehaviour
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
 
             ++MediumBossCount;
+        }
+
+        //中ボスと一緒に出てくるEnemy
+        if (EnemyCrushingWave1Count >= 20 && MediumBossCount < 5)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                //enemyをインスタンス化する(生成する)
+                //生成した敵の位置をランダムに設定する
+                var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+                var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+                // rightTop xが右端　yが上端                
+                // leftbottom xが左端　yが下端
+                var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+                var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+                GameObject enemy = Instantiate(Enemies[i]);
+                enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+                ++MediumBossCount;
+            }
+        }
+
+        //時間経過で出現するEnemy
+        if(BossBattleTime >= 6.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount < 1)
+        {
+            //enemyをインスタンス化する(生成する)
+            //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+            // rightTop xが右端　yが上端                
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+            GameObject enemyEnemy = Instantiate(Enemies[Random.Range(0, 3)]);
+            enemyEnemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+
+            //enemyをインスタンス化する(生成する)
+            //生成した敵の位置をランダムに設定する
+            var rightTopEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottomEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+            // rightTop xが右端　yが上端                
+            // leftbottom xが左端　yが下端
+            var randomPosXEnemy2 = Random.Range(leftBottomEnemy2.z, rightTopEnemy2.z);
+            var randomPosZEnemy2 = Random.Range(leftBottomEnemy2.x, rightTopEnemy2.x);
+
+            GameObject enemyEnemy2 = Instantiate(Enemies[Random.Range(0, 3)]);
+            enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
+
+            ++BossBattleCount;
+            BossBattleTime = 0.0f;
+        }
+
+        if (BossBattleTime >= 4.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount < 8)
+        {
+            //enemyをインスタンス化する(生成する)
+            //生成した敵の位置をランダムに設定する
+            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+            // rightTop xが右端　yが上端                
+            // leftbottom xが左端　yが下端
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+            GameObject enemyEnemy = Instantiate(Enemies[Random.Range(0, 3)]);
+            enemyEnemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+
+            //enemyをインスタンス化する(生成する)
+            //生成した敵の位置をランダムに設定する
+            var rightTopEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+            var leftBottomEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+            // rightTop xが右端　yが上端                
+            // leftbottom xが左端　yが下端
+            var randomPosXEnemy2 = Random.Range(leftBottomEnemy2.z, rightTopEnemy2.z);
+            var randomPosZEnemy2 = Random.Range(leftBottomEnemy2.x, rightTopEnemy2.x);
+
+            GameObject enemyEnemy2 = Instantiate(Enemies[Random.Range(0, 3)]);
+            enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
+
+            ++BossBattleCount;
+            BossBattleTime = 0.0f;
         }
     }
 
