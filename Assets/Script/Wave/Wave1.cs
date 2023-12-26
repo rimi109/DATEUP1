@@ -64,45 +64,24 @@ public class Wave1 : MonoBehaviour
             EnemySystem.WaveInterval1();
         }
 
-        if(MediumBossCount >= 5)
+        if(MediumBossCount >= 1)
         {
             BossBattleTime += Time.deltaTime;
             EnemySpawn = true;
         }
 
-        Debug.Log(BossBattleTime);
-        Debug.Log(EnemyCrushingWave1Count);
+        //Debug.Log(BossBattleTime);
+        //Debug.Log(EnemyCrushingWave1Count);
     }
 
     //Enemiesの出現
     public void wave1()
     {
-
-        if (EnemySpawnCount == 0)
+        if (!EnemySpawn)
         {
-            for (int i = 0; i < 6; ++i)
+            if (EnemySpawnCount == 0)
             {
-                //enemyをインスタンス化する(生成する)
-                //生成した敵の位置をランダムに設定する
-                var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-                var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
-
-                // rightTop xが右端　yが上端                
-                // leftbottom xが左端　yが下端
-                var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-                var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-                GameObject enemy = Instantiate(Enemies[EnemySpawnCount]);
-                enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-                ++EnemySpawnCount;
-            }
-        }
-        else
-        {
-            if (EnemySpawnCount < 20)
-            {
-                var ghosts = GameObject.FindGameObjectsWithTag("EnemyW1");
-                if (ghosts.Length < 6)
+                for (int i = 0; i < 6; ++i)
                 {
                     //enemyをインスタンス化する(生成する)
                     //生成した敵の位置をランダムに設定する
@@ -114,14 +93,37 @@ public class Wave1 : MonoBehaviour
                     var randomPosX = Random.Range(leftBottom.z, rightTop.z);
                     var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-                    GameObject enemy = Instantiate(Enemies[Random.Range(0, 3)]);
+                    GameObject enemy = Instantiate(Enemies[EnemySpawnCount]);
                     enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
                     ++EnemySpawnCount;
                 }
             }
+            else
+            {
+                if (EnemySpawnCount < 20)
+                {
+                    var ghosts = GameObject.FindGameObjectsWithTag("EnemyW1");
+                    if (ghosts.Length < 6)
+                    {
+                        //enemyをインスタンス化する(生成する)
+                        //生成した敵の位置をランダムに設定する
+                        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+                        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+                        // rightTop xが右端　yが上端                
+                        // leftbottom xが左端　yが下端
+                        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+                        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+                        GameObject enemy = Instantiate(Enemies[Random.Range(0, 3)]);
+                        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+                        ++EnemySpawnCount;
+                    }
+                }
+            }
         }
 
-        //中ボス
+        //中ボス戦
         if (EnemyCrushingWave1Count >= 20 && MediumBossCount < 1)
         {
             //enemyをインスタンス化する(生成する)
@@ -137,32 +139,27 @@ public class Wave1 : MonoBehaviour
             GameObject enemy = Instantiate(MediumBoss[Random.Range(0, 3)]);
             enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
 
-            ++MediumBossCount;
-        }
-
-        //中ボスと一緒に出てくるEnemy
-        if (EnemyCrushingWave1Count >= 20 && MediumBossCount < 5)
-        {
+            //中ボスと一緒に出てくるEnemy
             for (int i = 0; i < 4; ++i)
             {
                 //enemyをインスタンス化する(生成する)
                 //生成した敵の位置をランダムに設定する
-                var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-                var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+                var rightTopEne = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+                var leftBottomEne = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
 
                 // rightTop xが右端　yが上端                
                 // leftbottom xが左端　yが下端
-                var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-                var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+                var randomPosXEne = Random.Range(leftBottomEne.z, rightTopEne.z);
+                var randomPosZEne = Random.Range(leftBottomEne.x, rightTopEne.x);
 
-                GameObject enemy = Instantiate(Enemies[i]);
-                enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+                GameObject enemyEne = Instantiate(Enemies[i]);
+                enemyEne.transform.position = new Vector3(randomPosXEne, 3, randomPosZEne);
                 ++MediumBossCount;
             }
         }
 
         //時間経過で出現するEnemy
-        if(BossBattleTime >= 6.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount < 1)
+        if(BossBattleTime >= 6.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount == 0)
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
@@ -191,10 +188,10 @@ public class Wave1 : MonoBehaviour
             enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
 
             ++BossBattleCount;
-            BossBattleTime = 0.0f;
+            BossBattleTime = 0;
         }
 
-        if (BossBattleTime >= 4.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount < 8)
+        if (BossBattleTime >= 4.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount < 10)
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
@@ -223,13 +220,12 @@ public class Wave1 : MonoBehaviour
             enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
 
             ++BossBattleCount;
-            BossBattleTime = 0.0f;
+            BossBattleTime = 0;
         }
     }
 
     public void CountW1()
     {
         ++EnemyCrushingWave1Count;
-        //--EnemySpawnCount;
     }
 }

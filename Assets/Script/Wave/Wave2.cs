@@ -7,7 +7,7 @@ public class Wave2 : MonoBehaviour
     [Header("敵の出現するScriptを参照"),SerializeField]
     private EnemyGenerate EnemySystem;
 
-    [Header(""),SerializeField]
+    [Header("単色の敵"),SerializeField]
     public GameObject[] Enemies;
 
     [Header("中ボス"), SerializeField]
@@ -39,6 +39,8 @@ public class Wave2 : MonoBehaviour
         {
             EnemySystem.WaveInterval2();
         }
+
+        Debug.Log(EnemyCrushingWave2Count);
     }
 
     void ShuffleEnemy(GameObject[] num)
@@ -89,7 +91,7 @@ public class Wave2 : MonoBehaviour
         {
             if (EnemySpawnCount < 40)
             {
-                var ghosts = GameObject.FindGameObjectsWithTag("EnemyW2");
+                var ghosts = GameObject.FindGameObjectsWithTag("EnemyW1");
                 if (ghosts.Length < 6)
                 {
                     //enemyをインスタンス化する(生成する)
@@ -102,7 +104,7 @@ public class Wave2 : MonoBehaviour
                     var randomPosX = Random.Range(leftBottom.z, rightTop.z);
                     var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-                    GameObject enemy = Instantiate(Enemies[Random.Range(0, 3)]);
+                    GameObject enemy = Instantiate(Enemies[Random.Range(0, 6)]);
                     enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
                     ++EnemySpawnCount;
                 }
