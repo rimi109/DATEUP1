@@ -2741,7 +2741,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2872
+  m_Name: pb_Mesh-2422
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3461,7 +3461,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2724
+  m_Name: pb_Mesh-2274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4177,7 +4177,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2576
+  m_Name: pb_Mesh-2126
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4979,9 +4979,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySystem: {fileID: 7401046030067507842}
-  enemyPrefabR: {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
-  enemyPrefabG: {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
-  enemyPrefabB: {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  Enemies:
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  MediumBoss:
+  - {fileID: 1394020987180455794, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
+  - {fileID: 4909620092666340890, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
+  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
+  EnemyCrushingWave1Count: 0
+  EnemySpawnCount: 0
+  EnemyCrushing: 0
 --- !u!1 &4327899279326993862
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,17 +5212,14 @@ MonoBehaviour:
   enemyPrefabBoss: {fileID: 7760406866537791960, guid: 6af0add85043e7c498d734c552b573fd, type: 3}
   Enemies:
   - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
-  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
-  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
-  - {fileID: 6814793277826995471, guid: d12f9638854a5e540ac3d3db36163a87, type: 3}
-  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
-  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
-  - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
   - {fileID: 5053308515905995782, guid: c30d6d9d5dba2284083bd3a8077c8999, type: 3}
   - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
-  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
-  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
-  - {fileID: 916923983488302028, guid: aed6a59045962884da05eb77031ddbcb, type: 3}
+  MediumBoss:
+  - {fileID: 1394020987180455794, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
+  - {fileID: 4909620092666340890, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
+  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
+  EnemyCrushingWave3Count: 0
+  EnemySpawnCount: 0
 --- !u!114 &7401046030067507842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5259,26 +5281,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySystem: {fileID: 7401046030067507842}
   Enemies:
-  - {fileID: 1394020987180455794, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6814793277826995471, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 5053308515905995782, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 916923983488302028, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  MediumBoss:
   - {fileID: 1394020987180455794, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
   - {fileID: 4909620092666340890, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
-  - {fileID: 4909620092666340890, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
   - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4095285294832840009, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  wave2Count: 0
-  EnemyCount: 0
+  EnemyCrushingWave2Count: 0
+  EnemySpawnCount: 0
+  EnemyCrushing: 50
 --- !u!1 &8922948140077397318
 GameObject:
   m_ObjectHideFlags: 0
