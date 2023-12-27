@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerBlue : MonoBehaviour
 {
     [SerializeField]
     private EnemyGenerate EnemyGenerateSystem;
@@ -18,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
 
-    [Header("Player自身のTransformを参照"),SerializeField]
+    [Header("Player自身のTransformを参照"), SerializeField]
     private Transform Player_Transform_;
 
     [Header("PlayerのMoveSpeedを参照"), SerializeField]
@@ -36,23 +38,23 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerのHpを指定"), SerializeField]
     private int Player_Hp;
 
-    [Header("Playerのhpの画像を参照"),SerializeField]
+    [Header("Playerのhpの画像を参照"), SerializeField]
     private GameObject Player_Hp_image;
-
-    [Header("PlayerのHpのプログラムを参照"),SerializeField]
-    private health Player_health;
 
     [Header(""), SerializeField]
     private PlayerRed player_Red;
 
     [Header(""), SerializeField]
-    private PlayerBlue player_Blue;
+    private PlayerScript player_Green;
+
+    [Header("PlayerのHpのプログラムを参照"), SerializeField]
+    private healthBlue Player_health;
 
     [Header(""), SerializeField]
     private AudioClip Player_AudioClip;
 
-    [Header(""),SerializeField]
-    private  AudioSource audioSource;
+    [Header(""), SerializeField]
+    private AudioSource audioSource;
 
     private bool Enemy_Die_Flag;
 
@@ -73,7 +75,7 @@ public class PlayerScript : MonoBehaviour
         if (LeftStickvalue != Vector3.zero && Player_Hp >= 1)
         {
             Velocity = LeftStickvalue * Player_Move_Speed_;
-            PlayerAnimator.SetBool("walk",true);
+            PlayerAnimator.SetBool("walk", true);
         }
         else
         {
@@ -86,7 +88,7 @@ public class PlayerScript : MonoBehaviour
         var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
         var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
 
-        if (RightStickvalue !=  Vector3.zero &&  Player_Hp >= 1)
+        if (RightStickvalue != Vector3.zero && Player_Hp >= 1)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
         }
@@ -94,7 +96,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       
+
 
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW1"))
@@ -124,15 +126,14 @@ public class PlayerScript : MonoBehaviour
             Player_Hp -= 1;
         }
 
-      
-        if (collision.gameObject.CompareTag("PlayerBlue"))
+        if (collision.gameObject.CompareTag("PlayerGreen"))
         {
             if (Enemy_Die_Flag && Player_Hp < 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
-                player_Blue.PlayerBlue_Recovery_Hp();
+                player_Green.PlayerGreen_Recovery_Hp();
                 Enemy_Die_Flag = false;
             }
         }
@@ -173,10 +174,10 @@ public class PlayerScript : MonoBehaviour
         Enemy_Die_Flag = true;
     }
 
-    public void PlayerGreen_Recovery_Hp()
+    public void PlayerBlue_Recovery_Hp()
     {
         Player_Hp -= 1;
         Player_health.Health_Function();
     }
-}
 
+}
