@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class health : MonoBehaviour
+public class healthBlue : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] health_;
@@ -15,7 +14,7 @@ public class health : MonoBehaviour
     private Camera Main_Camera;
 
     [SerializeField]
-    private  int Health_Count;
+    private int Health_Count;
 
     [SerializeField]
     private Color Healt_Color;
@@ -27,7 +26,7 @@ public class health : MonoBehaviour
     private bool GameOverCount;
 
     [Header(""), SerializeField]
-    private PlayerScript PlayerGreenDieAnimator;
+    private PlayerBlue PlayerBlueDieAnimator;
 
     void Start()
     {
@@ -40,14 +39,14 @@ public class health : MonoBehaviour
         {
             health_[i].transform.rotation = Camera.main.transform.rotation;
             health_[i].transform.position = new Vector3(Green_Player.transform.position.x - 10, Green_Player.transform.position.y + 15, Green_Player.transform.position.z - 4);
-            health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y,  health_[i].transform.position.z);
+            health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y, health_[i].transform.position.z);
         }
 
         if (!GameOverCount && Health_Count < 1)
         {
             gameOverSeceChange.GameOver();
             GameOverCount = true;
-            PlayerGreenDieAnimator.PlayerDieAnimator();
+            PlayerBlueDieAnimator.PlayerDieAnimator();
         }
     }
 

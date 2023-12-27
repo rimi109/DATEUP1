@@ -1163,7 +1163,6 @@ GameObject:
   - component: {fileID: 3553337084959811509}
   - component: {fileID: 3553337084959811508}
   - component: {fileID: 3553337084959811506}
-  - component: {fileID: 3553337084959811511}
   m_Layer: 0
   m_Name: PlayerBlue
   m_TagString: Untagged
@@ -1241,33 +1240,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3553337084959811511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435646034790873966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0dc7590af61544ebd77165c0950f90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyGenerateSystem: {fileID: 0}
-  EnemyWave1: {fileID: 0}
-  EnemyWave2: {fileID: 0}
-  EnemyWave3: {fileID: 0}
-  This_Player_GameObject: {fileID: 4435646034790873966}
-  Player_Transform_: {fileID: 3946635680861659604}
-  Player_Move_Speed_: 18
-  Player_Numbers_: 2
-  Player_Rd_: {fileID: 3553337084959811509}
-  PlayerAnimator: {fileID: 3553337084959811506}
-  Player_Hp: 3
-  Player_Hp_image: {fileID: 0}
-  Player_health: {fileID: 0}
-  Player_AudioClip: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &5051401251727666334
 GameObject:
   m_ObjectHideFlags: 0

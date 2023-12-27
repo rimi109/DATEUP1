@@ -16,6 +16,9 @@ TagManager:
   - EnemyW1
   - EnemyW2
   - EnemyW3
+  - PlayerGreen
+  - PlayerBlue
+  - PlayerRed
   layers:
   - Default
   - TransparentFX
