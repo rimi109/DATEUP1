@@ -35,11 +35,6 @@ public class Wave2 : MonoBehaviour
     void Update()
     {
 
-        if (EnemyCrushingWave2Count == EnemyCrushing)
-        {
-            EnemySystem.WaveInterval2();
-        }
-
         Debug.Log(EnemyCrushingWave2Count);
     }
 

@@ -59,10 +59,6 @@ public class Wave1 : MonoBehaviour
 
     void Update()
     {
-        if (EnemyCount == 1 && wave1Count == 1)
-        {
-            EnemySystem.WaveInterval1();
-        }
 
         if(MediumBossCount >= 1)
         {

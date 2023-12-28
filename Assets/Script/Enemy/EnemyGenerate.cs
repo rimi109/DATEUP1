@@ -35,22 +35,31 @@ public class EnemyGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Wave1count < 44/*中ボスを倒すまで実行に変更*/)
+        if (Wave1count < 45/*中ボスを倒すまで実行に変更*/)
         {
             WaveSystem1.wave1();
         }
 
-        if (Wave2count < 43 && Wave1count >= 44/*中ボスを2体倒すまで実行に変更*/)
+        if (WaveInTime1 >= 5.0f && Wave2count < 43/*中ボスを2体倒すまで実行に変更*/)
         {
             WaveSystem2.wave2();
         }
 
-        if (Wave3count < 50  && Wave2count >= 43 && Wave1count >= 50/*ボスを倒すまで実行*/)
+        if (WaveInTime2 >= 5.0f && Wave3count < 50/*ボスを倒すまで実行*/)
         {
             WaveSystem3.wave3();
             WaveSystem3.EnemyInterval();
         }
 
+        if (Wave1count >= 44)
+        {
+            WaveInTime1 += Time.deltaTime;
+        }
+
+        if (Wave2count >= 42)
+        {
+            WaveInTime2 += Time.deltaTime;
+        }
     }
 
     public void wave1Count()
@@ -58,20 +67,9 @@ public class EnemyGenerate : MonoBehaviour
         Wave1count += 1;
     }
 
-    public void WaveInterval1()
-    {
-        WaveInTime1 += Time.deltaTime;
-        Debug.Log(WaveInTime1);
-    }
-
     public void wave3Count()
     {
         Wave2count += 1;
-    }
-
-    public void WaveInterval2()
-    {
-        WaveInTime2 += Time.deltaTime;
     }
 
 }
