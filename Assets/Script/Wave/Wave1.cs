@@ -70,8 +70,7 @@ public class Wave1 : MonoBehaviour
             EnemySpawn = true;
         }
 
-        //Debug.Log(BossBattleTime);
-        //Debug.Log(EnemyCrushingWave1Count);
+        Debug.Log(EnemyCrushingWave1Count);
     }
 
     //EnemiesÇÃèoåª

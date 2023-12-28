@@ -35,17 +35,17 @@ public class EnemyGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Wave1count < 50/*中ボスを倒すまで実行に変更*/)
+        if (Wave1count < 44/*中ボスを倒すまで実行に変更*/)
         {
             WaveSystem1.wave1();
         }
 
-        if (Wave2count < 50 /*中ボスを2体倒すまで実行に変更*/)
+        if (Wave2count < 43 && Wave1count >= 44/*中ボスを2体倒すまで実行に変更*/)
         {
             WaveSystem2.wave2();
         }
 
-        if (Wave1count < 1 /*ボスを倒すまで実行*/)
+        if (Wave3count < 50  && Wave2count >= 43 && Wave1count >= 50/*ボスを倒すまで実行*/)
         {
             WaveSystem3.wave3();
             WaveSystem3.EnemyInterval();
