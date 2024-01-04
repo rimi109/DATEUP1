@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: -4276674108759091861}
   m_Layer: 0
   m_Name: lightBleuEnemy
-  m_TagString: Enemy
+  m_TagString: EnemyW3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
