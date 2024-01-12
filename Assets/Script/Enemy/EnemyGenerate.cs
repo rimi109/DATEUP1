@@ -40,12 +40,12 @@ public class EnemyGenerate : MonoBehaviour
             WaveSystem1.wave1();
         }
 
-        if (WaveInTime1 >= 5.0f && Wave2count < 43)
+        if (WaveInTime1 >= 10.0f && Wave2count < 43)
         {
             WaveSystem2.wave2();
         }
 
-        if (WaveInTime2 >= 5.0f && Wave2count >= 43 && Wave3count < 50)
+        if (WaveInTime2 >= 10.0f && Wave2count >= 43 && Wave3count < 50)
         {
             WaveSystem3.wave3();
             WaveSystem3.EnemyInterval();
