@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_RimLightUnlit 1
-  m_Shader: {fileID: 4800000, guid: e41888b083407e040b756037247ff13d, type: 3}
+  m_Name: Custom_RimLightUnlit
+  m_Shader: {fileID: 4800000, guid: 27fbcb1d994a9ae4489af1131cbaf6df, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -26,9 +26,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1
-    - _RimPower: 0
+    - _RimPower: 7.39
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0, g: 0.14815688, b: 1, a: 1}
+    - _Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+    - _RimColor: {r: 0.12075018, g: 0.11626911, b: 0.6698113, a: 1}
   m_BuildTextureStacks: []
