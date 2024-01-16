@@ -160,7 +160,7 @@ public class Wave3 : MonoBehaviour
             {
                 if (EnemySpawnCount < 100)
                 {
-                    var ghosts = GameObject.FindGameObjectsWithTag("EnemyW2");
+                    var ghosts = GameObject.FindGameObjectsWithTag("EnemyW3");
                     if (ghosts.Length < 1)
                     {
                         //enemyをインスタンス化する(生成する)

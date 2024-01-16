@@ -35,11 +35,6 @@ public class Wave2 : MonoBehaviour
     void Update()
     {
 
-        if (EnemyCrushingWave2Count == EnemyCrushing)
-        {
-            EnemySystem.WaveInterval2();
-        }
-
         Debug.Log(EnemyCrushingWave2Count);
     }
 
@@ -91,7 +86,7 @@ public class Wave2 : MonoBehaviour
         {
             if (EnemySpawnCount < 40)
             {
-                var ghosts = GameObject.FindGameObjectsWithTag("EnemyW1");
+                var ghosts = GameObject.FindGameObjectsWithTag("EnemyW2");
                 if (ghosts.Length < 6)
                 {
                     //enemyをインスタンス化する(生成する)
@@ -111,7 +106,7 @@ public class Wave2 : MonoBehaviour
             }
         }
 
-        if (EnemyCrushingWave2Count >= 40 && MediumBossCount < 2)
+        if (EnemyCrushingWave2Count >= 41 && MediumBossCount < 2)
         {
             for (int i = 0; i < 2; ++i)
             {
@@ -136,7 +131,5 @@ public class Wave2 : MonoBehaviour
     public void CountW2()
     {
         EnemyCrushingWave2Count += 1;
-
-        //--EnemySpawnCount;
     }
 }

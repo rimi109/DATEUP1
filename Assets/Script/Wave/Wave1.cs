@@ -59,10 +59,6 @@ public class Wave1 : MonoBehaviour
 
     void Update()
     {
-        if (EnemyCount == 1 && wave1Count == 1)
-        {
-            EnemySystem.WaveInterval1();
-        }
 
         if(MediumBossCount >= 1)
         {
@@ -70,8 +66,7 @@ public class Wave1 : MonoBehaviour
             EnemySpawn = true;
         }
 
-        //Debug.Log(BossBattleTime);
-        //Debug.Log(EnemyCrushingWave1Count);
+        Debug.Log(EnemyCrushingWave1Count);
     }
 
     //EnemiesÇÃèoåª
