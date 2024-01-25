@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: e21ac25f5ed2dd04bb4a4bec77e0a344, type: 3}
-  Purple_Enemy_Hp: 10
+  Purple_Enemy_Hp: 5
   targetR: {fileID: 0}
 --- !u!1 &3623229838883225655
 GameObject:

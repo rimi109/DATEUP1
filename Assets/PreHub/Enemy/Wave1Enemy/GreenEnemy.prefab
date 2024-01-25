@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 6736628175509234322}
   - component: {fileID: 1919597238339680301}
   - component: {fileID: 4087568831364778630}
+  - component: {fileID: 8687922156558075549}
   m_Layer: 0
   m_Name: GreenEnemy
   m_TagString: EnemyW1
@@ -521,9 +522,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cc8542349d1191e4c9504e02104a8b4d, type: 3}
-  Purple_Enemy_Hp: 10
+  Purple_Enemy_Hp: 5
   Enemy_Destroy_System: {fileID: 0}
   targetR: {fileID: 0}
+--- !u!114 &8687922156558075549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630769530564176372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.19467807, g: 1, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7656374776850644860
 GameObject:
   m_ObjectHideFlags: 0

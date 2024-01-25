@@ -75,7 +75,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3626896133344520384}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 919066250555477220}
   - component: {fileID: 2190606588373286541}
   - component: {fileID: 8337626916845641471}
+  - component: {fileID: -7825503806948166136}
   m_Layer: 0
   m_Name: blueEnemy
   m_TagString: EnemyW1
@@ -591,9 +592,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
-  Purple_Enemy_Hp: 10
+  Purple_Enemy_Hp: 5
   Enemy_Destroy_System: {fileID: 0}
   targetR: {fileID: 0}
+--- !u!114 &-7825503806948166136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5233295020956398050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.02006483, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6638294861062693805
 GameObject:
   m_ObjectHideFlags: 0
