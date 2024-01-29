@@ -91,12 +91,11 @@ public class Enemy : MonoBehaviour
         float disG = Vector3.Distance(this.transform.position, targetG.transform.position);
         float disB = Vector3.Distance(this.transform.position, targetB.transform.position);
 
-        //this.rb.AddForce(new Vector3(1, 3, 4f), ForceMode.Force);
 
         if (disR < disG && disR < disB && !PlayerHit)
         {
             agent.destination = targetR.transform.position;
-            agent.speed = 10.0f;
+            agent.speed = 10.0f;    
         }
 
         else if (disG < disR && disG < disB && !PlayerHit)
@@ -112,16 +111,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("PlayerGreen"))
+        {
+            agent.speed = 0.0f;
+            PlayerHit = true;
+        }
+        else if (collision.gameObject.CompareTag("PlayerRed"))
+        {
+            agent.speed = 0.0f;
+            PlayerHit = true;
+        }
+        else if (collision.gameObject.CompareTag("PlayerBlue"))
         {
             agent.speed = 0.0f;
             PlayerHit = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
