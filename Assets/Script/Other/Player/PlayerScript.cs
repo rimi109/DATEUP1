@@ -54,11 +54,14 @@ public class PlayerScript : MonoBehaviour
     [Header(""),SerializeField]
     private  AudioSource audioSource;
 
+    public bool Player_dead_Flag;
+
     private bool Enemy_Die_Flag;
 
     private void Start()
     {
         Enemy_Die_Flag = false;
+        Player_dead_Flag = false;
     }
 
     void Update()
@@ -171,6 +174,7 @@ public class PlayerScript : MonoBehaviour
     {
         PlayerAnimator.SetBool("Down", true);
         Enemy_Die_Flag = true;
+        Player_dead_Flag = true;
     }
 
     public void PlayerGreen_Recovery_Hp()

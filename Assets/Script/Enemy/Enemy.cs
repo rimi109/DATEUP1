@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     public GameObject targetG;
     public GameObject targetB;
 
+    [Tooltip("")]
+    public  List<GameObject> Players = new List<GameObject>();
+
     private Rigidbody rb;
 
     private NavMeshAgent agent;
@@ -50,6 +53,10 @@ public class Enemy : MonoBehaviour
         targetR = GameObject.Find("PlayerRed");
         targetG = GameObject.Find("GreenPlayer");
         targetB = GameObject.Find("PlayerBlue");
+
+        GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag("PlayerGreen");
+
+        Players.AddRange(enemiesArray);
     }
 
     void Update()
@@ -92,23 +99,23 @@ public class Enemy : MonoBehaviour
         float disB = Vector3.Distance(this.transform.position, targetB.transform.position);
 
 
+        
         if (disR < disG && disR < disB && !PlayerHit)
         {
             agent.destination = targetR.transform.position;
             agent.speed = 10.0f;    
         }
-
         else if (disG < disR && disG < disB && !PlayerHit)
         {
             agent.destination = targetG.transform.position;
             agent.speed = 10.0f;
         }
-
         else if(!PlayerHit)
         {
             agent.destination = targetB.transform.position;
             agent.speed = 10.0f;
         }
+
     }
 
     void OnCollisionEnter(Collision collision)
