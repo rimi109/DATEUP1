@@ -65,9 +65,12 @@ public class PurpleEnemyCollision : MonoBehaviour
             if (!ParticleSystem)
             {
                 newParticle = Instantiate(particle);
-                newParticle.transform.position = this.transform.position;
                 newParticle.Play();
                 ParticleSystem = true;
+            }
+            else
+            {
+                newParticle.transform.position = this.transform.position;
             }
         }
     }
@@ -84,7 +87,6 @@ public class PurpleEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = true;
-           
         }
     }
 

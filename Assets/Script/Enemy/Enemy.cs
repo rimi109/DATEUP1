@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         if(!Anime)
         {
             GameObject newAnim = Instantiate(anime);
-            newAnim.transform.position =new Vector3(this.transform.position.x, this.transform.position.y + 10, this.transform.position.z);
+            newAnim.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 10, this.transform.position.z);
             Anime = true;
         }
 

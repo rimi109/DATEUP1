@@ -65,9 +65,12 @@ public class LightBlueEnemyCollision : MonoBehaviour
             if (!ParticleSystem)
             {
                 newParticle = Instantiate(particle);
-                newParticle.transform.position = this.transform.position;
                 newParticle.Play();
                 ParticleSystem = true;
+            }
+            else
+            {
+                newParticle.transform.position = this.transform.position;
             }
         }
     }
