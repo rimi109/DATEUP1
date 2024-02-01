@@ -15,14 +15,9 @@ public class Enemy : MonoBehaviour
     //çƒê∂ÇµÇΩÇ¢AnimationÇéQè∆]
     public GameObject anime;
 
-    private bool PlayerHit;
     private bool Anime;
     private bool EffectStart;
     private bool Effect;
-
-    public GameObject targetR;
-    public GameObject targetG;
-    public GameObject targetB;
 
     [Tooltip("")]
     public  List<GameObject> Players = new List<GameObject>();
@@ -45,18 +40,12 @@ public class Enemy : MonoBehaviour
         EffectStart = false;
         Effect = false;
         col.enabled = false;
-        PlayerHit = false;
 
         agent = GetComponent<NavMeshAgent>();
         this.rb = GetComponent<Rigidbody>();
 
-        targetR = GameObject.Find("PlayerRed");
-        targetG = GameObject.Find("GreenPlayer");
-        targetB = GameObject.Find("PlayerBlue");
+        AddPlayersToList();
 
-        GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag("PlayerGreen");
-
-        Players.AddRange(enemiesArray);
     }
 
     void Update()
@@ -94,54 +83,41 @@ public class Enemy : MonoBehaviour
 
         col.enabled = true;
 
-        float disR = Vector3.Distance(this.transform.position, targetR.transform.position);
-        float disG = Vector3.Distance(this.transform.position, targetG.transform.position);
-        float disB = Vector3.Distance(this.transform.position, targetB.transform.position);
 
+        float closestPlayerDistance = float.MaxValue;
+        GameObject closestPlayer = null;
 
-        
-        if (disR < disG && disR < disB && !PlayerHit)
+        for (int i = 0; i < Players.Count; i++)
         {
-            agent.destination = targetR.transform.position;
-            agent.speed = 10.0f;    
+            float playerDistance = Vector3.Distance(transform.position, Players[i].transform.position);
+
+            if (playerDistance < closestPlayerDistance)
+            {
+                closestPlayerDistance = playerDistance;
+                closestPlayer = Players[i];
+            }
         }
-        else if (disG < disR && disG < disB && !PlayerHit)
+
+        if (closestPlayer != null)
         {
-            agent.destination = targetG.transform.position;
+            agent.destination = closestPlayer.transform.position;
             agent.speed = 10.0f;
         }
-        else if(!PlayerHit)
-        {
-            agent.destination = targetB.transform.position;
-            agent.speed = 10.0f;
-        }
+    }
+    void AddPlayersToList()
+    {
+        GameObject[] PlayerGreen = GameObject.FindGameObjectsWithTag("PlayerGreen");
+        GameObject[] PlayerRed = GameObject.FindGameObjectsWithTag("PlayerRed");
+        GameObject[] PlayerBlue = GameObject.FindGameObjectsWithTag("PlayerBlue");
 
+        Players.AddRange(PlayerGreen);
+        Players.AddRange(PlayerRed);
+        Players.AddRange(PlayerBlue);
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void Erase_dead_Players()
     {
-        if (collision.gameObject.CompareTag("PlayerGreen"))
-        {
-            agent.speed = 0.0f;
-            PlayerHit = true;
-        }
-        else if (collision.gameObject.CompareTag("PlayerRed"))
-        {
-            agent.speed = 0.0f;
-            PlayerHit = true;
-        }
-        else if (collision.gameObject.CompareTag("PlayerBlue"))
-        {
-            agent.speed = 0.0f;
-            PlayerHit = true;
-        }
-    }
 
-     void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerHit = false;
-        }
+        Players.RemoveAll(player => player.GetComponent<PlayerScript>() != null && player.GetComponent<PlayerScript>().Player_dead_Flag);
     }
 }

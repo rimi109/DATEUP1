@@ -4015,7 +4015,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2254
+  m_Name: pb_Mesh-2250
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8744,7 +8744,7 @@ MonoBehaviour:
   Player_Numbers_: 1
   Player_Rd_: {fileID: 3002009105177745727}
   PlayerAnimator: {fileID: 3002009105177745726}
-  Player_Hp: 1000000
+  Player_Hp: 3
   Player_Hp_image: {fileID: 1649790507}
   Player_health: {fileID: 1649790509}
   player_Blue: {fileID: 3553337084966060211}
@@ -9624,7 +9624,7 @@ MonoBehaviour:
   Player_Numbers_: 2
   Player_Rd_: {fileID: 3553337084966060209}
   PlayerAnimator: {fileID: 3553337084966060208}
-  Player_Hp: 1000000
+  Player_Hp: 3
   Player_Hp_image: {fileID: 740432823}
   player_Red: {fileID: 3002009105177745729}
   player_Green: {fileID: 4518735583722807173}
@@ -11586,7 +11586,7 @@ PrefabInstance:
       objectReference: {fileID: 6179818835165184604}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: Player_Hp
-      value: 100000
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: EnemyWave1

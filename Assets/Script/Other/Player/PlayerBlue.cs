@@ -56,11 +56,11 @@ public class PlayerBlue : MonoBehaviour
     [Header(""), SerializeField]
     private AudioSource audioSource;
 
-    private bool Enemy_Die_Flag;
+    public bool Player_dead_Flag;
 
     private void Start()
     {
-        Enemy_Die_Flag = false;
+        Player_dead_Flag = false;
     }
 
     void Update()
@@ -128,25 +128,25 @@ public class PlayerBlue : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerGreen"))
         {
-            if (Enemy_Die_Flag && Player_Hp < 0)
+            if (Player_dead_Flag && Player_Hp < 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
                 player_Green.PlayerGreen_Recovery_Hp();
-                Enemy_Die_Flag = false;
+                Player_dead_Flag = false;
             }
         }
 
         if (collision.gameObject.CompareTag("PlayerRed"))
         {
-            if (Enemy_Die_Flag && Player_Hp < 0)
+            if (Player_dead_Flag && Player_Hp < 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
                 player_Red.PlayerRed_Recovery_Hp();
-                Enemy_Die_Flag = false;
+                Player_dead_Flag = false;
             }
         }
     }
@@ -171,7 +171,7 @@ public class PlayerBlue : MonoBehaviour
     public void PlayerDieAnimator()
     {
         PlayerAnimator.SetBool("Down", true);
-        Enemy_Die_Flag = true;
+        Player_dead_Flag = true;
     }
 
     public void PlayerBlue_Recovery_Hp()
