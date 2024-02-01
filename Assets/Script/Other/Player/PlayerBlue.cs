@@ -58,9 +58,12 @@ public class PlayerBlue : MonoBehaviour
 
     public bool Player_dead_Flag;
 
+    public bool Player_Blue_revival_Flag { get; private set; }
+
     private void Start()
     {
         Player_dead_Flag = false;
+        Player_Blue_revival_Flag = false;
     }
 
     void Update()
@@ -135,6 +138,7 @@ public class PlayerBlue : MonoBehaviour
                 Player_health.Player_Recovery_Function();
                 player_Green.PlayerGreen_Recovery_Hp();
                 Player_dead_Flag = false;
+                Player_Blue_revival_Flag = true;
             }
         }
 
@@ -147,6 +151,7 @@ public class PlayerBlue : MonoBehaviour
                 Player_health.Player_Recovery_Function();
                 player_Red.PlayerRed_Recovery_Hp();
                 Player_dead_Flag = false;
+                Player_Blue_revival_Flag = true;
             }
         }
     }

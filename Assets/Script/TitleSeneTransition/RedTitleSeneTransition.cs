@@ -12,6 +12,10 @@ public class RedTitleSeneTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Gamepad.current == null)
+            return;
+
         if (Gamepad.all[Player_Numbers_].aButton.wasPressedThisFrame)
         {
             SceneManager.LoadScene("TitleScene");
