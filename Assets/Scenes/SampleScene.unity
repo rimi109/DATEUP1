@@ -1288,6 +1288,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 348.30707, y: 696.61426, z: 29.02563}
   m_Center: {x: 483.41815, y: 429.04556, z: -757.56805}
+--- !u!1 &595422676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595422677}
+  m_Layer: 0
+  m_Name: EnemySystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595422677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595422676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9207826, y: -3.492298, z: 37.714638}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654872549 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 930783631884653662, guid: 507856225b86b16429763183076d8b7e, type: 3}
@@ -8744,13 +8775,14 @@ MonoBehaviour:
   Player_Numbers_: 1
   Player_Rd_: {fileID: 3002009105177745727}
   PlayerAnimator: {fileID: 3002009105177745726}
-  Player_Hp: 1000000
+  Player_Hp: 3
   Player_Hp_image: {fileID: 1649790507}
   Player_health: {fileID: 1649790509}
   player_Blue: {fileID: 3553337084966060211}
   player_Green: {fileID: 4518735583722807173}
   Player_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
   audioSource: {fileID: 919132149266843416}
+  Player_dead_Flag: 0
 --- !u!114 &3002009105177745731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9624,13 +9656,14 @@ MonoBehaviour:
   Player_Numbers_: 2
   Player_Rd_: {fileID: 3553337084966060209}
   PlayerAnimator: {fileID: 3553337084966060208}
-  Player_Hp: 1000000
+  Player_Hp: 3
   Player_Hp_image: {fileID: 740432823}
   player_Red: {fileID: 3002009105177745729}
   player_Green: {fileID: 4518735583722807173}
   Player_health: {fileID: 740432825}
   Player_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
   audioSource: {fileID: 919132148844968897}
+  Player_dead_Flag: 0
 --- !u!114 &3553337084966060213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9850,7 +9883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4096889158222202193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 11.3}
+  m_LocalPosition: {x: 1.5, y: 3.4, z: 11.3}
   m_LocalScale: {x: 1.1326, y: 1.1326, z: 1.1326}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11586,7 +11619,7 @@ PrefabInstance:
       objectReference: {fileID: 6179818835165184604}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: Player_Hp
-      value: 100000
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: EnemyWave1
@@ -11666,7 +11699,7 @@ PrefabInstance:
       objectReference: {fileID: 1643153771}
     - target: {fileID: 4518735583503934526, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: m_VersionIndex
-      value: 1027
+      value: 1036
       objectReference: {fileID: 0}
     - target: {fileID: 8060031297249520805, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: m_LocalPosition.x

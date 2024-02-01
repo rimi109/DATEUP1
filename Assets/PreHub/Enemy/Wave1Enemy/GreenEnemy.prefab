@@ -504,9 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  targetR: {fileID: 0}
-  targetG: {fileID: 0}
-  targetB: {fileID: 0}
+  Players: []
   col: {fileID: 1037988836247444521}
   MeshRen: {fileID: 3089182588690967959}
 --- !u!114 &4087568831364778630

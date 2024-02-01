@@ -54,11 +54,16 @@ public class PlayerScript : MonoBehaviour
     [Header(""),SerializeField]
     private  AudioSource audioSource;
 
-    private bool Enemy_Die_Flag;
+    public bool Player_dead_Flag;
+
+    public bool Player_Green_revival_Flag { get; private set; }
+
+
 
     private void Start()
     {
-        Enemy_Die_Flag = false;
+        Player_dead_Flag = false;
+        Player_Green_revival_Flag = false;
     }
 
     void Update()
@@ -127,25 +132,28 @@ public class PlayerScript : MonoBehaviour
       
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
-            if (Enemy_Die_Flag && Player_Hp < 0)
+            if (Player_dead_Flag && Player_Hp < 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
                 player_Blue.PlayerBlue_Recovery_Hp();
-                Enemy_Die_Flag = false;
+                Player_dead_Flag = false;
+                Player_Green_revival_Flag = true;
+
             }
         }
 
         if (collision.gameObject.CompareTag("PlayerRed"))
         {
-            if (Enemy_Die_Flag && Player_Hp < 0)
+            if (Player_dead_Flag && Player_Hp < 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
                 player_Red.PlayerRed_Recovery_Hp();
-                Enemy_Die_Flag = false;
+                Player_dead_Flag = false;
+                Player_Green_revival_Flag = true;
             }
         }
     }
@@ -170,12 +178,12 @@ public class PlayerScript : MonoBehaviour
     public void PlayerDieAnimator()
     {
         PlayerAnimator.SetBool("Down", true);
-        Enemy_Die_Flag = true;
+        Player_dead_Flag = true;
     }
 
     public void PlayerGreen_Recovery_Hp()
     {
-        Player_Hp -= 1;
+        Player_Hp += 1;
         Player_health.Health_Function();
     }
 }
