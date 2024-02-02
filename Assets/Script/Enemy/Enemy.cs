@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
         if (closestPlayer != null)
         {
             agent.destination = closestPlayer.transform.position;
-            agent.speed = 1.0f;
+            agent.speed = 10.0f;
         }
     }
     void Add_Players_ToList()

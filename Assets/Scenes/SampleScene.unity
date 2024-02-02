@@ -1678,7 +1678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6674110011578598425, guid: 507856225b86b16429763183076d8b7e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6674110011578598425, guid: 507856225b86b16429763183076d8b7e, type: 3}
       propertyPath: m_LocalScale.x
@@ -2074,14 +2074,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.49490467, y: -0, z: -0, w: 0.86894727}
-  m_LocalPosition: {x: 0, y: 83.1, z: -56.6}
+  m_LocalRotation: {x: 0.5680312, y: -0, z: -0, w: 0.8230071}
+  m_LocalPosition: {x: 0, y: 104.2, z: -37.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 59.327, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 69.226, y: 0, z: 0}
 --- !u!82 &963194229
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8771,7 +8771,7 @@ MonoBehaviour:
   GameWave3: {fileID: 6179818835165184604}
   This_Player_GameObject: {fileID: 919132149266843415}
   Player_Transform_: {fileID: 543450653452754349}
-  Player_Move_Speed_: 22
+  Player_Move_Speed_: 30
   Player_Numbers_: 1
   Player_Rd_: {fileID: 3002009105177745727}
   PlayerAnimator: {fileID: 3002009105177745726}
@@ -9652,7 +9652,7 @@ MonoBehaviour:
   GameWave3: {fileID: 6179818835165184604}
   This_Player_GameObject: {fileID: 919132148844968896}
   Player_Transform_: {fileID: 543450652835832186}
-  Player_Move_Speed_: 22
+  Player_Move_Speed_: 30
   Player_Numbers_: 2
   Player_Rd_: {fileID: 3553337084966060209}
   PlayerAnimator: {fileID: 3553337084966060208}
@@ -10045,7 +10045,7 @@ Transform:
   - {fileID: 8603644158681234668}
   - {fileID: 8674454944985813200}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3722717526436883505
 Transform:
@@ -11659,7 +11659,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: Player_Move_Speed_
-      value: 22
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4518735582438513995, guid: 1b869e401ec7c45459ef6bf9acaf7f54, type: 3}
       propertyPath: EnemyGenerateSystem
