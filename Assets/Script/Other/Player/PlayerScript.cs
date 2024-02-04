@@ -64,6 +64,7 @@ public class PlayerScript : MonoBehaviour
     {
         Player_dead_Flag = false;
         Player_Green_revival_Flag = false;
+
     }
 
     void Update()
@@ -78,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         if (LeftStickvalue != Vector3.zero && Player_Hp >= 1)
         {
             Velocity = LeftStickvalue * Player_Move_Speed_;
-            PlayerAnimator.SetBool("walk",true);
+            PlayerAnimator.SetBool("walk", true);
         }
         else
         {

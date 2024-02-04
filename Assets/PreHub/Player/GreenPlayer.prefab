@@ -404,6 +404,7 @@ MonoBehaviour:
   player_Blue: {fileID: 0}
   Player_AudioClip: {fileID: 0}
   audioSource: {fileID: 0}
+  Player_dead_Flag: 0
 --- !u!1 &3687071155980752206
 GameObject:
   m_ObjectHideFlags: 0
