@@ -52,6 +52,9 @@ public class BlueEnemyCollision : MonoBehaviour
                 Enemy_Hit_Time = 0;
                 if (Purple_Enemy_Hp <= 0)
                 {
+
+                    Vector3 ThisTransformroll = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+                    Vector3 ThisRotation = new Vector3(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z);
                     Destroy(this.gameObject);
                     Destroy(newParticle);
                     targetR.Wave1EnemyDestroy();
