@@ -514,8 +514,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5233295020956398050}
-  m_LocalRotation: {x: -0, y: 0.9893055, z: -0, w: 0.14585823}
-  m_LocalPosition: {x: -29.5, y: -8.7, z: 30.3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.14, y: 12.14, z: 12.14}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -523,7 +523,7 @@ Transform:
   - {fileID: 7430832326989153734}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 163.226, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1194708589272835312
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
-  Purple_Enemy_Hp: 5
+  Blus_Enemy_Hp: 0
   Enemy_Destroy_System: {fileID: 0}
   targetR: {fileID: 0}
 --- !u!114 &-7825503806948166136

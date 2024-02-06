@@ -16,14 +16,24 @@ public class BlueEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private bool ParticleSystem;
 
+    [Tooltip("")]
+    private bool Enemy_Destory_flag;
+
     [Header("WhiteのHpを設定"), SerializeField]
-    private int Purple_Enemy_Hp;
+    private int Blus_Enemy_Hp;
 
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
 
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
+
+    [Tooltip("")]
+    private float Enemy_Destroy_Time;
+
+    public float shrinkSpeed = 0.5f;  // 縮小の速度
+    private const float UPWADR_SPEED = 50.0f;  
+    private const float ROTATION_SPEED = 4000.0f;
 
     [SerializeField]
     private PlayerScript Enemy_Destroy_System;
@@ -34,7 +44,7 @@ public class BlueEnemyCollision : MonoBehaviour
     {
         Blue_Attack_Flag = false;
         ParticleSystem = false;
-
+        Enemy_Destory_flag = false;
         targetR = GameObject.FindObjectOfType<PlayerScript>();
 
     }
@@ -47,16 +57,11 @@ public class BlueEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Purple_Enemy_Hp -= 2;
-                Debug.Log(Purple_Enemy_Hp);
+                Blus_Enemy_Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Purple_Enemy_Hp <= 0)
+                if (Blus_Enemy_Hp <= 0)
                 {
-
-                    Vector3 ThisTransformroll = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-                    Vector3 ThisRotation = new Vector3(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z);
-                    Destroy(this.gameObject);
-                    Destroy(newParticle);
+                    Enemy_Destory_flag = true;
                     targetR.Wave1EnemyDestroy();
                 }
             }
@@ -72,6 +77,19 @@ public class BlueEnemyCollision : MonoBehaviour
                 newParticle.transform.position = this.transform.position;
             }
         }
+
+        if (Enemy_Destory_flag)
+        {
+            Enemy_destroy_animation();
+            Debug.Log("Enemy_destroy_animation");
+            Enemy_Destroy_Time += Time.deltaTime;
+            if (Enemy_Destroy_Time > 1)
+            {
+                Destroy(newParticle);
+                Destroy(this.gameObject);
+            }
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,5 +110,15 @@ public class BlueEnemyCollision : MonoBehaviour
             ParticleSystem = false;
             Destroy(newParticle);
         }
+    }
+
+    private void Enemy_destroy_animation()
+    {
+        Vector3 currentScale = transform.localScale;
+        float newScale = Mathf.Max(currentScale.x - shrinkSpeed, 0.0f);  // 最小のスケールを設定
+        transform.localScale = new Vector3(newScale, newScale, newScale);
+
+        Quaternion deltaRotation = Quaternion.Euler(0f, ROTATION_SPEED * Time.deltaTime, 0f);
+        this.transform.rotation *= deltaRotation;
     }
 }
