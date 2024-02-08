@@ -134,7 +134,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753064016506110774}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -369,9 +369,10 @@ GameObject:
   - component: {fileID: 1272036503045544416}
   - component: {fileID: 231336830887139172}
   - component: {fileID: 1441787504606894689}
+  - component: {fileID: -465965596628741713}
   m_Layer: 0
   m_Name: YellowEnemy
-  m_TagString: Enemy
+  m_TagString: EnemyW2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,9 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  targetR: {fileID: 0}
-  targetG: {fileID: 0}
-  targetB: {fileID: 0}
+  Players: []
   col: {fileID: 8486749416610440369}
   MeshRen: {fileID: 6406357049807593362}
 --- !u!114 &1441787504606894689
@@ -463,6 +462,24 @@ MonoBehaviour:
   particle: {fileID: 187534602998800414, guid: 6687d54aa5100274b8cebb80b1ea716f, type: 3}
   Purple_Enemy_Hp: 30
   targetR: {fileID: 0}
+--- !u!114 &-465965596628741713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162319949205176239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.9738677, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6657130685683642255
 GameObject:
   m_ObjectHideFlags: 0

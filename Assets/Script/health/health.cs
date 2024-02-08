@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class health : MonoBehaviour
-{
-    [SerializeField]
+{    [SerializeField]
     private GameObject[] health_;
 
     [SerializeField]
