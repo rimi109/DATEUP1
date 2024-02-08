@@ -7,45 +7,41 @@ public class BlueEnemyCollision : MonoBehaviour
     [Tooltip("青色のライトが当たっているかを判定")]
     private bool Blue_Attack_Flag;
 
-    [SerializeField]
-    private ParticleSystem particle;
+    [Tooltip("Particleを再生するかどうかを検知する")]
+    private bool Particle_System;
 
-    [Tooltip("")]
-    private ParticleSystem newParticle;
-
-    [Tooltip("")]
-    private bool ParticleSystem;
-
-    [Tooltip("")]
+    [Tooltip("自分が死んだかどうかを判定検知する")]
     private bool Enemy_Destory_flag;
 
     [Header("WhiteのHpを設定"), SerializeField]
     private int Blus_Enemy_Hp;
 
-    [Tooltip("")]
-    private float Enemy_Hit_Time = 1.1f;
+    [Tooltip("Enemyが一秒ごとにダメージを")]
+    private float Enemy_Hit_Time = 1.0f;
 
-    [Tooltip("")]
+    [Tooltip("Enemyが連続でダメージを貰わないようにレキャストタイムを設定")]
     private const float Hit_Cool_Time = 1;
 
     [Tooltip("")]
     private float Enemy_Destroy_Time;
 
-    public float shrinkSpeed = 0.5f;  // 縮小の速度
-    private const float UPWADR_SPEED = 50.0f;  
+    public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
 
-    [SerializeField]
-    private PlayerScript Enemy_Destroy_System;
+    [Header("Enemy自身で起きるPaticleを取得"), SerializeField]
+    private ParticleSystem Enemy_Particle;
 
-    public PlayerScript targetR;
+    [Tooltip("Enemy自身で起きるPaticleを取得")]
+    private ParticleSystem Enemy_Formation;
+
+    public PlayerScript TargetR;
 
     private void Start()
     {
         Blue_Attack_Flag = false;
-        ParticleSystem = false;
+        Particle_System = false;
         Enemy_Destory_flag = false;
-        targetR = GameObject.FindObjectOfType<PlayerScript>();
+        TargetR = GameObject.FindObjectOfType<PlayerScript>();
 
     }
 
@@ -62,30 +58,29 @@ public class BlueEnemyCollision : MonoBehaviour
                 if (Blus_Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
-                    targetR.Wave1EnemyDestroy();
+                    TargetR.Wave1EnemyDestroy();
                 }
             }
 
-            if (!ParticleSystem)
+            if (!Particle_System)
             {
-                newParticle = Instantiate(particle);
-                newParticle.Play();
-                ParticleSystem = true;
+                Enemy_Formation = Instantiate(Enemy_Particle);
+                Enemy_Formation.Play();
+                Particle_System = true;
             }
             else
             {
-                newParticle.transform.position = this.transform.position;
+                Enemy_Formation.transform.position = this.transform.position;
             }
         }
 
         if (Enemy_Destory_flag)
         {
             Enemy_destroy_animation();
-            Debug.Log("Enemy_destroy_animation");
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
-                Destroy(newParticle);
+                Destroy(Enemy_Formation);
                 Destroy(this.gameObject);
             }
         }
@@ -98,7 +93,6 @@ public class BlueEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = true;
-
         }
     }
 
@@ -107,15 +101,15 @@ public class BlueEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = false;
-            ParticleSystem = false;
-            Destroy(newParticle);
+            Particle_System = false;
+            Destroy(Enemy_Formation);
         }
     }
 
     private void Enemy_destroy_animation()
     {
         Vector3 currentScale = transform.localScale;
-        float newScale = Mathf.Max(currentScale.x - shrinkSpeed, 0.0f);  // 最小のスケールを設定
+        float newScale = Mathf.Max(currentScale.x - Shrink_Speed, 0.0f);
         transform.localScale = new Vector3(newScale, newScale, newScale);
 
         Quaternion deltaRotation = Quaternion.Euler(0f, ROTATION_SPEED * Time.deltaTime, 0f);

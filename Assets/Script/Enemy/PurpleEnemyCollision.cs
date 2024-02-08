@@ -5,6 +5,18 @@ using UnityEngine;
 public class PurpleEnemyCollision : MonoBehaviour
 {
 
+    [Header("紫色の赤色の方の弱点のOnバージョンimageを取得"),SerializeField]
+    private GameObject Effective_Colour_Red_On;
+
+    [Header("紫色の赤色の方の弱点のOffバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Red_Off;
+
+    [Header("紫色の青色の方の弱点のOnバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Blue_On;
+
+    [Header("紫色の青色の方の弱点のOffバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Blue_Off;
+
     [Tooltip("赤色のライトが当たっているかを判定")]
     private bool Red_Attack_Flag;
 
@@ -13,12 +25,6 @@ public class PurpleEnemyCollision : MonoBehaviour
 
     [Tooltip("紫色のライトが当たっているかを判定")]
     private RedLightCollision Player_Purple_Flag;
-
-    [SerializeField]
-    private ParticleSystem particle;
-
-    [Tooltip("")]
-    private ParticleSystem newParticle;
 
     [Tooltip("")]
     private bool ParticleSystem;
@@ -32,7 +38,13 @@ public class PurpleEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
-    public PlayerScript targetR;
+    [SerializeField]
+    private ParticleSystem particle;
+
+    [Tooltip("")]
+    private ParticleSystem newParticle;
+
+    public PlayerScript Target_Player;
 
     private void Start()
     {
@@ -40,7 +52,7 @@ public class PurpleEnemyCollision : MonoBehaviour
         Blue_Attack_Flag = false;
         ParticleSystem   = false;
 
-        targetR = GameObject.FindObjectOfType<PlayerScript>();
+        Target_Player = GameObject.FindObjectOfType<PlayerScript>();
     }
 
     void Update()
@@ -58,7 +70,7 @@ public class PurpleEnemyCollision : MonoBehaviour
                 {
                     Destroy(newParticle);
                     Destroy(this.gameObject);
-                    targetR.Wave2EnemyDestroy();
+                    Target_Player.Wave2EnemyDestroy();
                 }
             }
 
@@ -80,6 +92,8 @@ public class PurpleEnemyCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("redlight"))
         {
+            Effective_Colour_Red_On.SetActive(true);
+            Effective_Colour_Red_Off.SetActive(true);
             Red_Attack_Flag = true;
             Player_Purple_Flag = other.gameObject.GetComponent<RedLightCollision>();
         }
@@ -87,6 +101,8 @@ public class PurpleEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = true;
+            Effective_Colour_Blue_On.SetActive(true);
+            Effective_Colour_Blue_Off.SetActive(false);
         }
     }
 
@@ -97,6 +113,8 @@ public class PurpleEnemyCollision : MonoBehaviour
             Red_Attack_Flag = false;
             ParticleSystem = false;
             Destroy(newParticle);
+            Effective_Colour_Red_On.SetActive(false);
+            Effective_Colour_Red_Off.SetActive(true);
         }
 
         if (other.gameObject.CompareTag("bluelight"))
@@ -104,6 +122,8 @@ public class PurpleEnemyCollision : MonoBehaviour
             Blue_Attack_Flag = false;
             ParticleSystem = false;
             Destroy(newParticle);
+            Effective_Colour_Blue_On.SetActive(false);
+            Effective_Colour_Blue_Off.SetActive(true);
         }
     }
 }

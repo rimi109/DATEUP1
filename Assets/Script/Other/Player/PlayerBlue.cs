@@ -131,7 +131,7 @@ public class PlayerBlue : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerGreen"))
         {
-            if (Player_dead_Flag && Player_Hp < 0)
+            if (Player_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
@@ -144,7 +144,7 @@ public class PlayerBlue : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerRed"))
         {
-            if (Player_dead_Flag && Player_Hp < 0)
+            if (Player_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;

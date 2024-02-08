@@ -25,9 +25,6 @@ public class BlueEnemyCollisionW2 : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
-    [SerializeField]
-    private PlayerScript Enemy_Destroy_System;
-
     public PlayerScript targetR;
 
     private void Start()
