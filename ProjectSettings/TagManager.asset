@@ -19,7 +19,6 @@ TagManager:
   - PlayerGreen
   - PlayerBlue
   - PlayerRed
-  - Heart
   layers:
   - Default
   - TransparentFX

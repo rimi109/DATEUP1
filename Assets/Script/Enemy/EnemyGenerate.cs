@@ -13,9 +13,6 @@ public class EnemyGenerate : MonoBehaviour
     [SerializeField]
     private Wave3 WaveSystem3;
 
-    [SerializeField]
-    private HeartGenerate HeartSystem;
-
     //インターバル
     private float WaveInTime1 = 0.0f;
     private float WaveInTime2 = 0.0f;
@@ -73,7 +70,6 @@ public class EnemyGenerate : MonoBehaviour
     public void wave3Count()
     {
         Wave2count += 1;
-        HeartSystem.heart();
     }
 
 }
