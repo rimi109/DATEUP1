@@ -34,6 +34,8 @@ public class Wave3 : MonoBehaviour
 
     private int MediumCount = 0;
 
+    [Header(""), SerializeField]
+    private HeartGenerate Heart_Generate;
     // Start is called before the first frame update
     void Start()
     {
