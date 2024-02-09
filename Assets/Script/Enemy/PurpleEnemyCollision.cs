@@ -46,12 +46,17 @@ public class PurpleEnemyCollision : MonoBehaviour
 
     public PlayerScript Target_Player;
 
+    private void Awake()
+    {
+        Effective_Colour_Blue_On.SetActive(false);
+        Effective_Colour_Red_On.SetActive(false);
+    }
+
     private void Start()
     {
         Red_Attack_Flag  = false;
         Blue_Attack_Flag = false;
         ParticleSystem   = false;
-
         Target_Player = GameObject.FindObjectOfType<PlayerScript>();
     }
 

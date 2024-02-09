@@ -45,6 +45,12 @@ public class YellowEnemyCollision : MonoBehaviour
 
     public PlayerScript targetR;
 
+    private void Awake()
+    {
+        Effective_Colour_Red_On.SetActive(false);
+        Effective_Colour_Green_On.SetActive(false);
+    }
+
 
     private void Start()
     {
@@ -52,6 +58,7 @@ public class YellowEnemyCollision : MonoBehaviour
         red_Attack_Flag = false;
         ParticleSystem = false;
         targetR = GameObject.FindObjectOfType<PlayerScript>();
+
     }
 
     void Update()

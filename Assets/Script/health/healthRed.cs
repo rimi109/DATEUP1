@@ -42,9 +42,9 @@ public class healthRed : MonoBehaviour
             health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y, health_[i].transform.position.z);
         }
 
-        if (!GameOverCount && Health_Count < 1)
+        if (!GameOverCount && Health_Count < 0)
         {
-            gameOverSeceChange.GameOver();
+            gameOverSeceChange.GameOver_Count();
             GameOverCount = true;
             PlayerRedDieAnimator.PlayerDieAnimator();
         }
@@ -52,16 +52,16 @@ public class healthRed : MonoBehaviour
 
     public void Health_Function()
     {
-        if (Health_Count < 1)
-            return;
-
-        Health_Count -= 1;
         health_[Health_Count].SetActive(false);
+        Health_Count -= 1;
+     
     }
 
     public void Player_Recovery_Function()
     {
         Health_Count += 1;
         health_[Health_Count].SetActive(true);
+        GameOverCount = false;
+        gameOverSeceChange.GameOver_Minus();
     }
 }

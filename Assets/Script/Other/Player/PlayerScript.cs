@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
 
+    [Header("Playerのhpの画像を参照"), SerializeField]
+    private GameObject Player_Hp_image;
+
     [Header("Player自身のTransformを参照"),SerializeField]
     private Transform Player_Transform_;
 
@@ -27,17 +30,14 @@ public class PlayerScript : MonoBehaviour
     [Header("Playerが何人目のPlayerかを指定"), SerializeField]
     private int Player_Numbers_;
 
+    [Header("PlayerのHpを指定"), SerializeField]
+    private int Player_Hp;
+
     [Header("PlayerのRigidbodyを参照"), SerializeField]
     private Rigidbody Player_Rd_;
 
     [Header("PlayerのAnimatorを参照"), SerializeField]
     private Animator PlayerAnimator;
-
-    [Header("PlayerのHpを指定"), SerializeField]
-    private int Player_Hp;
-
-    [Header("Playerのhpの画像を参照"),SerializeField]
-    private GameObject Player_Hp_image;
 
     [Header("PlayerのHpのプログラムを参照"),SerializeField]
     private health Player_health;
@@ -55,6 +55,12 @@ public class PlayerScript : MonoBehaviour
     private  AudioSource audioSource;
 
     public bool Player_dead_Flag;
+
+    [Header("Playerの回復したときの表示するEffect"),SerializeField]
+    private ParticleSystem Player_Heel_Effect;
+
+    [Tooltip("Playerの回復したときの表示するEffect")]
+    private ParticleSystem Player_Heel_Effect1;
 
     public bool Player_Green_revival_Flag { get; private set; }
 
@@ -76,7 +82,7 @@ public class PlayerScript : MonoBehaviour
 
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
         var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp >= 1)
+        if (LeftStickvalue != Vector3.zero && Player_Hp >= 0)
         {
             Velocity = LeftStickvalue * Player_Move_Speed_;
             PlayerAnimator.SetBool("walk", true);
@@ -92,7 +98,7 @@ public class PlayerScript : MonoBehaviour
         var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
         var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
 
-        if (RightStickvalue !=  Vector3.zero &&  Player_Hp >= 1)
+        if (RightStickvalue !=  Vector3.zero &&  Player_Hp >= 0)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
         }
@@ -133,7 +139,7 @@ public class PlayerScript : MonoBehaviour
       
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_dead_Flag && Player_Hp <= -1)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
@@ -141,13 +147,15 @@ public class PlayerScript : MonoBehaviour
                 player_Blue.PlayerBlue_Recovery_Hp();
                 Player_dead_Flag = false;
                 Player_Green_revival_Flag = true;
-
+                Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
+                Player_Heel_Effect1.transform.position = this.transform.position;
+                Player_Heel_Effect1.Play();
             }
         }
 
         if (collision.gameObject.CompareTag("PlayerRed"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_dead_Flag && Player_Hp <= -1)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
@@ -155,6 +163,9 @@ public class PlayerScript : MonoBehaviour
                 player_Red.PlayerRed_Recovery_Hp();
                 Player_dead_Flag = false;
                 Player_Green_revival_Flag = true;
+                Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
+                Player_Heel_Effect1.transform.position = this.transform.position;
+                Player_Heel_Effect1.Play();
             }
         }
     }
