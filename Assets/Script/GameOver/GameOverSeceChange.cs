@@ -20,8 +20,12 @@ public class GameOverSeceChange : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void GameOver_Count()
     {
         ++GameOverCount;
+    }
+    public void GameOver_Minus()
+    {
+        --GameOverCount;
     }
 }

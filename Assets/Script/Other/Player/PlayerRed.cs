@@ -56,6 +56,12 @@ public class PlayerRed : MonoBehaviour
     [Header(""), SerializeField]
     private AudioSource audioSource;
 
+    [Header("Player‚Ì‰ñ•œ‚µ‚½‚Æ‚«‚Ì•\Ž¦‚·‚éEffect"), SerializeField]
+    private ParticleSystem Player_Heel_Effect;
+
+    [Tooltip("Player‚Ì‰ñ•œ‚µ‚½‚Æ‚«‚Ì•\Ž¦‚·‚éEffect")]
+    private ParticleSystem Player_Heel_Effect1;
+
     public bool Player_dead_Flag;
 
     public bool Player_Red_revival_Flag { get; private set; }
@@ -75,7 +81,7 @@ public class PlayerRed : MonoBehaviour
 
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
         var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp >= 1)
+        if (LeftStickvalue != Vector3.zero && Player_Hp >= 0)
         {
             Velocity = LeftStickvalue * Player_Move_Speed_;
             PlayerAnimator.SetBool("walk", true);
@@ -91,7 +97,7 @@ public class PlayerRed : MonoBehaviour
         var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
         var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
 
-        if (RightStickvalue != Vector3.zero && Player_Hp >= 1)
+        if (RightStickvalue != Vector3.zero && Player_Hp >= 0)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
         }
@@ -132,7 +138,7 @@ public class PlayerRed : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_dead_Flag && Player_Hp <= -1)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
@@ -140,11 +146,14 @@ public class PlayerRed : MonoBehaviour
                 player_Blue.PlayerBlue_Recovery_Hp();
                 Player_dead_Flag = false;
                 Player_Red_revival_Flag = true;
+                Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
+                Player_Heel_Effect1.transform.position = this.transform.position;
+                Player_Heel_Effect1.Play();
             }
         }
         if (collision.gameObject.CompareTag("PlayerGreen"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_dead_Flag && Player_Hp <= -1)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
@@ -152,6 +161,9 @@ public class PlayerRed : MonoBehaviour
                 player_Green.PlayerGreen_Recovery_Hp();
                 Player_dead_Flag = false;
                 Player_Red_revival_Flag = true;
+                Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
+                Player_Heel_Effect1.transform.position = this.transform.position;
+                Player_Heel_Effect1.Play();
             }
         }
     }

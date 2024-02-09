@@ -46,12 +46,19 @@ public class LightBlueEnemyCollision : MonoBehaviour
 
     public PlayerScript targetR;
 
+
+    private void Awake()
+    {
+        Effective_Colour_Blue_On.SetActive(false);
+        Effective_Colour_Green_On.SetActive(false);
+    }
+
     private void Start()
     {
         Green_Attack_Flag = false;
         Blue_Attack_Flag = false;
         ParticleSystem = false;
-
+    
         targetR = GameObject.FindObjectOfType<PlayerScript>();
 
     }

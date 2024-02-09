@@ -42,26 +42,27 @@ public class health : MonoBehaviour
             health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y,  health_[i].transform.position.z);
         }
 
-        if (!GameOverCount && Health_Count < 1)
+        if (!GameOverCount && Health_Count < 0)
         {
-            gameOverSeceChange.GameOver();
+            gameOverSeceChange.GameOver_Count();
             GameOverCount = true;
             PlayerGreenDieAnimator.PlayerDieAnimator();
         }
+
+        Debug.Log(Health_Count);
     }
 
     public void Health_Function()
     {
-        if (Health_Count < 1)
-            return;
-
-        Health_Count -= 1;
         health_[Health_Count].SetActive(false);
+        Health_Count -= 1;
     }
 
     public void Player_Recovery_Function()
     {
+        GameOverCount = false;
         Health_Count += 1;
         health_[Health_Count].SetActive(true);
+        gameOverSeceChange.GameOver_Minus();
     }
 }
