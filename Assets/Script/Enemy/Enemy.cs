@@ -47,8 +47,8 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         this.rb = GetComponent<Rigidbody>();
         PlayerGreen =  GameObject.Find("GreenPlayer").GetComponent<PlayerScript>();
-        PlayerRed = GameObject.Find("PlayerRed").GetComponent<PlayerRed>();
-        PlayerBlue = GameObject.Find("PlayerBlue").GetComponent<PlayerBlue>();
+        PlayerRed   = GameObject.Find("PlayerRed").GetComponent<PlayerRed>();
+        PlayerBlue  = GameObject.Find("PlayerBlue").GetComponent<PlayerBlue>();
         Add_Players_ToList();
 
     }

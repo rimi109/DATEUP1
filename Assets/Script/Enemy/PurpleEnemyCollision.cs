@@ -93,7 +93,7 @@ public class PurpleEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("redlight"))
         {
             Effective_Colour_Red_On.SetActive(true);
-            Effective_Colour_Red_Off.SetActive(true);
+            Effective_Colour_Red_Off.SetActive(false);
             Red_Attack_Flag = true;
             Player_Purple_Flag = other.gameObject.GetComponent<RedLightCollision>();
         }
