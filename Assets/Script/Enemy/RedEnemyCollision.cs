@@ -67,7 +67,6 @@ public class RedEnemyCollision : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
 

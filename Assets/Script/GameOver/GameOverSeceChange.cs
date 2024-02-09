@@ -26,6 +26,8 @@ public class GameOverSeceChange : MonoBehaviour
     }
     public void GameOver_Minus()
     {
+        if (GameOverCount == 0) return;
+
         --GameOverCount;
     }
 }

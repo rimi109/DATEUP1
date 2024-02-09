@@ -48,8 +48,6 @@ public class health : MonoBehaviour
             GameOverCount = true;
             PlayerGreenDieAnimator.PlayerDieAnimator();
         }
-
-        Debug.Log(Health_Count);
     }
 
     public void Health_Function()
