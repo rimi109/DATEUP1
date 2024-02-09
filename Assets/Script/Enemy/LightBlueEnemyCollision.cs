@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class LightBlueEnemyCollision : MonoBehaviour
 {
+
+    [Header("水色の緑色の方の弱点のOnバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Green_On;
+
+    [Header("水色の緑色の方の弱点のOffバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Green_Off;
+
+    [Header("水色の青色の方の弱点のOnバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Blue_On;
+
+    [Header("紫色の青色の方の弱点のOffバージョンimageを取得"), SerializeField]
+    private GameObject Effective_Colour_Blue_Off;
+
     [Tooltip("緑色のライトが当たっているかを判定")]
     private bool Green_Attack_Flag;
 
@@ -82,11 +95,15 @@ public class LightBlueEnemyCollision : MonoBehaviour
         {
             Player_Light_Blue_Flag = other.gameObject.GetComponent<BlueLightCollision>();
             Blue_Attack_Flag = true;
+            Effective_Colour_Blue_On.SetActive(true);
+            Effective_Colour_Blue_Off.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("greenlight"))
         {
             Green_Attack_Flag = true;
+            Effective_Colour_Green_On.SetActive(true);
+            Effective_Colour_Green_Off.SetActive(false);
         }
     }
 
@@ -94,6 +111,8 @@ public class LightBlueEnemyCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("greenlight"))
         {
+            Effective_Colour_Green_On.SetActive(false);
+            Effective_Colour_Green_Off.SetActive(true);
             Green_Attack_Flag = false;
             ParticleSystem = false;
             Destroy(newParticle);
@@ -104,6 +123,8 @@ public class LightBlueEnemyCollision : MonoBehaviour
             Blue_Attack_Flag = false;
             ParticleSystem = false;
             Destroy(newParticle);
+            Effective_Colour_Blue_On.SetActive(false);
+            Effective_Colour_Blue_Off.SetActive(true);
         }
     }
 }
