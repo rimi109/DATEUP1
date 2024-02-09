@@ -106,7 +106,19 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       
+
+        if (collision.gameObject.CompareTag("Heart"))
+        {
+            if (Player_Hp <= 2)
+            {
+                Destroy(collision.gameObject);
+                return;
+            }
+            ++Player_Hp;
+            Player_health.Player_Recovery_Function();
+            Destroy(collision.gameObject);
+        }
+
 
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW1"))
@@ -115,7 +127,7 @@ public class PlayerScript : MonoBehaviour
             Player_health.Health_Function();
             Player_Hp_image.SetActive(true);
             audioSource.PlayOneShot(Player_AudioClip);
-            Player_Hp -= 1;
+            --Player_Hp;
         }
 
         //当たったオブジェクトのタグが"Enemy"
@@ -124,7 +136,7 @@ public class PlayerScript : MonoBehaviour
             Player_health.Health_Function();
             Player_Hp_image.SetActive(true);
             audioSource.PlayOneShot(Player_AudioClip);
-            Player_Hp -= 1;
+            --Player_Hp;
         }
 
         //当たったオブジェクトのタグが"Enemy"
@@ -133,7 +145,7 @@ public class PlayerScript : MonoBehaviour
             Player_health.Health_Function();
             Player_Hp_image.SetActive(true);
             audioSource.PlayOneShot(Player_AudioClip);
-            Player_Hp -= 1;
+            --Player_Hp;
         }
 
       
@@ -142,7 +154,7 @@ public class PlayerScript : MonoBehaviour
             if (Player_dead_Flag && Player_Hp <= -1)
             {
                 PlayerAnimator.SetBool("Down", false);
-                Player_Hp += 1;
+                ++Player_Hp;
                 Player_health.Player_Recovery_Function();
                 player_Blue.PlayerBlue_Recovery_Hp();
                 Player_dead_Flag = false;
@@ -158,7 +170,7 @@ public class PlayerScript : MonoBehaviour
             if (Player_dead_Flag && Player_Hp <= -1)
             {
                 PlayerAnimator.SetBool("Down", false);
-                Player_Hp += 1;
+                ++Player_Hp;
                 Player_health.Player_Recovery_Function();
                 player_Red.PlayerRed_Recovery_Hp();
                 Player_dead_Flag = false;

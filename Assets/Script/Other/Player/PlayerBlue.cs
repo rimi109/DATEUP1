@@ -105,6 +105,17 @@ public class PlayerBlue : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
+        if (collision.gameObject.CompareTag("Heart"))
+        {
+            if (Player_Hp <= 2)
+            {
+                Destroy(collision.gameObject);
+                return;
+            }
+            ++Player_Hp;
+            Player_health.Player_Recovery_Function();
+            Destroy(collision.gameObject);
+        }
 
         //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW1"))
