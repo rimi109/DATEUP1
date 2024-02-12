@@ -108,7 +108,7 @@ public class PlayerRed : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Heart"))
         {
-            if (Player_Hp <= 2)
+            if (Player_Hp >= 3)
             {
                 Destroy(collision.gameObject);
                 return;

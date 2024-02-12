@@ -17,7 +17,7 @@ public class BlueEnemyCollisionW2 : MonoBehaviour
     private bool ParticleSystem;
 
     [Header("White‚ÌHp‚ðÝ’è"), SerializeField]
-    private int Purple_Enemy_Hp;
+    private int Blue_Enemy_Hp;
 
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
@@ -44,10 +44,10 @@ public class BlueEnemyCollisionW2 : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Purple_Enemy_Hp -= 2;
-                Debug.Log(Purple_Enemy_Hp);
+                Blue_Enemy_Hp -= 2;
+                Debug.Log(Blue_Enemy_Hp);
                 Enemy_Hit_Time = 0;
-                if (Purple_Enemy_Hp <= 0)
+                if (Blue_Enemy_Hp <= 0)
                 {
 
                     Destroy(newParticle);

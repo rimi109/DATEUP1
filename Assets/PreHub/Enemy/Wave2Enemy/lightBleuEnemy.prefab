@@ -527,7 +527,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4059983697447612597}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d74009ac0b0b024dab430902bd27bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effective_Colour_Green_On: {fileID: 8910547346825012668}
+  Effective_Colour_Green_On: {fileID: 5076081492858659077}
   Effective_Colour_Green_Off: {fileID: 8910547346825012668}
   Effective_Colour_Blue_On: {fileID: 1313871473047612240}
   Effective_Colour_Blue_Off: {fileID: 2838421483199375387}
