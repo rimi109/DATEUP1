@@ -117,7 +117,7 @@ public class Wave3 : MonoBehaviour
         }
         else
         {
-            if (EnemySpawnCount < 100)
+            if (EnemySpawnCount < 20)
             {
                 var ghosts = GameObject.FindGameObjectsWithTag("EnemyW3");
                 if (ghosts.Length < 4)
@@ -160,7 +160,7 @@ public class Wave3 : MonoBehaviour
             }
             else
             {
-                if (EnemySpawnCount < 100)
+                if (EnemySpawnCount < 20)
                 {
                     var ghosts = GameObject.FindGameObjectsWithTag("EnemyW3");
                     if (ghosts.Length < 1)

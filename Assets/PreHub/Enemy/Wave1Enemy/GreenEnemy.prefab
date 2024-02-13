@@ -520,9 +520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cc8542349d1191e4c9504e02104a8b4d, type: 3}
-  Purple_Enemy_Hp: 5
+  Green_Enemy_Hp: 5
   Enemy_Destroy_System: {fileID: 0}
   targetR: {fileID: 0}
+  Shrink_Speed: 0.5
 --- !u!114 &8687922156558075549
 MonoBehaviour:
   m_ObjectHideFlags: 0
