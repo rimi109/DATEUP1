@@ -49,6 +49,7 @@ public class whiteEnemyCollision : MonoBehaviour
         Blue_Attack_Flag  = false;
         Red_Attack_Flag   = false;
         ParticleSystem    = false;
+
     }
 
     // Update is called once per frame
@@ -104,13 +105,14 @@ public class whiteEnemyCollision : MonoBehaviour
         {
             Blue_Attack_Flag = true;
             Player_Green_Flag = other.gameObject.GetComponent<GreenLightCollision>();
+         
         }
 
         if (other.gameObject.CompareTag("redlight"))
         {
             Red_Attack_Flag = true;
             Player_Purple_Flag = other.gameObject.GetComponent<RedLightCollision>();
-    
+          
         }
     }
 
@@ -121,6 +123,7 @@ public class whiteEnemyCollision : MonoBehaviour
             ParticleSystem = false;
             Green_Attack_Flag = false;
             Destroy(newParticle);
+          
         }
 
         if (other.gameObject.CompareTag("greenlight"))

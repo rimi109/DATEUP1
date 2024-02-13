@@ -760,6 +760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d74009ac0b0b024dab430902bd27bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Weakness: []
+  thisEnemy: {fileID: 4951137792371982590}
   Effective_Colour_Green_On: {fileID: 5076081492858659077}
   Effective_Colour_Green_Off: {fileID: 8910547346825012668}
   Effective_Colour_Blue_On: {fileID: 1313871473047612240}

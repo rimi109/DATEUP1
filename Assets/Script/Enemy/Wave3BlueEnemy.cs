@@ -27,6 +27,15 @@ public class Wave3BlueEnemy : MonoBehaviour
 
     public PlayerScript targetR;
 
+    [Tooltip("Ž©•ª‚ªŽ€‚ñ‚¾‚©‚Ç‚¤‚©‚ð”»’èŒŸ’m‚·‚é")]
+    private bool Enemy_Destory_flag;
+
+    [Tooltip("")]
+    private float Enemy_Destroy_Time;
+
+    public float Shrink_Speed = 0.5f;
+    private const float ROTATION_SPEED = 4000.0f;
+
     private void Start()
     {
         Blue_Attack_Flag = false;
@@ -49,8 +58,7 @@ public class Wave3BlueEnemy : MonoBehaviour
                 Enemy_Hit_Time = 0;
                 if (Purple_Enemy_Hp <= 0)
                 {
-                    Destroy(this.gameObject);
-                    Destroy(newParticle);
+                    Enemy_Destory_flag = true;
                     targetR.Wave3EnemyDestroy();
                 }
             }
@@ -64,6 +72,17 @@ public class Wave3BlueEnemy : MonoBehaviour
             else
             {
                 newParticle.transform.position = this.transform.position;
+            }
+        }
+
+        if (Enemy_Destory_flag)
+        {
+            Enemy_destroy_animation();
+            Enemy_Destroy_Time += Time.deltaTime;
+            if (Enemy_Destroy_Time > 1)
+            {
+                Destroy(newParticle);
+                Destroy(this.gameObject);
             }
         }
     }
@@ -87,4 +106,15 @@ public class Wave3BlueEnemy : MonoBehaviour
             Destroy(newParticle);
         }
     }
+
+    private void Enemy_destroy_animation()
+    {
+        Vector3 currentScale = transform.localScale;
+        float newScale = Mathf.Max(currentScale.x - Shrink_Speed, 0.0f);
+        transform.localScale = new Vector3(newScale, newScale, newScale);
+
+        Quaternion deltaRotation = Quaternion.Euler(0f, ROTATION_SPEED * Time.deltaTime, 0f);
+        this.transform.rotation *= deltaRotation;
+    }
+
 }

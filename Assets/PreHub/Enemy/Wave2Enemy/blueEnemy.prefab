@@ -313,9 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  targetR: {fileID: 0}
-  targetG: {fileID: 0}
-  targetB: {fileID: 0}
+  Players: []
   col: {fileID: 5202021018826794805}
   MeshRen: {fileID: 8054123373085049353}
 --- !u!114 &5714216633119797747
@@ -331,8 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
-  Purple_Enemy_Hp: 5
-  Enemy_Destroy_System: {fileID: 0}
+  Blue_Enemy_Hp: 5
   targetR: {fileID: 0}
 --- !u!1 &3802460037199382815
 GameObject:

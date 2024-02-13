@@ -81,7 +81,7 @@ public class PlayerRed : MonoBehaviour
 
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
         var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp >= 0)
+        if (LeftStickvalue != Vector3.zero && Player_Hp > 0)
         {
             Velocity = LeftStickvalue * Player_Move_Speed_;
             PlayerAnimator.SetBool("walk", true);
@@ -97,7 +97,7 @@ public class PlayerRed : MonoBehaviour
         var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
         var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
 
-        if (RightStickvalue != Vector3.zero && Player_Hp >= 0)
+        if (RightStickvalue != Vector3.zero && Player_Hp > 0)
         {
             Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
         }
@@ -150,7 +150,7 @@ public class PlayerRed : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
-            if (Player_dead_Flag && Player_Hp <= -1)
+            if (Player_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
@@ -165,7 +165,7 @@ public class PlayerRed : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PlayerGreen"))
         {
-            if (Player_dead_Flag && Player_Hp <= -1)
+            if (Player_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;

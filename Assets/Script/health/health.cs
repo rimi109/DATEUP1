@@ -11,9 +11,6 @@ public class health : MonoBehaviour
     private Transform Green_Player;
 
     [SerializeField]
-    private Camera Main_Camera;
-
-    [SerializeField]
     private  int Health_Count;
 
     [SerializeField]
