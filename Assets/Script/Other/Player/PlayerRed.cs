@@ -62,13 +62,13 @@ public class PlayerRed : MonoBehaviour
     [Tooltip("Player‚Ì‰ñ•œ‚µ‚½‚Æ‚«‚Ì•\Ž¦‚·‚éEffect")]
     private ParticleSystem Player_Heel_Effect1;
 
-    public bool Player_dead_Flag;
+    public bool Player_Red_dead_Flag;
 
     public bool Player_Red_revival_Flag { get; private set; }
 
     private void Start()
     {
-        Player_dead_Flag = false;
+        Player_Red_dead_Flag = false;
         Player_Red_revival_Flag = false;
     }
 
@@ -150,13 +150,13 @@ public class PlayerRed : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_Red_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
                 player_Blue.PlayerBlue_Recovery_Hp();
-                Player_dead_Flag = false;
+                Player_Red_dead_Flag = false;
                 Player_Red_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
                 Player_Heel_Effect1.transform.position = this.transform.position;
@@ -165,13 +165,13 @@ public class PlayerRed : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PlayerGreen"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_Red_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
                 player_Green.PlayerGreen_Recovery_Hp();
-                Player_dead_Flag = false;
+                Player_Red_dead_Flag = false;
                 Player_Red_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
                 Player_Heel_Effect1.transform.position = this.transform.position;
@@ -200,7 +200,7 @@ public class PlayerRed : MonoBehaviour
     public void PlayerDieAnimator()
     {
         PlayerAnimator.SetBool("Down", true);
-        Player_dead_Flag = true;
+        Player_Red_dead_Flag = true;
     }
 
     public void PlayerRed_Recovery_Hp()

@@ -19,17 +19,12 @@ public class Enemy : MonoBehaviour
     private bool EffectStart;
     private bool Effect;
 
-    [Tooltip("")]
-    public  List<GameObject> Players = new List<GameObject>();
-
-    private Rigidbody rb;
-
     private NavMeshAgent agent;
     public CapsuleCollider col;
     public Renderer MeshRen;
-    private PlayerScript PlayerGreen;
-    private PlayerBlue PlayerBlue;
-    private PlayerRed PlayerRed;
+
+    [Header("PlayerManager‚ÌScript‚ðŽæ“¾"),SerializeField]
+    private PlayerManager Player_Manager;
 
     private float EffectTime;
     private float AnimeTime;
@@ -45,12 +40,7 @@ public class Enemy : MonoBehaviour
         col.enabled = false;
 
         agent = GetComponent<NavMeshAgent>();
-        this.rb = GetComponent<Rigidbody>();
-        PlayerGreen =  GameObject.Find("GreenPlayer").GetComponent<PlayerScript>();
-        PlayerRed   = GameObject.Find("PlayerRed").GetComponent<PlayerRed>();
-        PlayerBlue  = GameObject.Find("PlayerBlue").GetComponent<PlayerBlue>();
-        Add_Players_ToList();
-
+        Player_Manager = FindObjectOfType<PlayerManager>();
     }
 
     void Update()
@@ -83,21 +73,6 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if (PlayerGreen.Player_Green_revival_Flag)
-        {
-            PlayerGreen_revival_function();
-        }
-
-        if (PlayerRed.Player_Red_revival_Flag)
-        {
-            PlayerRed_revival_function();
-        }
-
-        if (PlayerBlue.Player_Blue_revival_Flag)
-        {
-            PlayerBlue_revival_function();
-        }
-
         if (!EffectStart && !Effect)
             return;
 
@@ -105,21 +80,17 @@ public class Enemy : MonoBehaviour
 
 
         float closestPlayerDistance = float.MaxValue;
-        GameObject closestPlayer = null;
-
-        Players.RemoveAll(playerGreen => playerGreen.GetComponent<PlayerScript>() != null && playerGreen.GetComponent<PlayerScript>().Player_dead_Flag);
-        Players.RemoveAll(playerBlue => playerBlue.GetComponent<PlayerBlue>() != null && playerBlue.GetComponent<PlayerBlue>().Player_dead_Flag);
-        Players.RemoveAll(playerRed => playerRed.GetComponent<PlayerRed>() != null && playerRed.GetComponent<PlayerRed>().Player_dead_Flag);
+        Transform closestPlayer = null;
 
 
-        for (int i = 0; i < Players.Count; i++)
+        for (int i = 0; i < Player_Manager.Players.Count; i++)
         {
-            float playerDistance = Vector3.Distance(transform.position, Players[i].transform.position);
+            float playerDistance = Vector3.Distance(transform.position, Player_Manager.Players[i].transform.position);
 
             if (playerDistance < closestPlayerDistance)
             {
                 closestPlayerDistance = playerDistance;
-                closestPlayer = Players[i];
+                closestPlayer = Player_Manager.Players[i];
             }
         }
 
@@ -128,33 +99,5 @@ public class Enemy : MonoBehaviour
             agent.destination = closestPlayer.transform.position;
             agent.speed = 10.0f;
         }
-    }
-    void Add_Players_ToList()
-    {
-        GameObject[] PlayerGreen = GameObject.FindGameObjectsWithTag("PlayerGreen");
-        GameObject[] PlayerRed = GameObject.FindGameObjectsWithTag("PlayerRed");
-        GameObject[] PlayerBlue = GameObject.FindGameObjectsWithTag("PlayerBlue");
-
-        Players.AddRange(PlayerGreen);
-        Players.AddRange(PlayerRed);
-        Players.AddRange(PlayerBlue);
-    }
-
-    void PlayerGreen_revival_function()
-    {
-        GameObject[] PlayerGreen = GameObject.FindGameObjectsWithTag("PlayerGreen");
-        Players.AddRange(PlayerGreen);
-    }
-
-    void PlayerBlue_revival_function()
-    {
-        GameObject[] PlayerBlue = GameObject.FindGameObjectsWithTag("PlayerBlue");
-        Players.AddRange(PlayerBlue);
-    }
-
-    void PlayerRed_revival_function() 
-    {
-        GameObject[] PlayerRed = GameObject.FindGameObjectsWithTag("PlayerRed");
-        Players.AddRange(PlayerRed);
     }
 }

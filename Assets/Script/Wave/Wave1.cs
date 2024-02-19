@@ -19,7 +19,7 @@ public class Wave1 : MonoBehaviour
     [SerializeField]
     private int EnemySpawnCount = 0;
 
-    [Header("kokokok"), SerializeField]
+    [Header(""), SerializeField]
     private int EnemyCrushing;
 
     //撃破カウンターWave1
@@ -154,31 +154,7 @@ public class Wave1 : MonoBehaviour
         //時間経過で出現するEnemy
         if(BossBattleTime >= 6.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount == 0)
         {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
-
-            // rightTop xが右端　yが上端                
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-            GameObject enemyEnemy = Instantiate(Enemies[Random.Range(0, 3)]);
-            enemyEnemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTopEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottomEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
-
-            // rightTop xが右端　yが上端                
-            // leftbottom xが左端　yが下端
-            var randomPosXEnemy2 = Random.Range(leftBottomEnemy2.z, rightTopEnemy2.z);
-            var randomPosZEnemy2 = Random.Range(leftBottomEnemy2.x, rightTopEnemy2.x);
-
-            GameObject enemyEnemy2 = Instantiate(Enemies[Random.Range(0, 3)]);
-            enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
+            Time_Lapse_Fish();
 
             ++BossBattleCount;
             BossBattleTime = 0;
@@ -186,31 +162,7 @@ public class Wave1 : MonoBehaviour
 
         if (BossBattleTime >= 4.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount < 10)
         {
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
-
-            // rightTop xが右端　yが上端                
-            // leftbottom xが左端　yが下端
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-            GameObject enemyEnemy = Instantiate(Enemies[Random.Range(0, 3)]);
-            enemyEnemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
-
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var rightTopEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-            var leftBottomEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
-
-            // rightTop xが右端　yが上端                
-            // leftbottom xが左端　yが下端
-            var randomPosXEnemy2 = Random.Range(leftBottomEnemy2.z, rightTopEnemy2.z);
-            var randomPosZEnemy2 = Random.Range(leftBottomEnemy2.x, rightTopEnemy2.x);
-
-            GameObject enemyEnemy2 = Instantiate(Enemies[Random.Range(0, 3)]);
-            enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
+            Time_Lapse_Fish();
 
             ++BossBattleCount;
             BossBattleTime = 0;
@@ -221,4 +173,34 @@ public class Wave1 : MonoBehaviour
     {
         ++EnemyCrushingWave1Count;
     }
+
+    private void Time_Lapse_Fish()
+    {
+        //enemyをインスタンス化する(生成する)
+        //生成した敵の位置をランダムに設定する
+        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+        // rightTop xが右端　yが上端                
+        // leftbottom xが左端　yが下端
+        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+        GameObject enemyEnemy = Instantiate(Enemies[Random.Range(0, 3)]);
+        enemyEnemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+
+        //enemyをインスタンス化する(生成する)
+        //生成した敵の位置をランダムに設定する
+        var rightTopEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
+        var leftBottomEnemy2 = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+
+        // rightTop xが右端　yが上端                
+        // leftbottom xが左端　yが下端
+        var randomPosXEnemy2 = Random.Range(leftBottomEnemy2.z, rightTopEnemy2.z);
+        var randomPosZEnemy2 = Random.Range(leftBottomEnemy2.x, rightTopEnemy2.x);
+
+        GameObject enemyEnemy2 = Instantiate(Enemies[Random.Range(0, 3)]);
+        enemyEnemy2.transform.position = new Vector3(randomPosXEnemy2, 3, randomPosZEnemy2);
+    }
+
 }

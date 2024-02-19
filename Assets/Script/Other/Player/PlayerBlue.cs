@@ -5,16 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerBlue : MonoBehaviour
 {
-    [SerializeField]
+    [Header(""),SerializeField]
     private EnemyGenerate EnemyGenerateSystem;
 
-    [SerializeField]
+    [Header(""),SerializeField]
     private Wave1 GameWave1;
 
-    [SerializeField]
+    [Header(""),SerializeField]
     private Wave2 GameWave2;
 
-    [SerializeField]
+    [Header(""),SerializeField]
     private Wave3 GameWave3;
 
     [Header("Player‚ÌModel‚ÌGameObject‚ðŽæ“¾"), SerializeField]
@@ -175,23 +175,6 @@ public class PlayerBlue : MonoBehaviour
                 Player_Heel_Effect1.Play();
             }
         }
-    }
-    public void Wave1EnemyDestroy()
-    {
-        EnemyGenerateSystem.wave1Count();
-        GameWave1.CountW1();
-    }
-
-    public void Wave2EnemyDestroy()
-    {
-        EnemyGenerateSystem.wave3Count();
-        GameWave2.CountW2();
-    }
-
-    public void Wave3EnemyDestroy()
-    {
-        EnemyGenerateSystem.wave3Count();
-        GameWave3.CountW3();
     }
 
     public void PlayerDieAnimator()
