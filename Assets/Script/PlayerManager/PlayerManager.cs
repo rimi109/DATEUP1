@@ -7,19 +7,32 @@ public class PlayerManager : MonoBehaviour
     [Header("Player‚Ìˆêlˆêl‚ÌTransform‚ğæ“¾"), SerializeField]
     public List<Transform> Players = new List<Transform>();
 
+    [Header("PlayerGreen‚ÌScrip‚ğæ“¾"),SerializeField]
+    private PlayerScript Player_Green;
+
+    [Header("PlayerRed‚ÌScrip‚ğæ“¾"), SerializeField]
+    private PlayerRed Player_Red;
+
+    [Header("PlayerBlue‚ÌScrip‚ğæ“¾"), SerializeField]
+    private PlayerBlue Player_Blue;
+
     // Update is called once per frame
     void Update()
     {
-        Players.RemoveAll(playerGreen => playerGreen.GetComponent<PlayerScript>() != null && playerGreen.GetComponent<PlayerScript>().Player_Green_dead_Flag);
-        Players.RemoveAll(playerBlue => playerBlue.GetComponent<PlayerBlue>() != null && playerBlue.GetComponent<PlayerBlue>().Player_Blue_Dead_Flag);
-        Players.RemoveAll(playerRed => playerRed.GetComponent<PlayerRed>() != null && playerRed.GetComponent<PlayerRed>().Player_Red_dead_Flag);
+        if (Player_Green.Player_Green_revival_Flag)
+        {
+            Player_Green_List_Add_Function();
+        }
 
+        if (Player_Red.Player_Red_revival_Flag)
+        {
+            Player_Red_List_Add_Function();
+        }
 
-
-
-
-
-
+        if (Player_Blue.Player_Blue_revival_Flag)
+        {
+            Player_Blue_List_Add_Function();
+        }
     }
 
     private void Player_Red_List_Add_Function()
@@ -40,4 +53,8 @@ public class PlayerManager : MonoBehaviour
         Players.Add(PlayerGreen);
     }
 
+    public void Player_List_Remove_Function()
+    {
+        //Players.Remove();
+    }
 }
