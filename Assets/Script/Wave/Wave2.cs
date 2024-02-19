@@ -32,12 +32,6 @@ public class Wave2 : MonoBehaviour
         ShuffleBoss(MediumBoss);
     }
 
-    void Update()
-    {
-
-        Debug.Log(EnemyCrushingWave2Count);
-    }
-
     void ShuffleEnemy(GameObject[] num)
     {
         for (int i = 0; i < num.Length; i++)

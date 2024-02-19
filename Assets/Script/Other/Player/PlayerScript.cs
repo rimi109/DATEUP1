@@ -54,7 +54,7 @@ public class PlayerScript : MonoBehaviour
     [Header(""),SerializeField]
     private  AudioSource audioSource;
 
-    public bool Player_dead_Flag;
+   
 
     [Header("Player‚Ì‰ñ•œ‚µ‚½‚Æ‚«‚Ì•\Ž¦‚·‚éEffect"),SerializeField]
     private ParticleSystem Player_Heel_Effect;
@@ -62,13 +62,14 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("Player‚Ì‰ñ•œ‚µ‚½‚Æ‚«‚Ì•\Ž¦‚·‚éEffect")]
     private ParticleSystem Player_Heel_Effect1;
 
+
+    public bool Player_Green_Blue_dead_Flag;
+
     public bool Player_Green_revival_Flag { get; private set; }
-
-
 
     private void Start()
     {
-        Player_dead_Flag = false;
+        Player_Green_Blue_dead_Flag = false;
         Player_Green_revival_Flag = false;
 
     }
@@ -151,13 +152,13 @@ public class PlayerScript : MonoBehaviour
       
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_Green_Blue_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 ++Player_Hp;
                 Player_health.Player_Recovery_Function();
                 player_Blue.PlayerBlue_Recovery_Hp();
-                Player_dead_Flag = false;
+                Player_Green_Blue_dead_Flag = false;
                 Player_Green_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
                 Player_Heel_Effect1.transform.position = this.transform.position;
@@ -167,13 +168,13 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PlayerRed"))
         {
-            if (Player_dead_Flag && Player_Hp <= 0)
+            if (Player_Green_Blue_dead_Flag && Player_Hp <= 0)
             {
                 PlayerAnimator.SetBool("Down", false);
                 ++Player_Hp;
                 Player_health.Player_Recovery_Function();
                 player_Red.PlayerRed_Recovery_Hp();
-                Player_dead_Flag = false;
+                Player_Green_Blue_dead_Flag = false;
                 Player_Green_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
                 Player_Heel_Effect1.transform.position = this.transform.position;
@@ -202,7 +203,7 @@ public class PlayerScript : MonoBehaviour
     public void PlayerDieAnimator()
     {
         PlayerAnimator.SetBool("Down", true);
-        Player_dead_Flag = true;
+        Player_Green_Blue_dead_Flag = true;
     }
 
     public void PlayerGreen_Recovery_Hp()

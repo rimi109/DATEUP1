@@ -2951,37 +2951,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 999.6279, y: 66.64183, z: 1999.2457}
   m_Center: {x: 4598.2866, y: 199.92548, z: -2998.88}
---- !u!1 &595422676
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 595422677}
-  m_Layer: 0
-  m_Name: EnemySystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &595422677
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595422676}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9207826, y: -3.492298, z: 37.714638}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &599779474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3027,7 +2996,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh251468
+  m_Name: pb_Mesh24874
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6877,7 +6846,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh253310
+  m_Name: pb_Mesh25596
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7361,7 +7330,7 @@ Transform:
   - {fileID: 1901367826}
   - {fileID: 756566577}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1083355559
 BoxCollider:
@@ -7767,7 +7736,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1447731732
 BoxCollider:
@@ -7856,6 +7825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1501504118}
+  - component: {fileID: 1501504119}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -7884,6 +7854,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501504119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501504117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b1c391c0106f345b2a004f256c2fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players:
+  - {fileID: 543450652146148647}
+  - {fileID: 543450653452754349}
+  - {fileID: 543450652835832186}
 --- !u!1 &1515165412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,8 +8012,8 @@ MonoBehaviour:
   player_Blue: {fileID: 3553337084966060211}
   Player_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
   audioSource: {fileID: 919132148425850782}
-  Player_dead_Flag: 0
   Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
+  Player_Green_Blue_dead_Flag: 0
 --- !u!136 &1553810128
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9608,7 +9594,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh251576
+  m_Name: pb_Mesh24914
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10503,7 +10489,7 @@ MonoBehaviour:
   Player_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
   audioSource: {fileID: 919132149266843416}
   Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
-  Player_dead_Flag: 0
+  Player_Red_dead_Flag: 0
 --- !u!114 &3002009105177745731
 MonoBehaviour:
   m_ObjectHideFlags: 0
