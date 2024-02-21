@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RedEnemyCollisionW2 : MonoBehaviour
@@ -50,7 +48,7 @@ public class RedEnemyCollisionW2 : MonoBehaviour
         if (Red_Attack_Flag)
         {
             Enemy_Hit_Time += Time.deltaTime;
-            
+
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
                 Purple_Enemy_Hp -= 1;

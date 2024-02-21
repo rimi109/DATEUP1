@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class healthRed : MonoBehaviour
@@ -54,7 +52,7 @@ public class healthRed : MonoBehaviour
     {
         health_[Health_Count].SetActive(false);
         Health_Count -= 1;
-     
+
     }
 
     public void Player_Recovery_Function()

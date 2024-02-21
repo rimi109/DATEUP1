@@ -5,7 +5,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class CollisionDetector : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private TriggerEvent onTriggerStay = new TriggerEvent();
     private void OnTriggerStay(Collider other)
     {

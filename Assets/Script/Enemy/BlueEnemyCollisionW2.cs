@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlueEnemyCollisionW2 : MonoBehaviour
@@ -59,7 +57,7 @@ public class BlueEnemyCollisionW2 : MonoBehaviour
                 if (Blue_Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
-                   
+
                     targetR.Wave2EnemyDestroy();
                 }
             }
