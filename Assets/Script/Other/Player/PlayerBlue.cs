@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerBlue : MonoBehaviour
 {
-    [Header(""),SerializeField]
+    [Header(""), SerializeField]
     private EnemyGenerate EnemyGenerateSystem;
 
-    [Header(""),SerializeField]
+    [Header(""), SerializeField]
     private Wave1 GameWave1;
 
-    [Header(""),SerializeField]
+    [Header(""), SerializeField]
     private Wave2 GameWave2;
 
-    [Header(""),SerializeField]
+    [Header(""), SerializeField]
     private Wave3 GameWave3;
 
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
@@ -117,7 +115,7 @@ public class PlayerBlue : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        //当たったオブジェクトのタグが"Enemy"
+
         if (collision.gameObject.CompareTag("EnemyW1"))
         {
             Player_health.Health_Function();
@@ -126,7 +124,7 @@ public class PlayerBlue : MonoBehaviour
             Player_Hp -= 1;
         }
 
-        //当たったオブジェクトのタグが"Enemy"
+
         if (collision.gameObject.CompareTag("EnemyW2"))
         {
             Player_health.Health_Function();
@@ -135,7 +133,7 @@ public class PlayerBlue : MonoBehaviour
             Player_Hp -= 1;
         }
 
-        //当たったオブジェクトのタグが"Enemy"
+
         if (collision.gameObject.CompareTag("EnemyW3"))
         {
             Player_health.Health_Function();

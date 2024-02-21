@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Wave2 : MonoBehaviour
 {
-    [Header("敵の出現するScriptを参照"),SerializeField]
+    [Header("敵の出現するScriptを参照"), SerializeField]
     private EnemyGenerate EnemySystem;
 
-    [Header("単色の敵"),SerializeField]
+    [Header("単色の敵"), SerializeField]
     public GameObject[] Enemies;
 
     [Header("中ボス"), SerializeField]
@@ -22,7 +20,7 @@ public class Wave2 : MonoBehaviour
     //Medium Boss数
     private int MediumBossCount = 0;
 
-    [Header("kokokok"),SerializeField]
+    [Header("kokokok"), SerializeField]
     private int EnemyCrushing;
 
     // Start is called before the first frame update

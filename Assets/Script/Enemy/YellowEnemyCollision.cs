@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class YellowEnemyCollision : MonoBehaviour
@@ -25,7 +23,7 @@ public class YellowEnemyCollision : MonoBehaviour
     [Tooltip("—ÎF‚Ìƒ‰ƒCƒg‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ğ”»’è")]
     private GreenLightCollision Player_Green_Flag;
 
-    [Header(""),SerializeField]
+    [Header(""), SerializeField]
     private ParticleSystem particle;
 
     [Tooltip("")]

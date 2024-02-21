@@ -9,7 +9,7 @@ public class EnemyMove : MonoBehaviour
 
     public void OnDetectObject(Collider collider)
     {
-     
+
         if (collider.CompareTag("Player"))
         {
             navMeshAgent.destination = collider.transform.position;

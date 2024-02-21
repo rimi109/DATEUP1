@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Wave1 : MonoBehaviour
@@ -60,7 +58,7 @@ public class Wave1 : MonoBehaviour
     void Update()
     {
 
-        if(MediumBossCount >= 1)
+        if (MediumBossCount >= 1)
         {
             BossBattleTime += Time.deltaTime;
             EnemySpawn = true;
@@ -152,7 +150,7 @@ public class Wave1 : MonoBehaviour
         }
 
         //ŽžŠÔŒo‰ß‚ÅoŒ»‚·‚éEnemy
-        if(BossBattleTime >= 6.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount == 0)
+        if (BossBattleTime >= 6.0f && EnemyCrushingWave1Count >= 20 && BossBattleCount == 0)
         {
             Time_Lapse_Fish();
 

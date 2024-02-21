@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 //using UnityEngine.ProBuilder.Shapes;
 
 public class Enemy : MonoBehaviour
 {
-    //Ä¶‚µ‚½‚¢Effect‚ğQÆ
+
     [SerializeField]
     private ParticleSystem particle;
 
-    //Ä¶‚µ‚½‚¢Animation‚ğQÆ]
     public GameObject anime;
 
     private bool Anime;
@@ -23,7 +18,7 @@ public class Enemy : MonoBehaviour
     public CapsuleCollider col;
     public Renderer MeshRen;
 
-    [Header("PlayerManager‚ÌScript‚ğæ“¾"),SerializeField]
+    [Header("PlayerManager‚ÌScript‚ğæ“¾"), SerializeField]
     private PlayerManager Player_Manager;
 
     private float EffectTime;
@@ -32,9 +27,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         EffectTime = 0.0f;
-        AnimeTime  = 0.0f;
+        AnimeTime = 0.0f;
 
-        Anime = false; 
+        Anime = false;
         EffectStart = false;
         Effect = false;
         col.enabled = false;
@@ -47,7 +42,7 @@ public class Enemy : MonoBehaviour
     {
         AnimeTime += 1.0f * Time.deltaTime;
 
-        if(!Anime)
+        if (!Anime)
         {
             GameObject newAnim = Instantiate(anime);
             newAnim.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 10, this.transform.position.z);

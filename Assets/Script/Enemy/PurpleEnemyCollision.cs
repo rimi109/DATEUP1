@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PurpleEnemyCollision : MonoBehaviour
 {
 
-    [Header("紫色の赤色の方の弱点のOnバージョンimageを取得"),SerializeField]
+    [Header("紫色の赤色の方の弱点のOnバージョンimageを取得"), SerializeField]
     private GameObject Effective_Colour_Red_On;
 
     [Header("紫色の赤色の方の弱点のOffバージョンimageを取得"), SerializeField]
@@ -64,9 +62,9 @@ public class PurpleEnemyCollision : MonoBehaviour
 
     private void Start()
     {
-        Red_Attack_Flag  = false;
+        Red_Attack_Flag = false;
         Blue_Attack_Flag = false;
-        ParticleSystem   = false;
+        ParticleSystem = false;
         Target_Player = GameObject.FindObjectOfType<PlayerScript>();
     }
 

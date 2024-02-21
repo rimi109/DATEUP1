@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Wave3 : MonoBehaviour
@@ -140,7 +137,7 @@ public class Wave3 : MonoBehaviour
         }
 
         //•¡F
-        if(EnemyIn >= 10.0f)
+        if (EnemyIn >= 10.0f)
         {
             if (MediumCount == 0)
             {

@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RedLightCollision : MonoBehaviour
 {
 
     [SerializeField]
-    private  float angle;
+    private float angle;
 
     [Tooltip("")]
-    public boolÅ@Purple_Attack_Flag { get; private set; } = false;
+    public bool Purple_Attack_Flag { get; private set; } = false;
 
     private void OnTriggerStay(Collider other)
     {

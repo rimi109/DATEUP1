@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,11 +25,11 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("水色のライトが当たっているかを判定")]
     private BlueLightCollision Player_Light_Blue_Flag;
 
-    [Header("WhiteのHpを設定"),SerializeField]
+    [Header("WhiteのHpを設定"), SerializeField]
     private int White_Enemy_Hp;
 
     [Tooltip("")]
-    private float Enemy_Hit_Time = 1.1f; 
+    private float Enemy_Hit_Time = 1.1f;
 
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
@@ -46,9 +44,9 @@ public class whiteEnemyCollision : MonoBehaviour
     private void Start()
     {
         Green_Attack_Flag = false;
-        Blue_Attack_Flag  = false;
-        Red_Attack_Flag   = false;
-        ParticleSystem    = false;
+        Blue_Attack_Flag = false;
+        Red_Attack_Flag = false;
+        ParticleSystem = false;
 
     }
 
@@ -56,13 +54,13 @@ public class whiteEnemyCollision : MonoBehaviour
     void Update()
     {
 
-        if (Green_Attack_Flag &&    
-            Blue_Attack_Flag  && 
-            Red_Attack_Flag 　&&
+        if (Green_Attack_Flag &&
+            Blue_Attack_Flag &&
+            Red_Attack_Flag &&
             Player_Light_Blue_Flag.Light_Blue_Attack_Flag &&
-            Player_Green_Flag.Yellow_Attack_Flag          &&
+            Player_Green_Flag.Yellow_Attack_Flag &&
             Player_Purple_Flag.Purple_Attack_Flag)
-        
+
         {
             Enemy_Hit_Time += Time.deltaTime;
 
@@ -75,7 +73,7 @@ public class whiteEnemyCollision : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                     Destroy(newParticle);
-                    SceneManager.LoadScene("GameClear");               
+                    SceneManager.LoadScene("GameClear");
                 }
             }
 
@@ -105,14 +103,14 @@ public class whiteEnemyCollision : MonoBehaviour
         {
             Blue_Attack_Flag = true;
             Player_Green_Flag = other.gameObject.GetComponent<GreenLightCollision>();
-         
+
         }
 
         if (other.gameObject.CompareTag("redlight"))
         {
             Red_Attack_Flag = true;
             Player_Purple_Flag = other.gameObject.GetComponent<RedLightCollision>();
-          
+
         }
     }
 
@@ -123,7 +121,7 @@ public class whiteEnemyCollision : MonoBehaviour
             ParticleSystem = false;
             Green_Attack_Flag = false;
             Destroy(newParticle);
-          
+
         }
 
         if (other.gameObject.CompareTag("greenlight"))

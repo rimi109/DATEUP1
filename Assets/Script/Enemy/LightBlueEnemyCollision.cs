@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LightBlueEnemyCollision : MonoBehaviour
 {
 
-    [Header("自分のゲームオブジェクトを取得"),SerializeField]
+    [Header("自分のゲームオブジェクトを取得"), SerializeField]
     private GameObject thisEnemy;
 
     [Header("水色の緑色の方の弱点のOnバージョンimageを取得"), SerializeField]
@@ -70,7 +68,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
         Green_Attack_Flag = false;
         Blue_Attack_Flag = false;
         ParticleSystem = false;
-    
+
         targetR = GameObject.FindObjectOfType<PlayerScript>();
 
     }
