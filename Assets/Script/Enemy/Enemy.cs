@@ -21,9 +21,10 @@ public class Enemy : MonoBehaviour
     [Header("PlayerManager‚ÌScript‚ðŽæ“¾"), SerializeField]
     private PlayerManager Player_Manager;
 
+    
     private float EffectTime;
     private float AnimeTime;
-
+    private const float Enemy_Move_Speed = 10.0f;
     void Start()
     {
         EffectTime = 0.0f;
@@ -92,7 +93,7 @@ public class Enemy : MonoBehaviour
         if (closestPlayer != null)
         {
             agent.destination = closestPlayer.transform.position;
-            agent.speed = 10.0f;
+            agent.speed = Enemy_Move_Speed;
         }
     }
 }
