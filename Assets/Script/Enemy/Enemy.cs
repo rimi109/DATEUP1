@@ -74,14 +74,22 @@ public class Enemy : MonoBehaviour
 
         col.enabled = true;
 
+        Enemy_Move();
 
+    }
+
+    #region@©•ª‚©‚çˆê”Ô‹ß‚¢Player‚ğ’Ç”ö‚·‚é
+    /// <summary>
+    /// ©•ª‚©‚çˆê”Ô‹ß‚¢Player‚ğ’Ç”ö‚·‚é
+    /// </summary>
+    private void Enemy_Move()
+    {
         float closestPlayerDistance = float.MaxValue;
         Transform closestPlayer = null;
 
-
         for (int i = 0; i < Player_Manager.Players.Count; i++)
         {
-            float playerDistance = Vector3.Distance(transform.position, Player_Manager.Players[i].transform.position);
+            float playerDistance = Vector3.Distance(this.transform.position, Player_Manager.Players[i].transform.position);
 
             if (playerDistance < closestPlayerDistance)
             {
@@ -96,4 +104,6 @@ public class Enemy : MonoBehaviour
             agent.speed = Enemy_Move_Speed;
         }
     }
+    #endregion
+
 }
