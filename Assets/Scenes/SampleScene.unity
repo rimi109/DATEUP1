@@ -8000,15 +8000,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   This_Player_GameObject: {fileID: 919132148425850781}
   Player_Hp_image: {fileID: 126408192}
-  Player_Transform: {fileID: 543450652146148647}
-  Player_Move_Speed: 30
-  Player_Numbers: 0
   Player_Hp: 3
-  Player_Rd: {fileID: 1553810126}
-  Player_Animator: {fileID: 1949921810}
   Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
   Player_Damage_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
   Player_Damage_Audio_Source: {fileID: 919132148425850782}
+  Player_Animator: {fileID: 1949921810}
   Game_Wave_1: {fileID: 4327899279326993857}
   GameWave2: {fileID: 8922948140077397312}
   GameWave3: {fileID: 6179818835165184604}
@@ -8064,7 +8060,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24920
+  m_Name: pb_Mesh24922
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10126,6 +10122,7 @@ GameObject:
   - component: {fileID: 1553810127}
   - component: {fileID: 919132148425850782}
   - component: {fileID: 4518735583722807177}
+  - component: {fileID: 4518735583722807178}
   m_Layer: 0
   m_Name: GreenPlayer
   m_TagString: PlayerGreen
@@ -10638,6 +10635,23 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &4518735583722807178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148425850781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fea8a59f74c964b8cfd57b1f06394d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_Transform: {fileID: 543450652146148647}
+  Player_Move_Speed: 30
+  Player_Numbers: 0
+  Player_Rd: {fileID: 1553810126}
+  Player_Animator: {fileID: 1949921810}
 --- !u!1 &5867976806180696864
 GameObject:
   m_ObjectHideFlags: 0
