@@ -9,31 +9,11 @@ public class PlayerScript : MonoBehaviour
     [Header("Playerのhpの画像を参照"), SerializeField]
     private GameObject Player_Hp_image;
 
-
-    [Header("Player自身のTransformを参照"), SerializeField]
-    private Transform Player_Transform;
-
-
-    [Header("PlayerのMoveSpeedを参照"), SerializeField]
-    private float Player_Move_Speed;
-
-
-    [Header("Playerが何人目のPlayerかを指定"), SerializeField]
-    private int Player_Numbers;
-
     [Header("PlayerのHpを指定"), SerializeField]
     private int Player_Hp;
 
     [Tooltip("PlayerのMaxHpを設定")]
     private const int PLAYER_HP_MAX = 3;
-
-    [Header("PlayerのRigidbodyを参照"), SerializeField]
-    private Rigidbody Player_Rd;
-
-
-    [Header("PlayerのAnimatorを参照"), SerializeField]
-    private Animator Player_Animator;
-
 
     [Header("Playerの回復したときの表示するEffect"), SerializeField]
     private ParticleSystem Player_Heel_Effect;
@@ -48,6 +28,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Playerがダメージをくらったときに再生するAudioSourceを参照"), SerializeField]
     private AudioSource Player_Damage_Audio_Source;
 
+    [Header("PlayerのAnimatorを参照"), SerializeField]
+    private Animator Player_Animator;
 
     [Header("敵のwave1のScriptを取得"), SerializeField]
     private Wave1 Game_Wave_1;
@@ -83,15 +65,6 @@ public class PlayerScript : MonoBehaviour
     {
         Player_Green_Dead_Flag 　 = false;
         Player_Green_revival_Flag = false;
-    }
-
-    void Update()
-    {
-        if (Gamepad.current == null)
-            return;
-
-            Player_Move();
-
     }
 
     void OnCollisionEnter(Collision collision)
@@ -180,37 +153,6 @@ public class PlayerScript : MonoBehaviour
     }
     #endregion
 
-    #region　Playerが動く際に実行するプログラム
-    /// <summary>
-    /// Playerが動く際に実行するプログラム
-    /// </summary>
-    private void Player_Move()
-    {
-        var Velocity = Player_Rd.velocity;
-        var GamepadLeftStickValue = Gamepad.all[Player_Numbers].leftStick.ReadValue();
-        var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp > 0)
-        {
-            Velocity = LeftStickvalue * Player_Move_Speed;
-            Player_Animator.SetBool("walk", true);
-        }
-        else
-        {
-            Velocity = Vector3.zero;
-            Player_Animator.SetBool("walk", false);
-        }
-
-        Player_Rd.velocity = Velocity;
-
-        var GamepadrightStickValue = Gamepad.all[Player_Numbers].rightStick.ReadValue();
-        var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
-
-        if (RightStickvalue != Vector3.zero && Player_Hp > 0)
-        {
-            Player_Transform.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
-        }
-    }
-    #endregion
     public void Wave1EnemyDestroy()
     {
         EnemyGenerateSystem.wave1Count();
