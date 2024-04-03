@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -21,7 +20,6 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("Playerの回復したときの表示するEffect")]
     private ParticleSystem Player_Heel_Effect1;
 
-
     [Header("Playerがダメージをくらったときに再生するAudioClipを参照"), SerializeField]
     private AudioClip Player_Damage_AudioClip;
 
@@ -35,10 +33,10 @@ public class PlayerScript : MonoBehaviour
     private Wave1 Game_Wave_1;
 
     [Header("敵のwave2のScriptを取得"), SerializeField]
-    private Wave2 GameWave2;
+    private Wave2 Game_Wave2;
 
     [Header("敵のwave3のScriptを取得"), SerializeField]
-    private Wave3 GameWave3;
+    private Wave3 Game_Wave3;
 
     [Header("PlayerRedのScriptを参照"), SerializeField]
     private PlayerRed Player_Red;
@@ -50,7 +48,7 @@ public class PlayerScript : MonoBehaviour
     private PlayerManager Player_Manager;
 
     [Header("EnemyGenerateSystemのScriptを参照"),SerializeField]
-    private EnemyGenerate EnemyGenerateSystem;
+    private EnemyGenerate Enemy_Generate_System;
 
     [Header("PlayerのHpのプログラムを参照"), SerializeField]
     private health Player_health;
@@ -59,12 +57,12 @@ public class PlayerScript : MonoBehaviour
     public bool Player_Green_Dead_Flag;
 
     [Tooltip("自分が生き返ったかを判定")]
-    public bool Player_Green_revival_Flag { get; private set; }
+    public bool Player_Green_Revival_Flag { get; private set; }
 
     private void Start()
     {
         Player_Green_Dead_Flag 　 = false;
-        Player_Green_revival_Flag = false;
+        Player_Green_Revival_Flag = false;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -78,31 +76,31 @@ public class PlayerScript : MonoBehaviour
                 return;
             }
             ++Player_Hp;
-            Player_health.Player_Recovery_Function();
+            Player_health.PlayerRecoveryFunction();
             Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("EnemyW1"))
         {
-            Player_Damaged();
+            PlayerDamaged();
         }
 
         if (collision.gameObject.CompareTag("EnemyW2"))
         {
-            Player_Damaged();
+            PlayerDamaged();
         }
 
         if (collision.gameObject.CompareTag("EnemyW3"))
         {
-            Player_Damaged();
+            PlayerDamaged();
         }
 
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
             if (Player_Green_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Blue.PlayerBlue_Recovery_Hp();
-                Player_Green_Revival();
+                Player_Blue.PlayerBlueRecoveryHp();
+                PlayerGreenRevival();
             }
         }
 
@@ -110,8 +108,8 @@ public class PlayerScript : MonoBehaviour
         {
             if (Player_Green_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Red.PlayerRed_Recovery_Hp();
-                Player_Green_Revival();
+                Player_Red.PlayerRedRecoveryHp();
+                PlayerGreenRevival();
             }
         }
     }
@@ -120,19 +118,19 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// 自分が生き返った場合実行するプログラム
     /// </summary>
-    private void Player_Green_Revival()
+    private void PlayerGreenRevival()
     {
         ++Player_Hp;
 
         Player_Animator.SetBool("Down", false);
 
-        Player_Manager.List_Add(this.transform);
+        Player_Manager.ListAdd(this.transform);
 
-        Player_health.Player_Recovery_Function();
+        Player_health.PlayerRecoveryFunction();
 
         Player_Green_Dead_Flag    = false;
 
-        Player_Green_revival_Flag = true;
+        Player_Green_Revival_Flag = true;
 
         Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
         Player_Heel_Effect1.transform.position = this.transform.position;
@@ -144,7 +142,7 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// Player自身がダメージをくらった時に実行するプログラム
     /// </summary>
-    private void Player_Damaged()
+    private void PlayerDamaged()
     {
         Player_health.Health_Function();
         Player_Hp_image.SetActive(true);
@@ -155,20 +153,20 @@ public class PlayerScript : MonoBehaviour
 
     public void Wave1EnemyDestroy()
     {
-        EnemyGenerateSystem.wave1Count();
+        Enemy_Generate_System.wave1Count();
         Game_Wave_1.CountW1();
     }
 
     public void Wave2EnemyDestroy()
     {
-        EnemyGenerateSystem.wave3Count();
-        GameWave2.CountW2();
+        Enemy_Generate_System.wave3Count();
+        Game_Wave2.CountW2();
     }
 
     public void Wave3EnemyDestroy()
     {
-        EnemyGenerateSystem.wave3Count();
-        GameWave3.CountW3();
+        Enemy_Generate_System.wave3Count();
+        Game_Wave3.CountW3();
     }
 
     public void PlayerDieAnimator()
@@ -178,7 +176,7 @@ public class PlayerScript : MonoBehaviour
         Player_Manager.List_Remove(this.transform);
     }
 
-    public void PlayerGreen_Recovery_Hp()
+    public void PlayerGreenRecoveryHp()
     {
         Player_Hp -= 1;
         Player_health.Health_Function();

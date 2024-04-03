@@ -27,7 +27,7 @@ public class PlayerMove : MonoBehaviour
         if (Gamepad.current == null)
             return;
 
-        Player_Move();
+        PlayerMove();
 
     }
 
@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
     /// <summary>
     /// Player‚ª“®‚­Û‚ÉÀs‚·‚éƒvƒƒOƒ‰ƒ€
     /// </summary>
-    private void Player_Move()
+    private void PlayerMove()
     {
         var Velocity = Player_Rd.velocity;
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers].leftStick.ReadValue();

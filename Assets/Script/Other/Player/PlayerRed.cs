@@ -3,17 +3,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerRed : MonoBehaviour
 {
-    [SerializeField]
-    private EnemyGenerate EnemyGenerateSystem;
+    [Header("EnemyGenerateSystemのScriptを参照"), SerializeField]
+    private EnemyGenerate Enemy_Generate_System;
 
-    [SerializeField]
-    private Wave1 GameWave1;
+    [Header("敵のwave1のScriptを取得"), SerializeField]
+    private Wave1 Game_Wave_1;
 
-    [SerializeField]
-    private Wave2 GameWave2;
+    [Header("敵のwave2のScriptを取得"), SerializeField]
+    private Wave2 Game_Wave2;
 
-    [SerializeField]
-    private Wave3 GameWave3;
+    [Header("敵のwave3のScriptを取得"), SerializeField]
+    private Wave3 Game_Wave3;
 
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
@@ -70,36 +70,6 @@ public class PlayerRed : MonoBehaviour
         Player_Red_revival_Flag = false;
     }
 
-    void Update()
-    {
-        if (Gamepad.current == null)
-            return;
-
-        var Velocity = Player_Rd_.velocity;
-
-        var GamepadLeftStickValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
-        var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp > 0)
-        {
-            Velocity = LeftStickvalue * Player_Move_Speed_;
-            PlayerAnimator.SetBool("walk", true);
-        }
-        else
-        {
-            Velocity = Vector3.zero;
-            PlayerAnimator.SetBool("walk", false);
-        }
-
-        Player_Rd_.velocity = Velocity;
-
-        var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
-        var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
-
-        if (RightStickvalue != Vector3.zero && Player_Hp > 0)
-        {
-            Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
-        }
-    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -153,7 +123,7 @@ public class PlayerRed : MonoBehaviour
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
-                player_Blue.PlayerBlue_Recovery_Hp();
+                player_Blue.PlayerBlueRecoveryHp();
                 Player_Red_dead_Flag = false;
                 Player_Red_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
@@ -165,35 +135,39 @@ public class PlayerRed : MonoBehaviour
         {
             if (Player_Red_dead_Flag && Player_Hp <= 0)
             {
-                PlayerAnimator.SetBool("Down", false);
-                Player_Hp += 1;
-                Player_health.Player_Recovery_Function();
-                player_Green.PlayerGreen_Recovery_Hp();
-                Player_Red_dead_Flag = false;
-                Player_Red_revival_Flag = true;
-                Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
-                Player_Heel_Effect1.transform.position = this.transform.position;
-                Player_Heel_Effect1.Play();
+                player_Green.PlayerGreenRecoveryHp();
+                PlayerRedRevival();
             }
         }
     }
-    public void Wave1EnemyDestroy()
-    {
-        EnemyGenerateSystem.wave1Count();
-        GameWave1.CountW1();
-    }
 
-    public void Wave2EnemyDestroy()
+    #region 自分が生き返った場合実行するプログラム
+    /// <summary>
+    /// 自分が生き返った場合実行するプログラム
+    /// </summary>
+    private void PlayerRedRevival()
     {
-        EnemyGenerateSystem.wave3Count();
-        GameWave2.CountW2();
-    }
+        PlayerAnimator.SetBool("Down", false);
+        Player_Hp += 1;
+        Player_health.Player_Recovery_Function();
 
-    public void Wave3EnemyDestroy()
-    {
-        EnemyGenerateSystem.wave3Count();
-        GameWave3.CountW3();
+        Player_Red_dead_Flag = false;
+        Player_Red_revival_Flag = true;
+        Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
+        Player_Heel_Effect1.transform.position = this.transform.position;
+        Player_Heel_Effect1.Play();
     }
+    #endregion
+
+    #region　Player自身がダメージをくらった時に実行するプログラム
+    /// <summary>
+    /// Player自身がダメージをくらった時に実行するプログラム
+    /// </summary>
+    private void PlayerDamaged()
+    {
+ 
+    }
+    #endregion
 
     public void PlayerDieAnimator()
     {
@@ -201,7 +175,7 @@ public class PlayerRed : MonoBehaviour
         Player_Red_dead_Flag = true;
     }
 
-    public void PlayerRed_Recovery_Hp()
+    public void PlayerRedRecoveryHp()
     {
         Player_Hp -= 1;
         Player_health.Health_Function();

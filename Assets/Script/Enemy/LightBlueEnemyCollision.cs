@@ -141,20 +141,22 @@ public class LightBlueEnemyCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("greenlight"))
         {
+  
+            
+            ParticleSystem = false;
+            Green_Attack_Flag = false;
             Effective_Colour_Green_On.SetActive(false);
             Effective_Colour_Green_Off.SetActive(true);
-            Green_Attack_Flag = false;
-            ParticleSystem = false;
             Destroy(newParticle);
         }
 
         if (other.gameObject.CompareTag("bluelight"))
         {
-            Blue_Attack_Flag = false;
             ParticleSystem = false;
-            Destroy(newParticle);
+            Blue_Attack_Flag = false;
             Effective_Colour_Blue_On.SetActive(false);
             Effective_Colour_Blue_Off.SetActive(true);
+            Destroy(newParticle);
         }
     }
     private void Enemy_destroy_animation()

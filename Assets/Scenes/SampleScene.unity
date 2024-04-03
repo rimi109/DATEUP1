@@ -2996,7 +2996,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24880
+  m_Name: pb_Mesh24882
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10357,6 +10357,7 @@ GameObject:
   - component: {fileID: 919132149266843416}
   - component: {fileID: 3002009105177745729}
   - component: {fileID: 3002009105177745731}
+  - component: {fileID: 3002009105177745732}
   m_Layer: 0
   m_Name: PlayerRed
   m_TagString: PlayerRed
@@ -10509,6 +10510,23 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3002009105177745732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149266843415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fea8a59f74c964b8cfd57b1f06394d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_Transform: {fileID: 543450653452754349}
+  Player_Move_Speed: 30
+  Player_Numbers: 1
+  Player_Rd: {fileID: 735495194}
+  Player_Animator: {fileID: 1986930711}
 --- !u!114 &3553337084966060211
 MonoBehaviour:
   m_ObjectHideFlags: 0
