@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerBlue Player_Blue;
 
 
-    public void List_Add(Transform transform)
+    public void ListAdd(Transform transform)
     {
         Players.Add(transform);
     }

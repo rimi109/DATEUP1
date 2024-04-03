@@ -149,7 +149,7 @@ public class PlayerBlue : MonoBehaviour
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
-                player_Green.PlayerGreen_Recovery_Hp();
+                player_Green.PlayerGreenRecoveryHp();
                 Player_Blue_Dead_Flag = false;
                 Player_Blue_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
@@ -165,7 +165,7 @@ public class PlayerBlue : MonoBehaviour
                 PlayerAnimator.SetBool("Down", false);
                 Player_Hp += 1;
                 Player_health.Player_Recovery_Function();
-                player_Red.PlayerRed_Recovery_Hp();
+                player_Red.PlayerRedRecoveryHp();
                 Player_Blue_Dead_Flag = false;
                 Player_Blue_revival_Flag = true;
                 Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
@@ -181,7 +181,7 @@ public class PlayerBlue : MonoBehaviour
         Player_Blue_Dead_Flag = true;
     }
 
-    public void PlayerBlue_Recovery_Hp()
+    public void PlayerBlueRecoveryHp()
     {
         Player_Hp -= 1;
         Player_health.Health_Function();
