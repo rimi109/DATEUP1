@@ -2996,7 +2996,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24882
+  m_Name: pb_Mesh32520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8006,12 +8006,12 @@ MonoBehaviour:
   Player_Damage_Audio_Source: {fileID: 919132148425850782}
   Player_Animator: {fileID: 1949921810}
   Game_Wave_1: {fileID: 4327899279326993857}
-  GameWave2: {fileID: 8922948140077397312}
-  GameWave3: {fileID: 6179818835165184604}
+  Game_Wave2: {fileID: 0}
+  Game_Wave3: {fileID: 0}
   Player_Red: {fileID: 3002009105177745729}
   Player_Blue: {fileID: 3553337084966060211}
   Player_Manager: {fileID: 1501504119}
-  EnemyGenerateSystem: {fileID: 7401046030067507842}
+  Enemy_Generate_System: {fileID: 0}
   Player_health: {fileID: 126408194}
   Player_Green_Dead_Flag: 0
 --- !u!136 &1553810128
@@ -10473,10 +10473,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c035e7bf004bb428c6934ccf51863f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyGenerateSystem: {fileID: 7401046030067507842}
-  GameWave1: {fileID: 4327899279326993857}
-  GameWave2: {fileID: 8922948140077397312}
-  GameWave3: {fileID: 6179818835165184604}
+  Enemy_Generate_System: {fileID: 7401046030067507842}
+  Game_Wave_1: {fileID: 4327899279326993857}
+  Game_Wave2: {fileID: 8922948140077397312}
+  Game_Wave3: {fileID: 6179818835165184604}
   This_Player_GameObject: {fileID: 919132149266843415}
   Player_Transform_: {fileID: 543450653452754349}
   Player_Move_Speed_: 30
@@ -10491,7 +10491,7 @@ MonoBehaviour:
   Player_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
   audioSource: {fileID: 919132149266843416}
   Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
-  Player_Red_dead_Flag: 0
+  Player_Red_Dead_Flag: 0
 --- !u!114 &3002009105177745731
 MonoBehaviour:
   m_ObjectHideFlags: 0

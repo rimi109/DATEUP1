@@ -21,13 +21,16 @@ public class PlayerMove : MonoBehaviour
     [Header("PlayerのAnimatorを参照"), SerializeField]
     private Animator Player_Animator;
 
+    [Header("Playerが持っているライトのデッドゾーンの値"), SerializeField]
+    private Vector3 Player_Dead_Zone = new Vector3(0.2f, 0, 0.2f);
+
 
     void Update()
     {
         if (Gamepad.current == null)
             return;
 
-        PlayerMove();
+        Player_Move();
 
     }
 
@@ -35,12 +38,12 @@ public class PlayerMove : MonoBehaviour
     /// <summary>
     /// Playerが動く際に実行するプログラム
     /// </summary>
-    private void PlayerMove()
+    private void Player_Move()
     {
         var Velocity = Player_Rd.velocity;
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers].leftStick.ReadValue();
         var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero)
+        if (LeftStickvalue != Player_Dead_Zone)
         {
             Velocity = LeftStickvalue * Player_Move_Speed;
             Player_Animator.SetBool("walk", true);
