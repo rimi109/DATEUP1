@@ -69,36 +69,13 @@ public class PlayerBlue : MonoBehaviour
         Player_Blue_revival_Flag = false;
     }
 
-    void Update()
+    private void Update()
     {
-        if (Gamepad.current == null)
+        if (Player_Blue_Dead_Flag)
             return;
-
-        var Velocity = Player_Rd_.velocity;
-
-        var GamepadLeftStickValue = Gamepad.all[Player_Numbers_].leftStick.ReadValue();
-        var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Vector3.zero && Player_Hp > 0)
-        {
-            Velocity = LeftStickvalue * Player_Move_Speed_;
-            PlayerAnimator.SetBool("walk", true);
-        }
-        else
-        {
-            Velocity = Vector3.zero;
-            PlayerAnimator.SetBool("walk", false);
-        }
-
-        Player_Rd_.velocity = Velocity;
-
-        var GamepadrightStickValue = Gamepad.all[Player_Numbers_].rightStick.ReadValue();
-        var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
-
-        if (RightStickvalue != Vector3.zero && Player_Hp > 0)
-        {
-            Player_Transform_.transform.localRotation = Quaternion.LookRotation(RightStickvalue);
-        }
+                
     }
+
 
     void OnCollisionEnter(Collision collision)
     {

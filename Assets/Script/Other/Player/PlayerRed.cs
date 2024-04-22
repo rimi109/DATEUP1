@@ -6,6 +6,7 @@ public class PlayerRed : MonoBehaviour
     [Header("EnemyGenerateSystemのScriptを参照"), SerializeField]
     private EnemyGenerate Enemy_Generate_System;
 
+
     [Header("敵のwave1のScriptを取得"), SerializeField]
     private Wave1 Game_Wave_1;
 
@@ -15,17 +16,31 @@ public class PlayerRed : MonoBehaviour
     [Header("敵のwave3のScriptを取得"), SerializeField]
     private Wave3 Game_Wave3;
 
+
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
+
+    [Header("Playerのhpの画像を参照"), SerializeField]
+    private GameObject Player_Hp_image;
+
 
     [Header("Player自身のTransformを参照"), SerializeField]
     private Transform Player_Transform_;
 
+
     [Header("PlayerのMoveSpeedを参照"), SerializeField]
     private float Player_Move_Speed_;
 
+
     [Header("Playerが何人目のPlayerかを指定"), SerializeField]
     private int Player_Numbers_;
+
+    [Header("PlayerのHpを指定"), SerializeField]
+    private int Player_Hp;
+
+    [Tooltip("PlayerのMaxHpを設定")]
+    private const int PLAYER_HP_MAX = 3;
+
 
     [Header("PlayerのRigidbodyを参照"), SerializeField]
     private Rigidbody Player_Rd_;
@@ -33,33 +48,41 @@ public class PlayerRed : MonoBehaviour
     [Header("PlayerのAnimatorを参照"), SerializeField]
     private Animator PlayerAnimator;
 
-    [Header("PlayerのHpを指定"), SerializeField]
-    private int Player_Hp;
-
-    [Header("Playerのhpの画像を参照"), SerializeField]
-    private GameObject Player_Hp_image;
 
     [Header("PlayerのHpのプログラムを参照"), SerializeField]
-    private healthRed Player_health;
+    private healthRed Player_Health;
 
-    [Header(""), SerializeField]
-    private PlayerBlue player_Blue;
 
-    [Header(""), SerializeField]
-    private PlayerScript player_Green;
+    [Header("PlayerRedのScriptを参照"), SerializeField]
+    private PlayerBlue Player_Blue;
 
-    [Header(""), SerializeField]
-    private AudioClip Player_AudioClip;
 
-    [Header(""), SerializeField]
-    private AudioSource audioSource;
+    [Header("PlayerBlueのScriptを参照"), SerializeField]
+    private PlayerScript Player_Green;
+
+    [Header("PlayerManagerのScriptを参照"), SerializeField]
+    private PlayerManager Player_Manager;
+
+
+    [Header("Playerがダメージをくらったときに再生するAudioClipを参照"), SerializeField]
+    private AudioClip Player_Damage_AudioClip;
+
+    [Header("Playerがダメージをくらったときに再生するAudioSourceを参照"), SerializeField]
+    private AudioSource Player_Damage_Audio_Source;
+
 
     [Header("Playerの回復したときの表示するEffect"), SerializeField]
     private ParticleSystem Player_Heel_Effect;
 
     [Tooltip("Playerの回復したときの表示するEffect")]
-    private ParticleSystem Player_Heel_Effect1;
+    private ParticleSystem Player_Heel_Effect_Position;
 
+
+    [Header("Playerが動く際に参照するプログラム"), SerializeField]
+    private PlayerMove Player_Move;
+
+
+    [Tooltip("自分が死んだかを判定する"),HideInInspector]
     public bool Player_Red_Dead_Flag;
 
     [Tooltip("自分が生き返ったどうかを判定"),HideInInspector]
@@ -71,73 +94,58 @@ public class PlayerRed : MonoBehaviour
         Player_Red_Revival_Flag = false;
     }
 
+    private void Update()
+    {
+        if (Player_Red_Dead_Flag)
+            return;
+        Player_Move.Player_Move();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
 
         if (collision.gameObject.CompareTag("Heart"))
         {
-            if (Player_Hp >= 3)
+            if (Player_Hp >= PLAYER_HP_MAX)
             {
                 Destroy(collision.gameObject);
                 return;
             }
             ++Player_Hp;
-            Player_health.Player_Recovery_Function();
+            Player_Health.Player_Recovery_Function();
             Destroy(collision.gameObject);
         }
 
-
-        //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW1"))
         {
-
-            Player_health.Health_Function();
-            Player_Hp_image.SetActive(true);
-            audioSource.PlayOneShot(Player_AudioClip);
-            Player_Hp -= 1;
+            PlayerDamaged();
         }
 
-        //当たったオブジェクトのタグが"Enemy"
+       
         if (collision.gameObject.CompareTag("EnemyW2"))
         {
-            Player_health.Health_Function();
-            Player_Hp_image.SetActive(true);
-            audioSource.PlayOneShot(Player_AudioClip);
-            Player_Hp -= 1;
+            PlayerDamaged();
         }
 
-        //当たったオブジェクトのタグが"Enemy"
         if (collision.gameObject.CompareTag("EnemyW3"))
         {
-            Player_health.Health_Function();
-            Player_Hp_image.SetActive(true);
-            audioSource.PlayOneShot(Player_AudioClip);
-            Player_Hp -= 1;
+            PlayerDamaged();
         }
-
 
         if (collision.gameObject.CompareTag("PlayerBlue"))
         {
             if (Player_Red_Dead_Flag && Player_Hp <= 0)
             {
-                PlayerAnimator.SetBool("Down", false);
-                Player_Hp += 1;
-                Player_health.Player_Recovery_Function();
-                player_Blue.PlayerBlueRecoveryHp();
-                Player_Red_Dead_Flag = false;
-                Player_Red_Revival_Flag = true;
-                Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
-                Player_Heel_Effect1.transform.position = this.transform.position;
-                Player_Heel_Effect1.Play();
+                Player_Blue.PlayerBlueRecoveryHp();
+                PlayerRevival();
             }
         }
         if (collision.gameObject.CompareTag("PlayerGreen"))
         {
             if (Player_Red_Dead_Flag && Player_Hp <= 0)
             {
-                player_Green.PlayerGreenRecoveryHp();
-                PlayerRedRevival();
+                Player_Green.PlayerGreenRecoveryHp();
+                PlayerRevival();
             }
         }
     }
@@ -146,17 +154,19 @@ public class PlayerRed : MonoBehaviour
     /// <summary>
     /// 自分が生き返った場合実行するプログラム
     /// </summary>
-    private void PlayerRedRevival()
+    private void PlayerRevival()
     {
-        PlayerAnimator.SetBool("Down", false);
-        Player_Hp += 1;
-        Player_health.Player_Recovery_Function();
+        ++Player_Hp;
+        Player_Manager.ListAdd(this.transform);
 
         Player_Red_Dead_Flag = false;
         Player_Red_Revival_Flag = true;
-        Player_Heel_Effect1 = Instantiate(Player_Heel_Effect);
-        Player_Heel_Effect1.transform.position = this.transform.position;
-        Player_Heel_Effect1.Play();
+        PlayerAnimator.SetBool("Down", false);
+        Player_Health.Player_Recovery_Function();
+         
+        Player_Heel_Effect_Position.Play();
+        Player_Heel_Effect_Position = Instantiate(Player_Heel_Effect);
+        Player_Heel_Effect_Position.transform.position = this.transform.position;
     }
     #endregion
 
@@ -166,19 +176,29 @@ public class PlayerRed : MonoBehaviour
     /// </summary>
     private void PlayerDamaged()
     {
- 
+        Player_Health.Health_Function();
+        Player_Hp_image.SetActive(true);
+        Player_Damage_Audio_Source.PlayOneShot(Player_Damage_AudioClip);
+        --Player_Hp;
     }
     #endregion
 
+    /// <summary>
+    /// Playerが死んだとき実行する関数
+    /// </summary>
     public void PlayerDieAnimator()
     {
         PlayerAnimator.SetBool("Down", true);
         Player_Red_Dead_Flag = true;
+        Player_Manager.List_Remove(this.transform);
     }
 
+    /// <summary>
+    /// Playerが生き返ったときに実行する関数
+    /// </summary>
     public void PlayerRedRecoveryHp()
     {
         Player_Hp -= 1;
-        Player_health.Health_Function();
+        Player_Health.Health_Function();
     }
 }

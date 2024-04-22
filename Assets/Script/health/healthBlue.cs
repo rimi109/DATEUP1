@@ -50,7 +50,7 @@ public class healthBlue : MonoBehaviour
 
     public void Health_Function()
     {
-
+      
         health_[Health_Count].SetActive(false);
         Health_Count -= 1;
     }

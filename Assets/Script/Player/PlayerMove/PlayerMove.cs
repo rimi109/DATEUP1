@@ -5,6 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Header(""), SerializeField]
+    private PlayerScript Player_Green;
+
+    [Header(""),SerializeField]
+    private PlayerRed Player_Red;
+
+    [Header(""), SerializeField]
+    private PlayerBlue Player_Blue;
 
     [Header("Player自身のTransformを参照"), SerializeField]
     private Transform Player_Transform;
@@ -24,26 +32,16 @@ public class PlayerMove : MonoBehaviour
     [Header("Playerが持っているライトのデッドゾーンの値"), SerializeField]
     private Vector3 Player_Dead_Zone = new Vector3(0.2f, 0, 0.2f);
 
-
-    void Update()
-    {
-        if (Gamepad.current == null)
-            return;
-
-        Player_Move();
-
-    }
-
     #region　Playerが動く際に実行するプログラム
     /// <summary>
     /// Playerが動く際に実行するプログラム
     /// </summary>
-    private void Player_Move()
+    public void Player_Move()
     {
         var Velocity = Player_Rd.velocity;
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers].leftStick.ReadValue();
         var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
-        if (LeftStickvalue != Player_Dead_Zone)
+        if (LeftStickvalue != Vector3.zero)
         {
             Velocity = LeftStickvalue * Player_Move_Speed;
             Player_Animator.SetBool("walk", true);
