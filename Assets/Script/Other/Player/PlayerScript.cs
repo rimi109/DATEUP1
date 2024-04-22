@@ -169,13 +169,18 @@ public class PlayerScript : MonoBehaviour
         Game_Wave3.CountW3();
     }
 
+    /// <summary>
+    /// Player‚ª€‚ñ‚¾‚Æ‚«Às‚·‚éŠÖ”
+    /// </summary>
     public void PlayerDieAnimator()
     {
         Player_Animator.SetBool("Down", true);
         Player_Green_Dead_Flag = true;
         Player_Manager.List_Remove(this.transform);
     }
-
+    /// <summary>
+    /// Player‚ª¶‚«•Ô‚Á‚½‚Æ‚«‚ÉÀs‚·‚éŠÖ”
+    /// </summary>
     public void PlayerGreenRecoveryHp()
     {
         Player_Hp -= 1;
