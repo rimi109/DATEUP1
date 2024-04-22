@@ -28,7 +28,7 @@ public class GreenLightCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("bluelight"))
+        if (other.gameObject.CompareTag("redlight"))
         {
             Yellow_Attack_Flag = false;
         }
