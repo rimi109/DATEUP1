@@ -157,13 +157,17 @@ public class PlayerRed : MonoBehaviour
     private void PlayerRevival()
     {
         ++Player_Hp;
+
         Player_Manager.ListAdd(this.transform);
 
         Player_Red_Dead_Flag = false;
+
         Player_Red_Revival_Flag = true;
+
         PlayerAnimator.SetBool("Down", false);
+
         Player_Health.Player_Recovery_Function();
-         
+
         Player_Heel_Effect_Position.Play();
         Player_Heel_Effect_Position = Instantiate(Player_Heel_Effect);
         Player_Heel_Effect_Position.transform.position = this.transform.position;

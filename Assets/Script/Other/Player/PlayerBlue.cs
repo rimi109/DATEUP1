@@ -3,26 +3,25 @@ using UnityEngine.InputSystem;
 
 public class PlayerBlue : MonoBehaviour
 {
-    [Header(""), SerializeField]
-    private EnemyGenerate EnemyGenerateSystem;
+    [Header("EnemyGenerateSystemのScriptを参照"), SerializeField]
+    private EnemyGenerate Enemy_Generate_System;
 
-    [Header(""), SerializeField]
-    private Wave1 GameWave1;
 
-    [Header(""), SerializeField]
-    private Wave2 GameWave2;
+    [Header("敵のwave1のScriptを取得"), SerializeField]
+    private Wave1 Game_Wave_1;
 
-    [Header(""), SerializeField]
-    private Wave3 GameWave3;
+    [Header("敵のwave2のScriptを取得"), SerializeField]
+    private Wave2 Game_Wave2;
+
+    [Header("敵のwave3のScriptを取得"), SerializeField]
+    private Wave3 Game_Wave3;
+
 
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
 
     [Header("Player自身のTransformを参照"), SerializeField]
     private Transform Player_Transform_;
-
-    [Header("PlayerのMoveSpeedを参照"), SerializeField]
-    private float Player_Move_Speed_;
 
     [Header("Playerが何人目のPlayerかを指定"), SerializeField]
     private int Player_Numbers_;
@@ -60,7 +59,13 @@ public class PlayerBlue : MonoBehaviour
     [Tooltip("Playerの回復したときの表示するEffect")]
     private ParticleSystem Player_Heel_Effect1;
 
+    [Header("Playerが動く際に参照するプログラム"), SerializeField]
+    private PlayerMove Player_Move;
+
+    [Tooltip("自分が死んだかを判定する"), HideInInspector]
     public bool Player_Blue_Dead_Flag;
+
+    [Tooltip("自分が生き返ったどうかを判定"), HideInInspector]
     public bool Player_Blue_revival_Flag { get; private set; }
 
     private void Start()
@@ -73,7 +78,7 @@ public class PlayerBlue : MonoBehaviour
     {
         if (Player_Blue_Dead_Flag)
             return;
-                
+        Player_Move.Player_Move();
     }
 
 
