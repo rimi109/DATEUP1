@@ -168,9 +168,10 @@ public class PlayerRed : MonoBehaviour
 
         Player_Health.Player_Recovery_Function();
 
-        Player_Heel_Effect_Position.Play();
+      
         Player_Heel_Effect_Position = Instantiate(Player_Heel_Effect);
         Player_Heel_Effect_Position.transform.position = this.transform.position;
+        Player_Heel_Effect_Position.Play();
     }
     #endregion
 
@@ -202,7 +203,8 @@ public class PlayerRed : MonoBehaviour
     /// </summary>
     public void PlayerRedRecoveryHp()
     {
-        Player_Hp -= 1;
+       
         Player_Health.Health_Function();
+        --Player_Hp;
     }
 }

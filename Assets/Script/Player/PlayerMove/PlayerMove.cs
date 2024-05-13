@@ -5,15 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Header(""), SerializeField]
-    private PlayerScript Player_Green;
-
-    [Header(""),SerializeField]
-    private PlayerRed Player_Red;
-
-    [Header(""), SerializeField]
-    private PlayerBlue Player_Blue;
-
     [Header("Player©g‚ÌTransform‚ğQÆ"), SerializeField]
     private Transform Player_Transform;
 

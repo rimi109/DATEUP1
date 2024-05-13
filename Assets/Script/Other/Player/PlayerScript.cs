@@ -204,7 +204,7 @@ public class PlayerScript : MonoBehaviour
     /// </summary>
     public void PlayerGreenRecoveryHp()
     {
-        Player_Hp -= 1;
+        --Player_Hp;
         Player_health.Health_Function();
     }
 }

@@ -50,14 +50,13 @@ public class healthBlue : MonoBehaviour
 
     public void Health_Function()
     {
-      
+        --Health_Count;
         health_[Health_Count].SetActive(false);
-        Health_Count -= 1;
     }
 
     public void Player_Recovery_Function()
     {
-        Health_Count += 1;
+        ++Health_Count;
         health_[Health_Count].SetActive(true);
         GameOverCount = false;
         gameOverSeceChange.GameOver_Minus();
