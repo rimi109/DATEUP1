@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class BlueLightCollision : MonoBehaviour
 {
-    [SerializeField]
-    private float angle;
+    [Header("player‚Ì‹–ì”ÍˆÍ‚ğİ’è"),SerializeField]
+    private float Player_Angle;
 
-    [Tooltip("")]
+    [Tooltip("…F‚ÌUŒ‚‚ª—LŒø‚©–³Œø"),HideInInspector]
     public bool Light_Blue_Attack_Flag { get; private set; } = false;
 
     private void OnTriggerStay(Collider other)
@@ -15,13 +15,9 @@ public class BlueLightCollision : MonoBehaviour
         {
             Vector3 posDelta = other.transform.position - this.transform.position;
             float target_angle = Vector3.Angle(this.transform.forward, posDelta);
-            float taget_position = (posDelta).magnitude;
-            if (target_angle < angle)
+            if (target_angle < Player_Angle)
             {
-                if (taget_position < 95)
-                {
-                    Light_Blue_Attack_Flag = true;
-                }
+               Light_Blue_Attack_Flag = true;
             }
         }
     }

@@ -2,28 +2,27 @@ using UnityEngine;
 
 public class RedLightCollision : MonoBehaviour
 {
+    [Header("Red‚ÌPlayerGameObject‚ğæ“¾"), SerializeField]
+    private GameObject Red_Player_Object;
 
-    [SerializeField]
-    private float angle;
+    [Header("player‚Ì‹–ì”ÍˆÍ‚ğİ’è"), SerializeField]
+    private float Player_Angle;
 
-    [Tooltip("")]
+    [Tooltip("‡F‚ÌUŒ‚‚ª—LŒø‚©–³Œø"), HideInInspector]
     public bool Purple_Attack_Flag { get; private set; } = false;
 
     private void OnTriggerStay(Collider other)
     {
 
-
         if (other.gameObject.CompareTag("bluelight"))
         {
-            Vector3 posDelta = other.transform.position - this.transform.position;
-            float target_angle = Vector3.Angle(this.transform.forward, posDelta);
-            float taget_position = (posDelta).magnitude;
-            if (target_angle < angle)
+            Vector3 posDelta = other.transform.position - Red_Player_Object.transform.position;
+            float target_angle = Vector3.Angle(Red_Player_Object.transform.forward, posDelta);
+
+            if (target_angle < Player_Angle)
             {
-                if (taget_position < 95)
-                {
-                    Purple_Attack_Flag = true;
-                }
+               Purple_Attack_Flag = true;
+                Debug.Log("“–‚½‚Á‚Ä‚é‚æ");
             }
         }
     }
