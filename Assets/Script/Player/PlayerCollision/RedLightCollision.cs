@@ -17,11 +17,16 @@ public class RedLightCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Vector3 posDelta = other.transform.position - Red_Player_Object.transform.position;
-            float target_angle = Vector3.Angle(Red_Player_Object.transform.forward, posDelta);
+            float target_angle = Vector3.Angle(Red_Player_Object.transform.forward, posDelta.normalized);
+            Debug.Log(target_angle);
 
             if (target_angle < Player_Angle)
             {
                Purple_Attack_Flag = true;
+                Debug.Log("“–‚½‚Á‚Ä‚é‚æ");
+            }
+            else if(target_angle < -Player_Angle)
+            {
                 Debug.Log("“–‚½‚Á‚Ä‚é‚æ");
             }
         }
