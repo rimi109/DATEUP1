@@ -1,0 +1,9 @@
+MonsterName,Hp,Speed
+BlueEnemy,5,7
+RedEnemy,5,7
+GreenEnemy,5,7
+YellowEnemy,15,7
+LightBlueEnemy,15,7
+PurpleEnemy,15,7
+Boss,25,7
+BasicValueEnemyMoveSpeed,,7
