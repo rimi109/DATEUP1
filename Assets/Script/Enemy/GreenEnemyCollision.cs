@@ -29,6 +29,9 @@ public class GreenEnemyCollision : MonoBehaviour
 
     public PlayerScript targetR;
 
+    [Header("CSVからデータを取得"),SerializeField]
+    private CSVProcessing Monster_Date_Array;
+
     [Tooltip("自分が死んだかどうかを判定検知する")]
     private bool Enemy_Destory_flag;
 
@@ -38,6 +41,8 @@ public class GreenEnemyCollision : MonoBehaviour
     public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
 
+    [Tooltip("MonsterDateの何番目のデータ呼ぶか")]
+    private const int ENEMY_DATE_NUMBER = 2;
 
     private void Start()
     {
@@ -45,7 +50,7 @@ public class GreenEnemyCollision : MonoBehaviour
         ParticleSystem = false;
 
         targetR = GameObject.FindObjectOfType<PlayerScript>();
-
+        Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
     }
 
     void Update()
@@ -56,9 +61,9 @@ public class GreenEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Green_Enemy_Hp -= 1;
+                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Green_Enemy_Hp <= 0)
+                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                     targetR.Wave1EnemyDestroy();

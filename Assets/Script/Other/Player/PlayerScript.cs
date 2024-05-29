@@ -179,13 +179,13 @@ public class PlayerScript : MonoBehaviour
 
     public void Wave2EnemyDestroy()
     {
-        Enemy_Generate_System.wave3Count();
+        Enemy_Generate_System.wave3CountDown();
         Game_Wave2.CountW2();
     }
 
     public void Wave3EnemyDestroy()
     {
-        Enemy_Generate_System.wave3Count();
+        Enemy_Generate_System.wave3CountDown();
         Game_Wave3.CountW3();
     }
 

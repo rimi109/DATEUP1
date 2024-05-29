@@ -24,6 +24,7 @@ public class BlueEnemyCollision : MonoBehaviour
     private float Enemy_Destroy_Time;
 
     public float Shrink_Speed = 0.5f;
+
     private const float ROTATION_SPEED = 4000.0f;
 
     [Header("Enemy自身で起きるPaticleを取得"), SerializeField]
@@ -34,13 +35,20 @@ public class BlueEnemyCollision : MonoBehaviour
 
     public PlayerScript TargetR;
 
+
+    [Header("CSVからデータを取得"), SerializeField]
+    private CSVProcessing Monster_Date_Array;
+
+    [Tooltip("MonsterDateの何番目のデータ呼ぶか")]
+    private const int ENEMY_DATE_NUMBER = 1;
+
     private void Start()
     {
         Blue_Attack_Flag = false;
         Particle_System = false;
         Enemy_Destory_flag = false;
         TargetR = GameObject.FindObjectOfType<PlayerScript>();
-
+        Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
     }
 
     void Update()
@@ -51,9 +59,9 @@ public class BlueEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Blus_Enemy_Hp -= 1;
+                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Blus_Enemy_Hp <= 0)
+                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                     TargetR.Wave1EnemyDestroy();

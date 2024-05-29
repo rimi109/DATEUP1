@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BlueLightCollision : MonoBehaviour
 {
+    [Header("Blue‚ÌPlayerGameObject‚ğæ“¾"), SerializeField]
+    private GameObject Blue_Player_Object;
+
     [Header("player‚Ì‹–ì”ÍˆÍ‚ğİ’è"),SerializeField]
     private float Player_Angle;
 
@@ -13,8 +16,8 @@ public class BlueLightCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("greenlight"))
         {
-            Vector3 posDelta = other.transform.position - this.transform.position;
-            float target_angle = Vector3.Angle(this.transform.forward, posDelta);
+            Vector3 posDelta = other.transform.position - Blue_Player_Object.transform.position;
+            float target_angle = Vector3.Angle(Blue_Player_Object.transform.forward, posDelta);
             if (target_angle < Player_Angle)
             {
                Light_Blue_Attack_Flag = true;
