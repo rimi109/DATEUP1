@@ -68,7 +68,7 @@ public class EnemyGenerate : MonoBehaviour
         Wave1_count += 1;
     }
 
-    public void wave3Count()
+    public void wave3CountDown()
     {
         Wave2_count += 1;
         Heart_Generate.heart();
