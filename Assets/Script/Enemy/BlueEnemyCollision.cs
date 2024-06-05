@@ -11,9 +11,6 @@ public class BlueEnemyCollision : MonoBehaviour
     [Tooltip("自分が死んだかどうかを判定検知する")]
     private bool Enemy_Destory_flag;
 
-    [Header("WhiteのHpを設定"), SerializeField]
-    private int Blus_Enemy_Hp;
-
     [Tooltip("Enemyが一秒ごとにダメージを")]
     private float Enemy_Hit_Time = 1.0f;
 

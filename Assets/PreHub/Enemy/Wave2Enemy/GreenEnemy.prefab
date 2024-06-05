@@ -593,7 +593,8 @@ GameObject:
   - component: {fileID: 5503610114168954561}
   - component: {fileID: 7060873323216376223}
   - component: {fileID: 5797060441176635544}
-  - component: {fileID: 6533819273643752480}
+  - component: {fileID: 2081403370770842177}
+  - component: {fileID: 5222917334305470693}
   m_Layer: 0
   m_Name: GreenEnemy
   m_TagString: EnemyW2
@@ -668,12 +669,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  targetR: {fileID: 0}
-  targetG: {fileID: 0}
-  targetB: {fileID: 0}
   col: {fileID: 5503610114168954561}
   MeshRen: {fileID: 4419250747409283101}
---- !u!114 &6533819273643752480
+  Player_Manager: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+--- !u!114 &2081403370770842177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -682,13 +682,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 7326892322817312527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d9d080371d4a44fbdc2de5efd1ed56, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.08383238, g: 1, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &5222917334305470693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326892322817312527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743e86bf9b5fd714abbd9cee98b7739f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cc8542349d1191e4c9504e02104a8b4d, type: 3}
-  Purple_Enemy_Hp: 5
+  Green_Enemy_Hp: 0
   Enemy_Destroy_System: {fileID: 0}
   targetR: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+  Shrink_Speed: 0.5
 --- !u!1 &7687264563068213097
 GameObject:
   m_ObjectHideFlags: 0

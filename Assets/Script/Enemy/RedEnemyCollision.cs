@@ -18,9 +18,6 @@ public class RedEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private bool ParticleSystem;
 
-    [Header("WhiteÇÃHpÇê›íË"), SerializeField]
-    private int Red_Enemy_Hp;
-
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
 
@@ -63,7 +60,7 @@ public class RedEnemyCollision : MonoBehaviour
                 if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
-                    targetR.Wave1EnemyDestroy();
+                   
                 }
             }
 
@@ -81,8 +78,10 @@ public class RedEnemyCollision : MonoBehaviour
 
         if (Enemy_Destory_flag)
         {
-            Enemy_destroy_animation();
+            targetR.Wave1EnemyDestroy();
+            Enemy_destroy_animation  ();
             Enemy_Destroy_Time += Time.deltaTime;
+           
             if (Enemy_Destroy_Time > 1)
             {
                 Destroy(newParticle);

@@ -267,7 +267,8 @@ GameObject:
   - component: {fileID: 435084984140634407}
   - component: {fileID: 7446102818191218375}
   - component: {fileID: 1462266947337134469}
-  - component: {fileID: 4843404209327466616}
+  - component: {fileID: -7078222340594491278}
+  - component: {fileID: 3090024383062855366}
   m_Layer: 0
   m_Name: blueEnemy 1
   m_TagString: EnemyW3
@@ -342,10 +343,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  Players: []
   col: {fileID: 435084984140634407}
   MeshRen: {fileID: 6399032658226331523}
---- !u!114 &4843404209327466616
+  Player_Manager: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+--- !u!114 &-7078222340594491278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,12 +356,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 4806079886609507470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838e078f7b7e89b44ad55d656146e54d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
-  Purple_Enemy_Hp: 5
-  targetR: {fileID: 0}
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.012040138, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &3090024383062855366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806079886609507470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e49466a2189e54ebf3f244fa62b2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shrink_Speed: 0.5
+  Enemy_Particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
+  TargetR: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
 --- !u!1 &4953755312192718894
 GameObject:
   m_ObjectHideFlags: 0

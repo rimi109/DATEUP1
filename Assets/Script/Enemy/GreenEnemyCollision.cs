@@ -15,9 +15,6 @@ public class GreenEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private bool ParticleSystem;
 
-    [Header("White‚ÌHp‚ğİ’è"), SerializeField]
-    private int Green_Enemy_Hp;
-
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
 
