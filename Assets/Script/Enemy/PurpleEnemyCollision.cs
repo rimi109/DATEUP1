@@ -81,7 +81,6 @@ public class PurpleEnemyCollision : MonoBehaviour
                 if (Purple_Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
-                    Target_Player.Wave2EnemyDestroy();
                 }
             }
 

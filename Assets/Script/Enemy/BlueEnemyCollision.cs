@@ -61,7 +61,7 @@ public class BlueEnemyCollision : MonoBehaviour
                 if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
-                    TargetR.Wave1EnemyDestroy();
+                
                 }
             }
 

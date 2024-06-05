@@ -78,7 +78,7 @@ public class RedEnemyCollision : MonoBehaviour
 
         if (Enemy_Destory_flag)
         {
-            targetR.Wave1EnemyDestroy();
+         
             Enemy_destroy_animation  ();
             Enemy_Destroy_Time += Time.deltaTime;
            
