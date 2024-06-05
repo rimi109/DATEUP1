@@ -89,7 +89,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
                 if (Purple_Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
-                    targetR.Wave2EnemyDestroy();
+                 
                 }
             }
 

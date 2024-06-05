@@ -34,16 +34,6 @@ public class PlayerScript : MonoBehaviour
     private Animator Player_Animator;
 
 
-    [Header("“G‚Ìwave1‚ÌScript‚ğæ“¾"), SerializeField]
-    private Wave1 Game_Wave_1;
-
-    [Header("“G‚Ìwave2‚ÌScript‚ğæ“¾"), SerializeField]
-    private Wave2 Game_Wave2;
-
-    [Header("“G‚Ìwave3‚ÌScript‚ğæ“¾"), SerializeField]
-    private Wave3 Game_Wave3;
-
-
     [Header("PlayerRed‚ÌScript‚ğQÆ"), SerializeField]
     private PlayerRed Player_Red;
 
@@ -170,24 +160,6 @@ public class PlayerScript : MonoBehaviour
         --Player_Hp;
     }
     #endregion
-
-    public void Wave1EnemyDestroy()
-    {
-        Enemy_Generate_System.wave1Count();
-        Game_Wave_1.CountW1();
-    }
-
-    public void Wave2EnemyDestroy()
-    {
-        Enemy_Generate_System.wave3CountDown();
-        Game_Wave2.CountW2();
-    }
-
-    public void Wave3EnemyDestroy()
-    {
-        Enemy_Generate_System.wave3CountDown();
-        Game_Wave3.CountW3();
-    }
 
     /// <summary>
     /// Player‚ª€‚ñ‚¾‚Æ‚«Às‚·‚éŠÖ”

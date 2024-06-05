@@ -6,17 +6,6 @@ public class PlayerRed : MonoBehaviour
     [Header("EnemyGenerateSystem‚ÌScript‚ğQÆ"), SerializeField]
     private EnemyGenerate Enemy_Generate_System;
 
-
-    [Header("“G‚Ìwave1‚ÌScript‚ğæ“¾"), SerializeField]
-    private Wave1 Game_Wave_1;
-
-    [Header("“G‚Ìwave2‚ÌScript‚ğæ“¾"), SerializeField]
-    private Wave2 Game_Wave2;
-
-    [Header("“G‚Ìwave3‚ÌScript‚ğæ“¾"), SerializeField]
-    private Wave3 Game_Wave3;
-
-
     [Header("Player‚ÌModel‚ÌGameObject‚ğæ“¾"), SerializeField]
     private GameObject This_Player_GameObject;
 
