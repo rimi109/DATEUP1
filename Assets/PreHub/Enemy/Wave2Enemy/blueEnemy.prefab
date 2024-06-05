@@ -238,7 +238,8 @@ GameObject:
   - component: {fileID: 5202021018826794805}
   - component: {fileID: 7761669732000619465}
   - component: {fileID: 5038143167792001987}
-  - component: {fileID: 5714216633119797747}
+  - component: {fileID: -7005451194920382528}
+  - component: {fileID: 3114110136788414836}
   m_Layer: 0
   m_Name: blueEnemy
   m_TagString: EnemyW2
@@ -313,10 +314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  Players: []
   col: {fileID: 5202021018826794805}
   MeshRen: {fileID: 8054123373085049353}
---- !u!114 &5714216633119797747
+  Player_Manager: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+--- !u!114 &-7005451194920382528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,12 +327,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 3055711373614168356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a63a6067be965fc49a0b6cd04454c87d, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e49466a2189e54ebf3f244fa62b2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
-  Blue_Enemy_Hp: 5
-  targetR: {fileID: 0}
+  Shrink_Speed: 0.5
+  Enemy_Particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
+  TargetR: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+--- !u!114 &3114110136788414836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055711373614168356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.32415056, g: 0, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3802460037199382815
 GameObject:
   m_ObjectHideFlags: 0

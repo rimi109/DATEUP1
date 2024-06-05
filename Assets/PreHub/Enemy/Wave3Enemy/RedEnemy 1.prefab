@@ -434,7 +434,8 @@ GameObject:
   - component: {fileID: 3265412942654386981}
   - component: {fileID: 8319916724639125078}
   - component: {fileID: 79022133679709355}
-  - component: {fileID: 9126918849405334827}
+  - component: {fileID: 8517911983837273202}
+  - component: {fileID: 2912229618383498134}
   m_Layer: 0
   m_Name: RedEnemy 1
   m_TagString: EnemyW3
@@ -509,10 +510,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  Players: []
   col: {fileID: 3265412942654386981}
   MeshRen: {fileID: 6234510340546868298}
---- !u!114 &9126918849405334827
+  Player_Manager: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+--- !u!114 &8517911983837273202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -521,12 +523,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 6172258524734771928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78510eeb1c0043541919231738fbe0bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &2912229618383498134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172258524734771928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1589a428340e4734dba9793ecae14734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: e21ac25f5ed2dd04bb4a4bec77e0a344, type: 3}
-  Purple_Enemy_Hp: 5
   targetR: {fileID: 0}
+  Shrink_Speed: 0.5
+  Monster_Date_Array: {fileID: 0}
 --- !u!1 &6514353773934290446
 GameObject:
   m_ObjectHideFlags: 0
