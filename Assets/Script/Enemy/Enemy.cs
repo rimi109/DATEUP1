@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
         if (closestPlayer != null)
         {
             agent.destination = closestPlayer.transform.position;
-            agent.speed = Monster_Date_Array.Monster_Data[ENEMY_MOVE_SPEED_INDEX].Speed;
+            agent.speed = Monster_Date_Array.Monster_Data[ENEMY_MOVE_SPEED_INDEX].Speed_;
         }
     }
     #endregion

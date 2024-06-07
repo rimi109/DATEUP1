@@ -4,22 +4,42 @@ using UnityEngine;
 
 public class CSVProcessing : MonoBehaviour
 {
-    //　流し込む配列
+    [Header("敵の情報を取得")]
     public MonsterData[] Monster_Data;
+
+    [Tooltip("EnemyのTextAssetを設定")]
+    private TextAsset Enemy_Text_Asset = new TextAsset();
+
+    [Header("Wave1の情報を取得")]
+    public WaveDate[] Wave_Date_;
+
+    [Tooltip("Wave1用のTextAssetを設定")]
+    private TextAsset Wave_Date_Text_Asset = new TextAsset();
+
 
     void Start()
     {
-        //　テキストファイルの読み込みを行ってくれるクラス
-        TextAsset textasset = new TextAsset();
-        //　先ほど用意したcsvファイルを読み込ませる。
-        //　ファイルは「Resources」フォルダを作り、そこに入れておくこと。また"CSVTestData"の部分はファイル名に合わせて変更する。
-        textasset = Resources.Load("Enemy", typeof(TextAsset)) as TextAsset;
-        //　CSVSerializerを用いてcsvファイルを配列に流し込む。
-        Monster_Data = CSVSerializer.Deserialize<MonsterData>(textasset.text);
+        //敵のCSVを取得
+        Enemy_Text_Asset = Resources.Load("Enemy", typeof(TextAsset)) as TextAsset;
+        Monster_Data = CSVSerializer.Deserialize<MonsterData>(Enemy_Text_Asset.text);
+
+        //Wave1のCSVを取得
+        Wave_Date_Text_Asset = Resources.Load("Wave1Date", typeof(TextAsset)) as TextAsset;
+        Wave_Date_ = CSVSerializer.Deserialize<WaveDate>(Wave_Date_Text_Asset.text);
     }
 
-    void Update()
+    public void Wave_2()
     {
-        
+        //Wave2のCSVを取得
+        Wave_Date_Text_Asset = Resources.Load("Wave2Date", typeof(TextAsset)) as TextAsset;
+        Wave_Date_ = CSVSerializer.Deserialize<WaveDate>(Wave_Date_Text_Asset.text);
     }
+
+    public void Wave_3()
+    {
+        //Wave3のCSVを取得
+        Wave_Date_Text_Asset = Resources.Load("Wave3Date", typeof(TextAsset)) as TextAsset;
+        Wave_Date_ = CSVSerializer.Deserialize<WaveDate>(Wave_Date_Text_Asset.text);
+    }
+
 }

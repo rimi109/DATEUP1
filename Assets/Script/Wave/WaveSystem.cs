@@ -1,28 +1,30 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class WaveSystem : MonoBehaviour
 {
+    [Header("CSVからデータを取得"), SerializeField]
+    private CSVProcessing Wave_Date_Array;
 
-    [Header("単色の敵"), SerializeField]
-    public GameObject[] Enemies;
+    [Header("全種類の敵を取得"), SerializeField]
+    private GameObject[] Enemy_S;
 
-    [Header("中ボス"), SerializeField]
-    public GameObject[] MediumBoss;
-
-    [SerializeField]
-    private int EnemyCrushingWave1Count = 0;
-
-    [SerializeField]
-    private int EnemySpawnCount = 0;
-
-    [Header(""), SerializeField]
-    private int EnemyCrushing;
-
+    Dictionary<string, int> dic = new Dictionary<string, int>()
+    {
+        {"BlueEnemy",0},
+        {"RedEnemy",1},
+        {"GreenEnemy",2},
+        {"YellowEnemy",3},
+        {"LightBlueEnemy",4},
+        {"PurpleEnemy",5},
+        {"Boss",6},
+    };
 
     private void Update()
     {
         Enemy_Spawn();
     }
+
 
     #region EnemyがSpawnする際にEnemyが出現する座標をrandomで決めるための関数
     /// <summary>
@@ -40,9 +42,11 @@ public class WaveSystem : MonoBehaviour
         var randomPosX = Random.Range(leftBottom.z, rightTop.z);
         var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-        GameObject enemy = Instantiate(Enemies[EnemySpawnCount]);
 
-        enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+
+        //GameObject enemy = Instantiate();
+
+        //enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
     }
     #endregion
 
