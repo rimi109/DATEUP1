@@ -1,7 +1,7 @@
 [System.Serializable]
 public class MonsterData
 {
-    public string MonsterName;
-    public int Hp;
-    public int Speed;
+    public string Monster_Name;
+    public int Hp_;
+    public int Speed_;
 }

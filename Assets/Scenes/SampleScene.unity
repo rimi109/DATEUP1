@@ -8277,6 +8277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1626788645}
   - component: {fileID: 1626788644}
+  - component: {fileID: 1626788646}
   m_Layer: 0
   m_Name: EnemyGenerateSystem
   m_TagString: Untagged
@@ -8297,6 +8298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Monster_Data: []
+  Wave_Date_: []
 --- !u!4 &1626788645
 Transform:
   m_ObjectHideFlags: 0
@@ -8312,6 +8314,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626788646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626788643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fc9fa0d3de76b49896e29f68afcdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wave_Date_Array: {fileID: 1626788644}
+  Enemy_S:
+  - {fileID: 6989669618973776032, guid: 510b5a66de694444d87684988c43baa3, type: 3}
+  - {fileID: 6769230782514488405, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
+  - {fileID: 7630769530564176372, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
+  - {fileID: 6162319949205176239, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
+  - {fileID: 4951137792371982590, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
+  - {fileID: 4484329023380368614, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
+  - {fileID: 7760406866537791960, guid: 6af0add85043e7c498d734c552b573fd, type: 3}
 --- !u!65 &1627099237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10823,9 +10846,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fc9fa0d3de76b49896e29f68afcdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySystem: {fileID: 7401046030067507842}
-  Enemies: []
-  MediumBoss: []
-  EnemyCrushingWave1Count: 0
-  EnemySpawnCount: 0
-  EnemyCrushing: 0
+  Wave_Date_Array: {fileID: 0}
+  Enemy_S: []
