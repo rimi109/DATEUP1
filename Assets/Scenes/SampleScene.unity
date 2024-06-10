@@ -2998,7 +2998,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24950
+  m_Name: pb_Mesh24918
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6848,7 +6848,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25678
+  m_Name: pb_Mesh25648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8007,7 +8007,7 @@ MonoBehaviour:
   Player_Red: {fileID: 3002009105177745729}
   Player_Blue: {fileID: 3553337084966060211}
   Player_Manager: {fileID: 1501504119}
-  Enemy_Generate_System: {fileID: 7401046030067507842}
+  Enemy_Generate_System: {fileID: 0}
   Player_Move: {fileID: 4518735583722807178}
   Player_health: {fileID: 126408194}
   Player_Green_Dead_Flag: 0
@@ -8057,7 +8057,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24990
+  m_Name: pb_Mesh24958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8276,7 +8276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1626788645}
-  - component: {fileID: 1626788644}
+  - component: {fileID: 1626788647}
   - component: {fileID: 1626788646}
   m_Layer: 0
   m_Name: EnemyGenerateSystem
@@ -8285,20 +8285,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1626788644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626788643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e8a2260eff3ed4faa5b89d83c049a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Monster_Data: []
-  Wave_Date_: []
 --- !u!4 &1626788645
 Transform:
   m_ObjectHideFlags: 0
@@ -8307,7 +8293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626788643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.301368, y: 17.313606, z: -21.686066}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8323,18 +8309,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626788643}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e8a2260eff3ed4faa5b89d83c049a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Monster_Data: []
+  Wave_Date: []
+--- !u!114 &1626788647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626788643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52fc9fa0d3de76b49896e29f68afcdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wave_Date_Array: {fileID: 1626788644}
-  Enemy_S:
-  - {fileID: 6989669618973776032, guid: 510b5a66de694444d87684988c43baa3, type: 3}
-  - {fileID: 6769230782514488405, guid: 5d0c625d99e540b45a95fcedc2abfd66, type: 3}
-  - {fileID: 7630769530564176372, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
-  - {fileID: 6162319949205176239, guid: 03e19dc591f28fb45bc65ded12b40dd8, type: 3}
-  - {fileID: 4951137792371982590, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
-  - {fileID: 4484329023380368614, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
-  - {fileID: 7760406866537791960, guid: 6af0add85043e7c498d734c552b573fd, type: 3}
+  Wave_Date_Array: {fileID: 1626788646}
+  Enemy_S: []
+  Wave1_Max_Spawn: 10
+  Wave2_Spawn_Count: 7
 --- !u!65 &1627099237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10540,7 +10535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c035e7bf004bb428c6934ccf51863f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Generate_System: {fileID: 7401046030067507842}
+  Enemy_Generate_System: {fileID: 0}
   This_Player_GameObject: {fileID: 919132149266843415}
   Player_Hp_image: {fileID: 1649790507}
   Player_Transform_: {fileID: 543450653452754349}
@@ -10606,7 +10601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629140067d3c74b4282da3db72eead66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Generate_System: {fileID: 7401046030067507842}
+  Enemy_Generate_System: {fileID: 0}
   This_Player_GameObject: {fileID: 919132148844968896}
   Player_Transform_: {fileID: 543450652835832186}
   Player_Hp: 3
@@ -10789,18 +10784,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7401046030067507842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401046030067507845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2e7970f7d071243b931a522194f8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7401046030067507843
 Transform:
   m_ObjectHideFlags: 0
@@ -10825,8 +10808,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7401046030067507843}
-  - component: {fileID: 7401046030067507842}
-  - component: {fileID: 7401046030067507846}
   m_Layer: 0
   m_Name: EnemyGenerate
   m_TagString: Untagged
@@ -10834,17 +10815,3 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7401046030067507846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401046030067507845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fc9fa0d3de76b49896e29f68afcdac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Wave_Date_Array: {fileID: 0}
-  Enemy_S: []
