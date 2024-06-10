@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -9,7 +10,16 @@ public class WaveSystem : MonoBehaviour
     [Header("‘Sí—Ş‚Ì“G‚ğæ“¾"), SerializeField]
     private GameObject[] Enemy_S;
 
-    Dictionary<string, int> dic = new Dictionary<string, int>()
+    [Tooltip("Enemy‚Ì—N‚¢‚½”‚ğ”‚¦‚é")]
+    private int Spawn_Count;
+
+    [Header("Enemy‚Ì—N‚¢‚½”‚ğ”‚¦‚é"),SerializeField]
+    private int Wave1_Max_Spawn;
+
+    [Header("Enemy‚Ì—N‚¢‚½”‚ğ”‚¦‚é"),SerializeField]
+    private int Wave2_Spawn_Count;
+
+    Dictionary<string, int> Enemy_Dictionary = new Dictionary<string, int>()
     {
         {"BlueEnemy",0},
         {"RedEnemy",1},
@@ -20,8 +30,11 @@ public class WaveSystem : MonoBehaviour
         {"Boss",6},
     };
 
-    private void Update()
+private void Update()
     {
+
+        if (Spawn_Count > Wave1_Max_Spawn)
+            return;
         Enemy_Spawn();
     }
 
@@ -42,11 +55,16 @@ public class WaveSystem : MonoBehaviour
         var randomPosX = Random.Range(leftBottom.z, rightTop.z);
         var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
+        var waveDate = Wave_Date_Array.Wave_Date;
+        int enemyValue;
+        for (int i = 0; i < waveDate.Length; i++)
+        {
+            enemyValue = Enemy_Dictionary[waveDate[i].wave];
+            //GameObject enemy = Instantiate(enemyPrefab);
+            //enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
 
-
-        //GameObject enemy = Instantiate();
-
-        //enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+            Spawn_Count++;
+        }
     }
     #endregion
 

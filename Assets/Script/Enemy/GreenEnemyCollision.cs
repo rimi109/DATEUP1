@@ -58,9 +58,9 @@ public class GreenEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp_ -= 1;
+                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp_ <= 0)
+                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                   
