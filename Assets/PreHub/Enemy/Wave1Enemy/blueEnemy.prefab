@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 6491128410595227581}
   - component: {fileID: 4235095433888374602}
   m_Layer: 0
-  m_Name: blueEnemy
+  m_Name: BlueEnemy
   m_TagString: EnemyW1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

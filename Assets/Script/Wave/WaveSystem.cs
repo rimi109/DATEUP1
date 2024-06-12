@@ -10,14 +10,24 @@ public class WaveSystem : MonoBehaviour
     [Header("全種類の敵を取得"), SerializeField]
     private GameObject[] Enemy_S;
 
-    [Tooltip("Enemyの湧いた数を数える")]
+    [Tooltip("Enemyの湧いた数を数える"),SerializeField]
     private int Spawn_Count;
 
-    [Header("Enemyの湧いた数を数える"),SerializeField]
+    [Header("Wave1の敵の最大個数"),SerializeField]
     private int Wave1_Max_Spawn;
 
-    [Header("Enemyの湧いた数を数える"),SerializeField]
+    [Header("Wave2の敵の最大個数"),SerializeField]
     private int Wave2_Spawn_Count;
+
+    [Tooltip("Enemyが地面にめり込まないようにY軸を変更")]
+    private const int ENEMY_CAVEIN_Y = 3;
+
+    [Tooltip("カメラのRight座標をを少し変更し画面内に出現させる")]
+    private const float RIGHT_TOP_CAMERA_COORDINATES_MINUS = 50.0f;
+
+    [Tooltip("カメラのBottom座標をを少し変更し画面内に出現させる")]
+    private const float LEFT_BOTTOM_CAMERA_COORDINATES_MINUS = 100.0f;
+
 
     Dictionary<string, int> Enemy_Dictionary = new Dictionary<string, int>()
     {
@@ -33,35 +43,39 @@ public class WaveSystem : MonoBehaviour
 private void Update()
     {
 
-        if (Spawn_Count > Wave1_Max_Spawn)
+        if (Spawn_Count >= Wave1_Max_Spawn)
             return;
-        Enemy_Spawn();
+        Enemy_Spawn_Coordinate();
     }
 
 
-    #region EnemyがSpawnする際にEnemyが出現する座標をrandomで決めるための関数
+    #region EnemyがSpawnする際にEnemyが出現する座標をRandomで決めるための関数
     /// <summary>
     /// EnemyがSpawnする際にEnemyが出現する座標をrandomで決めるための関数
     /// </summary>
-    private void Enemy_Spawn()
+    private void Enemy_Spawn_Coordinate()
     {
-        //enemyをインスタンス化する(生成する)
-        //生成した敵の位置をランダムに設定する
-        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.farClipPlane - 50.0f));
-        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.farClipPlane - 100.0f));
+       
+        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
+            Camera.main.farClipPlane - RIGHT_TOP_CAMERA_COORDINATES_MINUS));
 
-        // rightTop xが右端　yが上端                
-        // leftbottom xが左端　yが下端
-        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0,
+            Camera.main.farClipPlane - LEFT_BOTTOM_CAMERA_COORDINATES_MINUS));
 
         var waveDate = Wave_Date_Array.Wave_Date;
         int enemyValue;
+
         for (int i = 0; i < waveDate.Length; i++)
         {
-            enemyValue = Enemy_Dictionary[waveDate[i].wave];
-            //GameObject enemy = Instantiate(enemyPrefab);
-            //enemy.transform.position = new Vector3(randomPosX, 3, randomPosZ);
+            enemyValue = Enemy_Dictionary[waveDate[i].wave1];
+
+            //enemyをインスタンス化する(生成する)
+            //生成した敵の位置をランダムに設定する
+            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
+
+            GameObject enemy = Instantiate(Enemy_S[enemyValue]);
+            enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
 
             Spawn_Count++;
         }
