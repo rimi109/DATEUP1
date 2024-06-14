@@ -26,10 +26,10 @@ public class Enemy : MonoBehaviour
     private float AnimeTime;
     private const float Enemy_Move_Speed = 10.0f;
     [Header("CSVからデータを取得"), SerializeField]
-    private CSVProcessing Monster_Date_Array;
+    private CSVProcessing Date_Array;
 
     [Tooltip("Enemyの移動スピードのデータ番号を設定")]
-    private const int ENEMY_MOVE_SPEED_INDEX = 7;
+    private const int ENEMY_MOVE_SPEED_INDEX = 6;
     void Start()
     {
         EffectTime = 0.0f;
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         Player_Manager = FindObjectOfType<PlayerManager>();
-        Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
+        Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
     }
 
     void Update()
@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
         if (closestPlayer != null)
         {
             agent.destination = closestPlayer.transform.position;
-            agent.speed = Monster_Date_Array.Monster_Data[ENEMY_MOVE_SPEED_INDEX].Speed * Time.deltaTime;
+            agent.speed = Date_Array.Monster_Data[ENEMY_MOVE_SPEED_INDEX].Speed;
         }
     }
     #endregion

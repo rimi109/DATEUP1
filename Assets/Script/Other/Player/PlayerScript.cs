@@ -92,17 +92,17 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("EnemyW1"))
         {
-            PlayerDamaged();
+            Player_Damaged();
         }
 
         if (collision.gameObject.CompareTag("EnemyW2"))
         {
-            PlayerDamaged();
+            Player_Damaged();
         }
 
         if (collision.gameObject.CompareTag("EnemyW3"))
         {
-            PlayerDamaged();
+            Player_Damaged();
         }
 
         if (collision.gameObject.CompareTag("PlayerBlue"))
@@ -110,7 +110,7 @@ public class PlayerScript : MonoBehaviour
             if (Player_Green_Dead_Flag && Player_Hp <= 0)
             {
                 Player_Blue.PlayerBlueRecoveryHp();
-                PlayerRevival();
+                Player_Revival();
             }
         }
 
@@ -119,7 +119,7 @@ public class PlayerScript : MonoBehaviour
             if (Player_Green_Dead_Flag && Player_Hp <= 0)
             {
                 Player_Red.PlayerRedRecoveryHp();
-                PlayerRevival();
+                Player_Revival();
             }
         }
     }
@@ -128,7 +128,7 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// 自分が生き返った場合実行するプログラム
     /// </summary>
-    private void PlayerRevival()
+    private void Player_Revival()
     {
         ++Player_Hp;
 
@@ -152,7 +152,7 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// Player自身がダメージをくらった時に実行するプログラム
     /// </summary>
-    private void PlayerDamaged()
+    private void Player_Damaged()
     {
         Player_health.Health_Function();
         Player_Hp_image.SetActive(true);
@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// Playerが死んだとき実行する関数
     /// </summary>
-    public void PlayerDieAnimator()
+    public void Player_Die_Animator()
     {
         Player_Animator.SetBool("Down", true);
         Player_Green_Dead_Flag = true;
@@ -174,7 +174,7 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// Playerが生き返ったときに実行する関数
     /// </summary>
-    public void PlayerGreenRecoveryHp()
+    public void Player_Green_Recovery_Hp()
     {
         --Player_Hp;
         Player_health.Health_Function();

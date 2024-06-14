@@ -41,7 +41,7 @@ public class health : MonoBehaviour
         {
             gameOverSeceChange.GameOver_Count();
             GameOverCount = true;
-            PlayerGreenDieAnimator.PlayerDieAnimator();
+            PlayerGreenDieAnimator.Player_Die_Animator();
         }
     }
 

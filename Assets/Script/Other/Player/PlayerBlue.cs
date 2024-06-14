@@ -114,7 +114,7 @@ public class PlayerBlue : MonoBehaviour
         {
             if (Player_Blue_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Green.PlayerGreenRecoveryHp();
+                Player_Green.Player_Green_Recovery_Hp();
                 PlayerRevival();
             }
         }

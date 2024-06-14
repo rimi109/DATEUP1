@@ -8326,7 +8326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fc9fa0d3de76b49896e29f68afcdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wave_Date_Array: {fileID: 1626788646}
+  Date_Array: {fileID: 1626788646}
   Enemy_S:
   - {fileID: 6989669618973776032, guid: 510b5a66de694444d87684988c43baa3, type: 3}
   - {fileID: 7630769530564176372, guid: 07087271f1c698148ae38b1c0e0270e3, type: 3}
