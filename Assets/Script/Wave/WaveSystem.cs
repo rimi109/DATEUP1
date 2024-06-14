@@ -5,19 +5,13 @@ using System.Linq;
 public class WaveSystem : MonoBehaviour
 {
     [Header("CSVからデータを取得"), SerializeField]
-    private CSVProcessing Wave_Date_Array;
+    private CSVProcessing Date_Array;
 
     [Header("全種類の敵を取得"), SerializeField]
     private GameObject[] Enemy_S;
 
-    [Tooltip("Enemyの湧いた数を数える"),SerializeField]
+    [Tooltip("Enemyの湧いた数を数える")]
     private int Spawn_Count;
-
-    [Header("Wave1の敵の最大個数"),SerializeField]
-    private int Wave1_Max_Spawn;
-
-    [Header("Wave2の敵の最大個数"),SerializeField]
-    private int Wave2_Spawn_Count;
 
     [Tooltip("Enemyが地面にめり込まないようにY軸を変更")]
     private const int ENEMY_CAVEIN_Y = 3;
@@ -42,10 +36,29 @@ public class WaveSystem : MonoBehaviour
 
 private void Update()
     {
+     
 
-        if (Spawn_Count >= Wave1_Max_Spawn)
-            return;
-        Enemy_Spawn_Coordinate();
+            switch (0) { 
+             case  0:
+                    if (Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
+                    {
+                        Enemy_Spawn_Coordinate();
+                    }
+
+                        break;
+             case 1:
+
+
+
+                    break;
+             case 2:
+
+
+
+
+                    break;
+            }
+    
     }
 
 
@@ -62,24 +75,18 @@ private void Update()
         var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0,
             Camera.main.farClipPlane - LEFT_BOTTOM_CAMERA_COORDINATES_MINUS));
 
-        var waveDate = Wave_Date_Array.Wave_Date;
+        var waveDate = Date_Array.Wave_Date;
         int enemyValue;
+        enemyValue = Enemy_Dictionary[waveDate[Spawn_Count].wave1];
 
-        for (int i = 0; i < waveDate.Length; i++)
-        {
-            enemyValue = Enemy_Dictionary[waveDate[i].wave1];
+        //enemyをインスタンス化する(生成する)
+        //生成した敵の位置をランダムに設定する
+        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
+        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-            //enemyをインスタンス化する(生成する)
-            //生成した敵の位置をランダムに設定する
-            var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-            var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-            GameObject enemy = Instantiate(Enemy_S[enemyValue]);
-            enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-
-            Spawn_Count++;
-        }
+        GameObject enemy = Instantiate(Enemy_S[enemyValue]);
+        enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
+        Spawn_Count++;
     }
     #endregion
-
 }
