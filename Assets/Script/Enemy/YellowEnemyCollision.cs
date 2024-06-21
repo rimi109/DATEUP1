@@ -49,6 +49,9 @@ public class YellowEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private float Enemy_Destroy_Time;
 
+    [Header(""), SerializeField]
+    private WaveSystem Wave_System;
+
     public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
 
@@ -65,6 +68,7 @@ public class YellowEnemyCollision : MonoBehaviour
         red_Attack_Flag = false;
         ParticleSystem = false;
         targetR = GameObject.FindObjectOfType<PlayerScript>();
+        Wave_System = GameObject.FindObjectOfType<WaveSystem>();
 
     }
 
@@ -102,6 +106,7 @@ public class YellowEnemyCollision : MonoBehaviour
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
+                Wave_System.Enemy_Destroy_Count_System();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }

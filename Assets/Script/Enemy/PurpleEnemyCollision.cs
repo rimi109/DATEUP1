@@ -53,11 +53,15 @@ public class PurpleEnemyCollision : MonoBehaviour
     public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
 
+    [Header(""), SerializeField]
+    private WaveSystem Wave_System;
+
 
     private void Awake()
     {
         Effective_Colour_Blue_On.SetActive(false);
         Effective_Colour_Red_On.SetActive(false);
+        Wave_System = GameObject.FindObjectOfType<WaveSystem>();
     }
 
     private void Start()
@@ -102,6 +106,7 @@ public class PurpleEnemyCollision : MonoBehaviour
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
+                Wave_System.Enemy_Destroy_Count_System();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }

@@ -38,6 +38,10 @@ public class RedEnemyCollision : MonoBehaviour
     [Tooltip("MonsterDateÇÃâΩî‘ñ⁄ÇÃÉfÅ[É^åƒÇ‘Ç©")]
     private const int ENEMY_DATE_NUMBER = 0;
 
+
+    [Header(""), SerializeField]
+    private WaveSystem Wave_System;
+
     private void Start()
     {
         Red_Attack_Flag = false;
@@ -45,6 +49,7 @@ public class RedEnemyCollision : MonoBehaviour
 
         targetR = GameObject.FindObjectOfType<PlayerScript>();
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
+        Wave_System = GameObject.FindObjectOfType<WaveSystem>();
     }
 
     void Update()
@@ -84,6 +89,7 @@ public class RedEnemyCollision : MonoBehaviour
            
             if (Enemy_Destroy_Time > 1)
             {
+                Wave_System.Enemy_Destroy_Count_System();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }

@@ -3,9 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerRed : MonoBehaviour
 {
-    [Header("EnemyGenerateSystem‚ÌScript‚ğQÆ"), SerializeField]
-    private EnemyGenerate Enemy_Generate_System;
-
     [Header("Player‚ÌModel‚ÌGameObject‚ğæ“¾"), SerializeField]
     private GameObject This_Player_GameObject;
 
@@ -125,7 +122,7 @@ public class PlayerRed : MonoBehaviour
         {
             if (Player_Red_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Blue.PlayerBlueRecoveryHp();
+                Player_Blue.Player_Blue_Recovery_Hp();
                 PlayerRevival();
             }
         }
@@ -190,7 +187,7 @@ public class PlayerRed : MonoBehaviour
     /// <summary>
     /// Player‚ª¶‚«•Ô‚Á‚½‚Æ‚«‚ÉÀs‚·‚éŠÖ”
     /// </summary>
-    public void PlayerRedRecoveryHp()
+    public void Player_Red_Recovery_Hp()
     {
        
         Player_Health.Health_Function();

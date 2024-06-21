@@ -41,6 +41,10 @@ public class GreenEnemyCollision : MonoBehaviour
     [Tooltip("MonsterDateÇÃâΩî‘ñ⁄ÇÃÉfÅ[É^åƒÇ‘Ç©")]
     private const int ENEMY_DATE_NUMBER = 2;
 
+    [Header(""), SerializeField]
+    private WaveSystem Wave_System;
+
+
     private void Start()
     {
         Green_Attack_Flag = false;
@@ -48,6 +52,7 @@ public class GreenEnemyCollision : MonoBehaviour
 
         targetR = GameObject.FindObjectOfType<PlayerScript>();
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
+        Wave_System = GameObject.FindObjectOfType<WaveSystem>();
     }
 
     void Update()
@@ -85,6 +90,7 @@ public class GreenEnemyCollision : MonoBehaviour
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
+                Wave_System.Enemy_Destroy_Count_System();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }

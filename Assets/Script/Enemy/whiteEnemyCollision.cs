@@ -40,6 +40,8 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private ParticleSystem newParticle;
 
+    [Header(""), SerializeField]
+    private WaveSystem Wave_System;
 
     private void Start()
     {
@@ -47,7 +49,7 @@ public class whiteEnemyCollision : MonoBehaviour
         Blue_Attack_Flag = false;
         Red_Attack_Flag = false;
         ParticleSystem = false;
-
+        Wave_System = GameObject.FindObjectOfType<WaveSystem>();
     }
 
     // Update is called once per frame
@@ -71,6 +73,7 @@ public class whiteEnemyCollision : MonoBehaviour
                 Enemy_Hit_Time = 0;
                 if (White_Enemy_Hp <= 0)
                 {
+                    Wave_System.Enemy_Destroy_Count_System();
                     Destroy(this.gameObject);
                     Destroy(newParticle);
                     SceneManager.LoadScene("GameClear");
