@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
     
     private float EffectTime;
     private float AnimeTime;
-    private const float Enemy_Move_Speed = 10.0f;
     [Header("CSV‚©‚çƒf[ƒ^‚ğæ“¾"), SerializeField]
     private CSVProcessing Date_Array;
 

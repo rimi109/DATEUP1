@@ -629,7 +629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &220468613
 BoxCollider:
@@ -2998,7 +2998,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24918
+  m_Name: pb_Mesh45374
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6848,7 +6848,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25648
+  m_Name: pb_Mesh47204
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7842,8 +7842,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501504117}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.3, y: 8.1, z: 19.6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 52.9, y: 8.1, z: 19.6}
   m_LocalScale: {x: 0.74, y: 0.74, z: 0.74}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7854,7 +7854,7 @@ Transform:
   - {fileID: 543450652835832186}
   - {fileID: 740432824}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1501504119
 MonoBehaviour:
@@ -8007,7 +8007,6 @@ MonoBehaviour:
   Player_Red: {fileID: 3002009105177745729}
   Player_Blue: {fileID: 3553337084966060211}
   Player_Manager: {fileID: 1501504119}
-  Enemy_Generate_System: {fileID: 0}
   Player_Move: {fileID: 4518735583722807178}
   Player_health: {fileID: 126408194}
   Player_Green_Dead_Flag: 0
@@ -8057,7 +8056,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24958
+  m_Name: pb_Mesh45464
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8314,6 +8313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster_Data: []
   Wave_Date: []
+  Enemy_Spawn_Max_Date: []
 --- !u!114 &1626788647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8335,9 +8335,6 @@ MonoBehaviour:
   - {fileID: 4951137792371982590, guid: ed9c5f2051638994db2c13e948a7b80a, type: 3}
   - {fileID: 4484329023380368614, guid: 518b2f56fb5795b46808e9c2760d2208, type: 3}
   - {fileID: 7760406866537791960, guid: 6af0add85043e7c498d734c552b573fd, type: 3}
-  Spawn_Count: 0
-  Wave1_Max_Spawn: 6
-  Wave2_Spawn_Count: 0
 --- !u!65 &1627099237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10543,7 +10540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c035e7bf004bb428c6934ccf51863f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Generate_System: {fileID: 0}
   This_Player_GameObject: {fileID: 919132149266843415}
   Player_Hp_image: {fileID: 1649790507}
   Player_Transform_: {fileID: 543450653452754349}
@@ -10609,7 +10605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629140067d3c74b4282da3db72eead66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Generate_System: {fileID: 0}
   This_Player_GameObject: {fileID: 919132148844968896}
   Player_Transform_: {fileID: 543450652835832186}
   Player_Hp: 3

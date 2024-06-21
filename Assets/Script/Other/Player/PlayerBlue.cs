@@ -3,9 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerBlue : MonoBehaviour
 {
-    [Header("EnemyGenerateSystem‚ÌScript‚ğQÆ"), SerializeField]
-    private EnemyGenerate Enemy_Generate_System;
-
     [Header("Player‚ÌModel‚ÌGameObject‚ğæ“¾"), SerializeField]
     private GameObject This_Player_GameObject;
 
@@ -123,7 +120,7 @@ public class PlayerBlue : MonoBehaviour
         {
             if (Player_Blue_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Red.PlayerRedRecoveryHp();
+                Player_Red.Player_Red_Recovery_Hp();
 
                 PlayerRevival();
             }
@@ -176,7 +173,7 @@ public class PlayerBlue : MonoBehaviour
         Player_Manager.List_Remove(this.transform);
     }
 
-    public void PlayerBlueRecoveryHp()
+    public void Player_Blue_Recovery_Hp()
     {
         --Player_Hp;
         Player_health.Health_Function();

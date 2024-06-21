@@ -56,6 +56,9 @@ public class LightBlueEnemyCollision : MonoBehaviour
     public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
 
+    [Header(""), SerializeField]
+    private WaveSystem Wave_System;
+
 
     private void Awake()
     {
@@ -70,7 +73,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
         ParticleSystem = false;
 
         targetR = GameObject.FindObjectOfType<PlayerScript>();
-
+        Wave_System = GameObject.FindObjectOfType<WaveSystem>();
     }
 
     void Update()
@@ -111,6 +114,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
+                Wave_System.Enemy_Destroy_Count_System();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }

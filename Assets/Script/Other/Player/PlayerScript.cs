@@ -44,10 +44,6 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerManagerのScriptを参照"), SerializeField]
     private PlayerManager Player_Manager;
 
-    [Header("EnemyGenerateSystemのScriptを参照"),SerializeField]
-    private EnemyGenerate Enemy_Generate_System;
-
-
     [Header("Playerが動く際に参照するプログラム"), SerializeField]
     private PlayerMove Player_Move;
 
@@ -86,7 +82,7 @@ public class PlayerScript : MonoBehaviour
                 return;
             }
             ++Player_Hp;
-            Player_health.PlayerRecoveryFunction();
+            Player_health.Player_Recovery_Function();
             Destroy(collision.gameObject);
         }
 
@@ -109,7 +105,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (Player_Green_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Blue.PlayerBlueRecoveryHp();
+                Player_Blue.Player_Blue_Recovery_Hp();
                 Player_Revival();
             }
         }
@@ -118,7 +114,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (Player_Green_Dead_Flag && Player_Hp <= 0)
             {
-                Player_Red.PlayerRedRecoveryHp();
+                Player_Red.Player_Red_Recovery_Hp();
                 Player_Revival();
             }
         }
@@ -136,7 +132,7 @@ public class PlayerScript : MonoBehaviour
 
         Player_Manager.ListAdd(this.transform);
 
-        Player_health.PlayerRecoveryFunction();
+        Player_health.Player_Recovery_Function();
 
         Player_Green_Dead_Flag    = false;
 

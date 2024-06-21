@@ -51,7 +51,7 @@ public class health : MonoBehaviour
         Health_Count -= 1;
     }
 
-    public void PlayerRecoveryFunction()
+    public void Player_Recovery_Function()
     {
         GameOverCount = false;
         Health_Count += 1;
