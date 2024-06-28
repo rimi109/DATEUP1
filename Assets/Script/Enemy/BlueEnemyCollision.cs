@@ -17,6 +17,9 @@ public class BlueEnemyCollision : MonoBehaviour
     [Tooltip("Enemyが連続でダメージを貰わないようにレキャストタイムを設定")]
     private const float Hit_Cool_Time = 1;
 
+    [Tooltip("EnemyのHpを入れておく")]
+    private int Enemy_Hp;
+
     [Tooltip("")]
     private float Enemy_Destroy_Time;
 
@@ -46,20 +49,21 @@ public class BlueEnemyCollision : MonoBehaviour
         Enemy_Destory_flag = false;
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
+        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
     {
-        Debug.Log(Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp);
         if (Blue_Attack_Flag)
         {
             Enemy_Hit_Time += Time.deltaTime;
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp -= 1;
+
+                Enemy_Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
+                if (Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                 

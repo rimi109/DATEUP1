@@ -25,8 +25,8 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("水色のライトが当たっているかを判定")]
     private BlueLightCollision Player_Light_Blue_Flag;
 
-    [Header("WhiteのHpを設定"), SerializeField]
-    private int White_Enemy_Hp;
+    [Tooltip("EnemyのHpを入れておく")]
+    private int Enemy_Hp;
 
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
@@ -40,6 +40,12 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private ParticleSystem newParticle;
 
+    [Header("CSVからデータを取得"), SerializeField]
+    private CSVProcessing Monster_Date_Array;
+
+    [Tooltip("MonsterDateの何番目のデータ呼ぶか")]
+    private const int ENEMY_DATE_NUMBER = 6;
+
     [Header(""), SerializeField]
     private WaveSystem Wave_System;
 
@@ -50,6 +56,7 @@ public class whiteEnemyCollision : MonoBehaviour
         Red_Attack_Flag = false;
         ParticleSystem = false;
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
+        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 
     // Update is called once per frame
@@ -68,10 +75,9 @@ public class whiteEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                White_Enemy_Hp -= 3;
-                Debug.Log(White_Enemy_Hp);
+                Enemy_Hp -= 3;
                 Enemy_Hit_Time = 0;
-                if (White_Enemy_Hp <= 0)
+                if (Enemy_Hp <= 0)
                 {
                     Wave_System.Enemy_Destroy_Count_System();
                     Destroy(this.gameObject);

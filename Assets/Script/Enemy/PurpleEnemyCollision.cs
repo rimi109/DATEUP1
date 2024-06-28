@@ -27,8 +27,8 @@ public class PurpleEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private bool ParticleSystem;
 
-    [Header("WhiteのHpを設定"), SerializeField]
-    private int Purple_Enemy_Hp;
+    [Tooltip("EnemyのHpを入れておく")]
+    private int Enemy_Hp;
 
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
@@ -53,6 +53,12 @@ public class PurpleEnemyCollision : MonoBehaviour
     public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
 
+    [Header("CSVからデータを取得"), SerializeField]
+    private CSVProcessing Monster_Date_Array;
+
+    [Tooltip("MonsterDateの何番目のデータ呼ぶか")]
+    private const int ENEMY_DATE_NUMBER = 5;
+
     [Header(""), SerializeField]
     private WaveSystem Wave_System;
 
@@ -70,6 +76,7 @@ public class PurpleEnemyCollision : MonoBehaviour
         Blue_Attack_Flag = false;
         ParticleSystem = false;
         Target_Player = GameObject.FindObjectOfType<PlayerScript>();
+        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
@@ -80,9 +87,9 @@ public class PurpleEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Purple_Enemy_Hp -= 2;
+                Enemy_Hp -= 2;
                 Enemy_Hit_Time = 0;
-                if (Purple_Enemy_Hp <= 0)
+                if (Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                 }

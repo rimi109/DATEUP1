@@ -55,58 +55,41 @@ private void Update()
     {
             switch (Wave_Switch_Nunber) { 
              case  0:
-                    if (Wave1_Spawn_Count <= Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
+                    if (Wave1_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
                     {
-                       if (Enemy_Destroy_Flag)
-                       {
-                           Enemy_Spawn_Coordinate();
-                       }
-                       else
-                       {
-                           Enemy_Spawn_Coordinate();
-                       }
-                      
+                        Enemy_Spawn_Coordinate();
                     }
 
                     if (Enemy_Destroy_Count >= Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
                     {
+                        Date_Array.Wave_2();
                         Wave_Switch_Nunber++;
                         Enemy_Destroy_Count = 0;
                     }
+
                 break;
 
              case 1:
-                    if (Wave2_Spawn_Count <= Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
+                    if (Wave2_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
                     {
-                    if (Enemy_Destroy_Flag)
-                    {
+                      
                         Enemy_Spawn_Coordinate();
+                        
                     }
-                    else
-                    {
-                        Enemy_Spawn_Coordinate();
-                    }
-                }
 
                     if(Enemy_Destroy_Count >= Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
                     {
+                        Date_Array.Wave_3();
                         Wave_Switch_Nunber++;
                         Enemy_Destroy_Count = 0;
                     }
                 break;
 
              case 2:
-                    if (Wave3_Spawn_Count <= Date_Array.Enemy_Spawn_Max_Date[0].Wave3MaxEnemy)
-                    {
-                    if (Enemy_Destroy_Flag)
-                    {
+                    if (Wave3_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave3MaxEnemy)
+                    {              
                         Enemy_Spawn_Coordinate();
                     }
-                    else
-                    {
-                        Enemy_Spawn_Coordinate();
-                    }
-                }
                 break;
             }
    

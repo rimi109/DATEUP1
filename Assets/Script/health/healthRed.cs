@@ -50,8 +50,8 @@ public class healthRed : MonoBehaviour
 
     public void Health_Function()
     {
-        --Health_Count;
         health_[Health_Count].SetActive(false);
+        --Health_Count;
     }
 
     public void Player_Recovery_Function()
