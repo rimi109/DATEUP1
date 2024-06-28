@@ -48,7 +48,7 @@ public class health : MonoBehaviour
     public void Health_Function()
     {
         health_[Health_Count].SetActive(false);
-        Health_Count -= 1;
+        --Health_Count;
     }
 
     public void Player_Recovery_Function()

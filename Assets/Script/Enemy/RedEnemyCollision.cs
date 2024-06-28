@@ -35,6 +35,9 @@ public class RedEnemyCollision : MonoBehaviour
     [Header("CSVからデータを取得"), SerializeField]
     private CSVProcessing Monster_Date_Array;
 
+    [Tooltip("EnemyのHpを入れておく")]
+    private int Enemy_Hp;
+
     [Tooltip("MonsterDateの何番目のデータ呼ぶか")]
     private const int ENEMY_DATE_NUMBER = 0;
 
@@ -50,6 +53,7 @@ public class RedEnemyCollision : MonoBehaviour
         targetR = GameObject.FindObjectOfType<PlayerScript>();
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
+        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
@@ -60,9 +64,9 @@ public class RedEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp -= 1;
+                Enemy_Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
+                if (Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                    

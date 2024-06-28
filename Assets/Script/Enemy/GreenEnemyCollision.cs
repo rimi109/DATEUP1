@@ -35,8 +35,13 @@ public class GreenEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private float Enemy_Destroy_Time;
 
+
     public float Shrink_Speed = 0.5f;
+
     private const float ROTATION_SPEED = 4000.0f;
+
+    [Tooltip("Enemy‚ÌHp‚ğ“ü‚ê‚Ä‚¨‚­")]
+    private int Enemy_Hp;
 
     [Tooltip("MonsterDate‚Ì‰½”Ô–Ú‚Ìƒf[ƒ^ŒÄ‚Ô‚©")]
     private const int ENEMY_DATE_NUMBER = 2;
@@ -53,6 +58,7 @@ public class GreenEnemyCollision : MonoBehaviour
         targetR = GameObject.FindObjectOfType<PlayerScript>();
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
+        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
@@ -63,9 +69,9 @@ public class GreenEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp -= 1;
+                Enemy_Hp -= 1;
                 Enemy_Hit_Time = 0;
-                if (Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp <= 0)
+                if (Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                   

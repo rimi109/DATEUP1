@@ -18,7 +18,7 @@ public class YellowEnemyCollision : MonoBehaviour
     private bool Green_Attack_Flag;
 
     [Tooltip("赤色のライトが当たっているかを判定")]
-    private bool red_Attack_Flag;
+    private bool Red_Attack_Flag;
 
     [Tooltip("緑色のライトが当たっているかを判定")]
     private GreenLightCollision Player_Green_Flag;
@@ -32,8 +32,8 @@ public class YellowEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private bool ParticleSystem;
 
-    [Header("WhiteのHpを設定"), SerializeField]
-    private int Purple_Enemy_Hp;
+    [Tooltip("EnemyのHpを入れておく")]
+    private int Enemy_Hp;
 
     [Tooltip("")]
     private float Enemy_Hit_Time = 1.1f;
@@ -52,8 +52,14 @@ public class YellowEnemyCollision : MonoBehaviour
     [Header(""), SerializeField]
     private WaveSystem Wave_System;
 
+    [Header("CSVからデータを取得"), SerializeField]
+    private CSVProcessing Monster_Date_Array;
+
     public float Shrink_Speed = 0.5f;
     private const float ROTATION_SPEED = 4000.0f;
+
+    [Tooltip("MonsterDateの何番目のデータ呼ぶか")]
+    private const int ENEMY_DATE_NUMBER = 3;
 
     private void Awake()
     {
@@ -65,24 +71,24 @@ public class YellowEnemyCollision : MonoBehaviour
     private void Start()
     {
         Green_Attack_Flag = false;
-        red_Attack_Flag = false;
+        Red_Attack_Flag = false;
         ParticleSystem = false;
         targetR = GameObject.FindObjectOfType<PlayerScript>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
-
+        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
     {
-        if (red_Attack_Flag && Green_Attack_Flag && Player_Green_Flag.Yellow_Attack_Flag)
+        if (Red_Attack_Flag && Green_Attack_Flag && Player_Green_Flag.Yellow_Attack_Flag)
         {
             Enemy_Hit_Time += Time.deltaTime;
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Purple_Enemy_Hp -= 2;
+                Enemy_Hp -= 2;
                 Enemy_Hit_Time = 0;
-                if (Purple_Enemy_Hp <= 0)
+                if (Enemy_Hp <= 0)
                 {
                     Enemy_Destory_flag = true;
                 }
@@ -126,7 +132,7 @@ public class YellowEnemyCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("redlight"))
         {
-            red_Attack_Flag = true;
+            Red_Attack_Flag = true;
 
             Effective_Colour_Red_On.SetActive(true);
             Effective_Colour_Red_Off.SetActive(false);
@@ -146,7 +152,7 @@ public class YellowEnemyCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("redlight"))
         {
-            red_Attack_Flag = false;
+            Red_Attack_Flag = false;
             ParticleSystem = false;
             Destroy(newParticle);
 
