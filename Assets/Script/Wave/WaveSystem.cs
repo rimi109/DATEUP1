@@ -10,13 +10,7 @@ public class WaveSystem : MonoBehaviour
     private GameObject[] Enemy_S;
 
     [Tooltip("Enemy‚Ì—N‚¢‚½”‚ğ”‚¦‚é")]
-    private int Wave1_Spawn_Count;
-
-    [Tooltip("Enemy‚Ì—N‚¢‚½”‚ğ”‚¦‚é")]
-    private int Wave2_Spawn_Count;
-
-    [Tooltip("Enemy‚Ì—N‚¢‚½”‚ğ”‚¦‚é")]
-    private int Wave3_Spawn_Count;
+    private int Wave_Spawn_Count;
 
     [Tooltip("“G‚ª‰½‘Î“|‚³‚ê‚½‚©‚ğ”‚¦‚é")]
     private int Enemy_Destroy_Count;
@@ -55,25 +49,26 @@ private void Update()
     {
             switch (Wave_Switch_Nunber) { 
              case  0:
-                    if (Wave1_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
+                    if (Wave_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
                     {
-                        Enemy_Spawn_Coordinate();
+                         Wave_Spwan_Function();
                     }
 
                     if (Enemy_Destroy_Count >= Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
                     {
                         Date_Array.Wave_2();
                         Wave_Switch_Nunber++;
+                        Wave_Spawn_Count = 0;
                         Enemy_Destroy_Count = 0;
                     }
 
                 break;
 
              case 1:
-                    if (Wave2_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
+                    if (Wave_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
                     {
-                      
-                        Enemy_Spawn_Coordinate();
+
+                        Wave_Spwan_Function();
                         
                     }
 
@@ -81,53 +76,26 @@ private void Update()
                     {
                         Date_Array.Wave_3();
                         Wave_Switch_Nunber++;
+                        Wave_Spawn_Count = 0;
                         Enemy_Destroy_Count = 0;
                     }
                 break;
 
              case 2:
-                    if (Wave3_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave3MaxEnemy)
-                    {              
-                        Enemy_Spawn_Coordinate();
+                    if (Wave_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave3MaxEnemy)
+                    {
+                      Wave_Spwan_Function();
                     }
                 break;
             }
    
     }
 
-    #region Enemy‚ªSpawn‚·‚éÛ‚ÉEnemy‚ªoŒ»‚·‚éÀ•W‚ğRandom‚ÅŒˆ‚ß‚é‚½‚ß‚ÌŠÖ”
+    #region Wave‚ÅoŒ»‚·‚é“G‚ğİ’è
     /// <summary>
-    /// Enemy‚ªSpawn‚·‚éÛ‚ÉEnemy‚ªoŒ»‚·‚éÀ•W‚ğrandom‚ÅŒˆ‚ß‚é‚½‚ß‚ÌŠÖ”
+    /// Wave‚ÅoŒ»‚·‚é“G‚ğİ’è
     /// </summary>
-    private void Enemy_Spawn_Coordinate()
-    {
-        switch (Wave_Switch_Nunber) {
-            case 0:
-
-                Wave1_Spwan_Function();
-
-                break;
-               
-            case 1:
-
-                Wave2_Spwan_Function();
-
-                break;
-
-            case 2:
-
-                Wave3_Spwan_Function();
-
-                break;
-        }
-    }
-    #endregion
-
-    #region Wave1‚ÉoŒ»‚·‚é“G‚ğİ’è
-    /// <summary>
-    /// Wave1‚ÉoŒ»‚·‚é“G‚ğİ’è
-    /// </summary>
-    private void Wave1_Spwan_Function()
+    private void Wave_Spwan_Function()
     {
         //MaineCamera‚ÌÀ•W‚ğİ’è
         var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
@@ -141,101 +109,25 @@ private void Update()
 
         var waveDate = Date_Array.Wave_Date;
         int enemyValue;
-        int enemySpawnWave1Value;
+        int enemySpawnWaveValue;
 
-        enemyValue = Enemy_Dictionary[waveDate[Wave1_Spawn_Count].wave1];
-        enemySpawnWave1Value = waveDate[Wave1_Spawn_Count].Wave1SpawnPutter;
+        enemyValue = Enemy_Dictionary[waveDate[Wave_Spawn_Count].wave];
+        enemySpawnWaveValue = waveDate[Wave_Spawn_Count].WaveSpawnPutter;
 
-        if (enemySpawnWave1Value == 0)
+        if (enemySpawnWaveValue == 0)
         {
             //enemy‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é(¶¬‚·‚é)
             //¶¬‚µ‚½“G‚ÌˆÊ’u‚ğƒ‰ƒ“ƒ_ƒ€‚Éİ’è‚·‚é
-            GameObject wave1Enemy = Instantiate(Enemy_S[enemyValue]);
-            wave1Enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave1_Spawn_Count++;
+            GameObject waveEnemy = Instantiate(Enemy_S[enemyValue]);
+            waveEnemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
+            Wave_Spawn_Count++;
         }
 
-        if (enemySpawnWave1Value == ENEMY_SPWAN_SOLO_VALUE && Enemy_Destroy_Flag)
+        if (enemySpawnWaveValue == ENEMY_SPWAN_SOLO_VALUE && Enemy_Destroy_Flag)
         {
-            GameObject wave1Enemy = Instantiate(Enemy_S[enemyValue]);
-            wave1Enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave1_Spawn_Count++;
-            Enemy_Destroy_Flag = false;
-        }
-    }
-    #endregion
-
-    #region Wave2‚ÉoŒ»‚·‚é“G‚ğİ’è
-    /// <summary>
-    /// Wave2‚ÉoŒ»‚·‚é“G‚ğİ’è
-    /// </summary>
-    private void Wave2_Spwan_Function()
-    {
-        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
-            Camera.main.farClipPlane - RIGHT_TOP_CAMERA_COORDINATES_MINUS));
-
-        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0,
-            Camera.main.farClipPlane - LEFT_BOTTOM_CAMERA_COORDINATES_MINUS));
-
-        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-        var waveDate = Date_Array.Wave_Date;
-        int enemyValue;
-        int enemySpawnWave2Value = waveDate[Wave2_Spawn_Count].Wave2SpwanPutter;
-        if (enemySpawnWave2Value == 0)
-        {
-            enemyValue = Enemy_Dictionary[waveDate[Wave2_Spawn_Count].wave2];
-            GameObject wave2Enemy = Instantiate(Enemy_S[enemyValue]);
-            wave2Enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave2_Spawn_Count++;
-        }
-
-        if (enemySpawnWave2Value == ENEMY_SPWAN_SOLO_VALUE && Enemy_Destroy_Flag)
-        {
-            enemyValue = Enemy_Dictionary[waveDate[Wave2_Spawn_Count].wave2];
-            GameObject wave2Enemy = Instantiate(Enemy_S[enemyValue]);
-            wave2Enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave2_Spawn_Count++;
-            Enemy_Destroy_Flag = false;
-        }
-    }
-    #endregion
-
-    #region Wave3‚ÉoŒ»‚·‚é“G‚ğİ’è
-    /// <summary>
-    /// Wave3‚ÉoŒ»‚·‚é“G‚ğİ’è
-    /// </summary>
-    private void Wave3_Spwan_Function()
-    {
-
-        var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
-            Camera.main.farClipPlane - RIGHT_TOP_CAMERA_COORDINATES_MINUS));
-
-        var leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0,
-            Camera.main.farClipPlane - LEFT_BOTTOM_CAMERA_COORDINATES_MINUS));
-
-        var randomPosX = Random.Range(leftBottom.z, rightTop.z);
-        var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
-
-        var waveDate = Date_Array.Wave_Date;
-        int enemyValue;
-        int enemySpawnWave3Value = waveDate[Wave3_Spawn_Count].Wave3SpwanPutter;
-
-        if (enemySpawnWave3Value == 0)
-        {
-            enemyValue = Enemy_Dictionary[waveDate[Wave3_Spawn_Count].wave3];
-            GameObject wave3Enemy = Instantiate(Enemy_S[enemyValue]);
-            wave3Enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave3_Spawn_Count++;
-        }
-
-        if (enemySpawnWave3Value == ENEMY_SPWAN_SOLO_VALUE && Enemy_Destroy_Flag)
-        {
-            enemyValue = Enemy_Dictionary[waveDate[Wave3_Spawn_Count].wave3];
-            GameObject wave3Enemy = Instantiate(Enemy_S[enemyValue]);
-            wave3Enemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave3_Spawn_Count++;
+            GameObject waveEnemy = Instantiate(Enemy_S[enemyValue]);
+            waveEnemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
+            Wave_Spawn_Count++;
             Enemy_Destroy_Flag = false;
         }
     }
