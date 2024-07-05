@@ -591,9 +591,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: 1a6b2e3c2ffbbf64d813df9c4c1170bb, type: 3}
-  Players: []
   col: {fileID: -6062816089192410757}
   MeshRen: {fileID: 8371428168820762021}
+  Player_Manager: {fileID: 0}
+  Date_Array: {fileID: 0}
 --- !u!136 &-6062816089192410757
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -620,8 +621,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d79f3b60564ce498a2c3d0791e5868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  White_Enemy_Hp: 40
+  Enemy_Hp: 15
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
+  Monster_Date_Array: {fileID: 0}
+  Wave_System: {fileID: 0}
 --- !u!1 &8137459698515119747
 GameObject:
   m_ObjectHideFlags: 0

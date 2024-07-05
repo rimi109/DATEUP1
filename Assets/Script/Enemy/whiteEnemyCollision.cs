@@ -25,7 +25,7 @@ public class whiteEnemyCollision : MonoBehaviour
     [Tooltip("…F‚Ìƒ‰ƒCƒg‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ð”»’è")]
     private BlueLightCollision Player_Light_Blue_Flag;
 
-    [Tooltip("Enemy‚ÌHp‚ð“ü‚ê‚Ä‚¨‚­")]
+    [Tooltip("Enemy‚ÌHp‚ð“ü‚ê‚Ä‚¨‚­"),SerializeField]
     private int Enemy_Hp;
 
     [Tooltip("")]
@@ -75,7 +75,7 @@ public class whiteEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Enemy_Hp -= 3;
+                Enemy_Hp -= 1;
                 Enemy_Hit_Time = 0;
                 if (Enemy_Hp <= 0)
                 {
