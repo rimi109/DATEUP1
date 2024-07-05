@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 1441787504606894689}
   m_Layer: 0
   m_Name: YellowEnemy
-  m_TagString: EnemyW2
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -805,7 +805,6 @@ MonoBehaviour:
   Effective_Colour_Green_Off: {fileID: 177985112154802185}
   particle: {fileID: 187534602998800414, guid: 6687d54aa5100274b8cebb80b1ea716f, type: 3}
   Enemy_Hp: 10
-  targetR: {fileID: 0}
   Wave_System: {fileID: 0}
   Monster_Date_Array: {fileID: 0}
   Shrink_Speed: 0.5

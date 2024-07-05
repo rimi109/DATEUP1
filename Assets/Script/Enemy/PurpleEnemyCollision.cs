@@ -42,8 +42,6 @@ public class PurpleEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private ParticleSystem newParticle;
 
-    public PlayerScript Target_Player;
-
     [Tooltip("Ž©•ª‚ªŽ€‚ñ‚¾‚©‚Ç‚¤‚©‚ð”»’èŒŸ’m‚·‚é")]
     private bool Enemy_Destory_flag;
 
@@ -75,7 +73,6 @@ public class PurpleEnemyCollision : MonoBehaviour
         Red_Attack_Flag = false;
         Blue_Attack_Flag = false;
         ParticleSystem = false;
-        Target_Player = GameObject.FindObjectOfType<PlayerScript>();
         Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }
 

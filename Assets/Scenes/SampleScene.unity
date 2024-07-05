@@ -374,15 +374,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb95fcc4c3415954a9d4023d8be99705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_:
-  - {fileID: 999864572}
+  Health_:
   - {fileID: 979183724}
   - {fileID: 1515165412}
-  Green_Player: {fileID: 543450652146148647}
-  Health_Count: 2
+  - {fileID: 999864572}
+  Player_Transfrom: {fileID: 543450652146148647}
+  Player_Health: 3
   Healt_Color: {r: 0, g: 0, b: 0, a: 0}
   gameOverSeceChange: {fileID: 87228899}
-  PlayerGreenDieAnimator: {fileID: 1553810127}
 --- !u!65 &130689405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2998,7 +2997,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24900
+  m_Name: pb_Mesh24904
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6192,19 +6191,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 740432823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e793def33256ff4398066511c1f0f35, type: 3}
+  m_Script: {fileID: 11500000, guid: cb95fcc4c3415954a9d4023d8be99705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_:
-  - {fileID: 223280488}
+  Health_:
   - {fileID: 148283478}
   - {fileID: 314298123}
-  Green_Player: {fileID: 543450652835832186}
-  Main_Camera: {fileID: 963194227}
-  Health_Count: 2
+  - {fileID: 223280488}
+  Player_Transfrom: {fileID: 543450652835832186}
+  Player_Health: 3
   Healt_Color: {r: 0, g: 0, b: 0, a: 0}
   gameOverSeceChange: {fileID: 87228899}
-  PlayerBlueDieAnimator: {fileID: 3553337084966060211}
 --- !u!65 &743129951
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6863,7 +6860,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25630
+  m_Name: pb_Mesh25636
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8000,31 +7997,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &1553810127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148425850781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0dc7590af61544ebd77165c0950f90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  This_Player_GameObject: {fileID: 919132148425850781}
-  Player_Hp_image: {fileID: 126408192}
-  Player_Hp: 3
-  Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
-  Player_Damage_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
-  Player_Damage_Audio_Source: {fileID: 919132148425850782}
-  Player_Animator: {fileID: 1949921810}
-  Player_Red: {fileID: 3002009105177745729}
-  Player_Blue: {fileID: 3553337084966060211}
-  Player_Manager: {fileID: 1501504119}
-  Player_Move: {fileID: 4518735583722807178}
-  Player_health: {fileID: 126408194}
-  Player_Green_Dead_Flag: 0
 --- !u!136 &1553810128
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8071,7 +8043,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24940
+  m_Name: pb_Mesh24944
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8420,19 +8392,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1649790507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582111eddca1a7d49b0b05d4846573e2, type: 3}
+  m_Script: {fileID: 11500000, guid: cb95fcc4c3415954a9d4023d8be99705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_:
-  - {fileID: 570291592}
+  Health_:
   - {fileID: 1754109304}
   - {fileID: 244452715}
-  Green_Player: {fileID: 543450653452754349}
-  Main_Camera: {fileID: 963194227}
-  Health_Count: 2
+  - {fileID: 570291592}
+  Player_Transfrom: {fileID: 543450653452754349}
+  Player_Health: 3
   Healt_Color: {r: 0, g: 0, b: 0, a: 0}
   gameOverSeceChange: {fileID: 87228899}
-  PlayerRedDieAnimator: {fileID: 3002009105177745729}
 --- !u!65 &1678232278
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10200,13 +10170,13 @@ GameObject:
   - component: {fileID: 543450652146148647}
   - component: {fileID: 1553810126}
   - component: {fileID: 1553810128}
-  - component: {fileID: 1553810127}
   - component: {fileID: 919132148425850782}
   - component: {fileID: 4518735583722807177}
   - component: {fileID: 4518735583722807178}
+  - component: {fileID: 4518735583722807179}
   m_Layer: 0
   m_Name: GreenPlayer
-  m_TagString: PlayerGreen
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10319,12 +10289,12 @@ GameObject:
   - component: {fileID: 14657307}
   - component: {fileID: 14657306}
   - component: {fileID: 919132148844968897}
-  - component: {fileID: 3553337084966060211}
   - component: {fileID: 3553337084966060213}
   - component: {fileID: 3553337084966060214}
+  - component: {fileID: 3553337084966060215}
   m_Layer: 0
   m_Name: PlayerBlue
-  m_TagString: PlayerBlue
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10437,12 +10407,12 @@ GameObject:
   - component: {fileID: 735495194}
   - component: {fileID: 735495195}
   - component: {fileID: 919132149266843416}
-  - component: {fileID: 3002009105177745729}
   - component: {fileID: 3002009105177745731}
   - component: {fileID: 3002009105177745732}
+  - component: {fileID: 3002009105177745733}
   m_Layer: 0
   m_Name: PlayerRed
-  m_TagString: PlayerRed
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10543,35 +10513,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3002009105177745729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149266843415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c035e7bf004bb428c6934ccf51863f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  This_Player_GameObject: {fileID: 919132149266843415}
-  Player_Hp_image: {fileID: 1649790507}
-  Player_Transform_: {fileID: 543450653452754349}
-  Player_Move_Speed_: 30
-  Player_Numbers_: 1
-  Player_Hp: 3
-  Player_Rd_: {fileID: 735495194}
-  PlayerAnimator: {fileID: 1986930711}
-  Player_Health: {fileID: 1649790509}
-  Player_Blue: {fileID: 3553337084966060211}
-  Player_Green: {fileID: 1553810127}
-  Player_Manager: {fileID: 1501504119}
-  Player_Damage_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
-  Player_Damage_Audio_Source: {fileID: 919132149266843416}
-  Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
-  Player_Move: {fileID: 3002009105177745732}
-  Player_Red_Dead_Flag: 0
 --- !u!114 &3002009105177745731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10608,34 +10549,28 @@ MonoBehaviour:
   Player_Rd: {fileID: 735495194}
   Player_Animator: {fileID: 1986930711}
   Player_Dead_Zone: {x: 0.2, y: 0, z: 0.2}
---- !u!114 &3553337084966060211
+--- !u!114 &3002009105177745733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148844968896}
+  m_GameObject: {fileID: 919132149266843415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 629140067d3c74b4282da3db72eead66, type: 3}
+  m_Script: {fileID: 11500000, guid: 1afbd554caa871d4c9e796831e047c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  This_Player_GameObject: {fileID: 919132148844968896}
-  Player_Transform_: {fileID: 543450652835832186}
-  Player_Hp: 3
-  Player_Numbers_: 2
-  Player_Rd_: {fileID: 14657307}
-  PlayerAnimator: {fileID: 870181031}
-  Player_Hp_image: {fileID: 740432823}
-  Player_Red: {fileID: 3002009105177745729}
-  Player_Green: {fileID: 1553810127}
-  Player_health: {fileID: 740432825}
-  Player_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
-  Audio_Source: {fileID: 919132148844968897}
+  This_Player_GameObject: {fileID: 919132149266843415}
+  Player_Hp_Image: {fileID: 1649790507}
   Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
-  Player_Move: {fileID: 3553337084966060214}
+  Player_Damage_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
+  Player_Damage_Audio_Source: {fileID: 919132149266843416}
+  Player_Animator: {fileID: 1986930711}
   Player_Manager: {fileID: 1501504119}
-  Player_Blue_Dead_Flag: 0
+  Player_Move: {fileID: 3002009105177745732}
+  Player_Health: {fileID: 1649790509}
+  Player_Dead_Flag: 0
 --- !u!114 &3553337084966060213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10672,6 +10607,28 @@ MonoBehaviour:
   Player_Rd: {fileID: 14657307}
   Player_Animator: {fileID: 870181031}
   Player_Dead_Zone: {x: 0.2, y: 0, z: 0.2}
+--- !u!114 &3553337084966060215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148844968896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afbd554caa871d4c9e796831e047c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  This_Player_GameObject: {fileID: 919132148844968896}
+  Player_Hp_Image: {fileID: 740432823}
+  Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
+  Player_Damage_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
+  Player_Damage_Audio_Source: {fileID: 919132148844968897}
+  Player_Animator: {fileID: 870181031}
+  Player_Manager: {fileID: 1501504119}
+  Player_Move: {fileID: 3553337084966060214}
+  Player_Health: {fileID: 740432825}
+  Player_Dead_Flag: 0
 --- !u!114 &4518735583722807177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10708,6 +10665,28 @@ MonoBehaviour:
   Player_Rd: {fileID: 1553810126}
   Player_Animator: {fileID: 1949921810}
   Player_Dead_Zone: {x: 0.2, y: 0, z: 0.2}
+--- !u!114 &4518735583722807179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148425850781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afbd554caa871d4c9e796831e047c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  This_Player_GameObject: {fileID: 919132148425850781}
+  Player_Hp_Image: {fileID: 126408192}
+  Player_Heel_Effect: {fileID: 270589871352750230, guid: 5be075ce0f8afc24fa8ce3e7003d27d2, type: 3}
+  Player_Damage_AudioClip: {fileID: 8300000, guid: d0f08a64e3ec0b640a3c58a2ea907db8, type: 3}
+  Player_Damage_Audio_Source: {fileID: 919132148425850782}
+  Player_Animator: {fileID: 1949921810}
+  Player_Manager: {fileID: 1501504119}
+  Player_Move: {fileID: 4518735583722807178}
+  Player_Health: {fileID: 126408194}
+  Player_Dead_Flag: 0
 --- !u!1 &5867976806180696864
 GameObject:
   m_ObjectHideFlags: 0

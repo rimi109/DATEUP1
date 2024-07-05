@@ -1,27 +1,27 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class health : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] health_;
+    [Header(""),SerializeField]
+    private List<GameObject> Health_ = new List<GameObject>();
 
-    [SerializeField]
-    private Transform Green_Player;
+    [Header(""),SerializeField]
+    private Transform Player_Transfrom;
 
-    [SerializeField]
-    private int Health_Count;
-
-    [SerializeField]
+    [Header(""),SerializeField]
     private Color Healt_Color;
 
-    [SerializeField]
+    [Header(""),SerializeField]
     private GameOverSeceChange gameOverSeceChange;
 
     [Tooltip("")]
     private bool GameOverCount;
 
-    [Header(""), SerializeField]
-    private PlayerScript PlayerGreenDieAnimator;
+    int Player_Health;
+
+    //[Header(""), SerializeField]
+    //private PlayerGreen PlayerGreenDieAnimator;
 
     void Start()
     {
@@ -30,32 +30,29 @@ public class health : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < health_.Length; ++i)
+        for (int i = 0; i < Health_.Count; ++i)
         {
-            health_[i].transform.rotation = Camera.main.transform.rotation;
-            health_[i].transform.position = new Vector3(Green_Player.transform.position.x - 10, Green_Player.transform.position.y + 15, Green_Player.transform.position.z - 4);
-            health_[i].transform.position = new Vector3(health_[i].transform.position.x + (i * 10), health_[i].transform.position.y, health_[i].transform.position.z);
+            Health_[i].transform.rotation = Camera.main.transform.rotation;
+            Health_[i].transform.position = new Vector3(Player_Transfrom.transform.position.x - 10, Player_Transfrom.transform.position.y + 15, Player_Transfrom.transform.position.z - 4);
+            Health_[i].transform.position = new Vector3(Health_[i].transform.position.x + (i * 10), Health_[i].transform.position.y, Health_[i].transform.position.z);
         }
 
-        if (!GameOverCount && Health_Count < 0)
+        if (!GameOverCount && Player_Health <= 0)
         {
             gameOverSeceChange.GameOver_Count();
             GameOverCount = true;
-            PlayerGreenDieAnimator.Player_Die_Animator();
         }
     }
 
     public void Health_Function()
     {
-        health_[Health_Count].SetActive(false);
-        --Health_Count;
+        Health_[Player_Health].SetActive(false);
     }
 
     public void Player_Recovery_Function()
     {
         GameOverCount = false;
-        Health_Count += 1;
-        health_[Health_Count].SetActive(true);
+        Health_[Player_Health].SetActive(true);
         gameOverSeceChange.GameOver_Minus();
     }
 }

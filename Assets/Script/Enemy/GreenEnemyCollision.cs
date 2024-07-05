@@ -21,11 +21,6 @@ public class GreenEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
-    [SerializeField]
-    private PlayerScript Enemy_Destroy_System;
-
-    public PlayerScript targetR;
-
     [Header("CSVÇ©ÇÁÉfÅ[É^ÇéÊìæ"),SerializeField]
     private CSVProcessing Monster_Date_Array;
 
@@ -54,8 +49,6 @@ public class GreenEnemyCollision : MonoBehaviour
     {
         Green_Attack_Flag = false;
         ParticleSystem = false;
-
-        targetR = GameObject.FindObjectOfType<PlayerScript>();
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
         Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
