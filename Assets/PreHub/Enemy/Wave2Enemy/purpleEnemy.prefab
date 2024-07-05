@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 7311967320354948768}
   m_Layer: 0
   m_Name: purpleEnemy
-  m_TagString: EnemyW2
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,7 +543,6 @@ MonoBehaviour:
   Effective_Colour_Blue_Off: {fileID: 7908967922109545964}
   Enemy_Hp: 10
   particle: {fileID: 187534602998800414, guid: 1615cb57742cb444b8e19c81f29a3e42, type: 3}
-  Target_Player: {fileID: 0}
   Shrink_Speed: 0.5
   Monster_Date_Array: {fileID: 0}
   Wave_System: {fileID: 0}

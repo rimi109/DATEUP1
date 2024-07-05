@@ -45,7 +45,6 @@ public class LightBlueEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
-    public PlayerScript targetR;
 
     [Tooltip("Ž©•ª‚ªŽ€‚ñ‚¾‚©‚Ç‚¤‚©‚ð”»’èŒŸ’m‚·‚é")]
     private bool Enemy_Destory_flag;
@@ -76,8 +75,6 @@ public class LightBlueEnemyCollision : MonoBehaviour
         Green_Attack_Flag = false;
         Blue_Attack_Flag = false;
         ParticleSystem = false;
-
-        targetR = GameObject.FindObjectOfType<PlayerScript>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
         Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
     }

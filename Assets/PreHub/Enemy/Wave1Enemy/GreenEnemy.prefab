@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 8687922156558075549}
   m_Layer: 0
   m_Name: GreenEnemy
-  m_TagString: EnemyW1
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,9 +504,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  Players: []
   col: {fileID: 1037988836247444521}
   MeshRen: {fileID: 3089182588690967959}
+  Player_Manager: {fileID: 0}
+  Date_Array: {fileID: 0}
 --- !u!114 &4087568831364778630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,10 +521,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: cc8542349d1191e4c9504e02104a8b4d, type: 3}
-  Green_Enemy_Hp: 5
-  Enemy_Destroy_System: {fileID: 0}
-  targetR: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
   Shrink_Speed: 0.5
+  Wave_System: {fileID: 0}
 --- !u!114 &8687922156558075549
 MonoBehaviour:
   m_ObjectHideFlags: 0

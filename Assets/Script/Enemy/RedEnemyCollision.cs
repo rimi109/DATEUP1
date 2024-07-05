@@ -24,8 +24,6 @@ public class RedEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private const float Hit_Cool_Time = 1;
 
-    public PlayerScript targetR;
-
     [Tooltip("")]
     private float Enemy_Destroy_Time;
 
@@ -49,8 +47,6 @@ public class RedEnemyCollision : MonoBehaviour
     {
         Red_Attack_Flag = false;
         ParticleSystem = false;
-
-        targetR = GameObject.FindObjectOfType<PlayerScript>();
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
         Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;

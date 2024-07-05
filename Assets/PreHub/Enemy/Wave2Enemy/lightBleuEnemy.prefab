@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 5490970316481048835}
   m_Layer: 0
   m_Name: lightBleuEnemy
-  m_TagString: EnemyW2
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,7 +768,6 @@ MonoBehaviour:
   Effective_Colour_Blue_Off: {fileID: 2838421483199375387}
   particle: {fileID: 187534602998800414, guid: e5256614263f2f14daac0b17fb197a1e, type: 3}
   Enemy_Hp: 10
-  targetR: {fileID: 0}
   Shrink_Speed: 0.5
   Monster_Date_Array: {fileID: 0}
   Wave_System: {fileID: 0}

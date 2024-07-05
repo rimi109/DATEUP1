@@ -503,8 +503,8 @@ GameObject:
   - component: {fileID: 6491128410595227581}
   - component: {fileID: 4235095433888374602}
   m_Layer: 0
-  m_Name: BlueEnemy
-  m_TagString: EnemyW1
+  m_Name: blueEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -576,9 +576,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  Players: []
   col: {fileID: 4122016615164251570}
   MeshRen: {fileID: 5513613473069682839}
+  Player_Manager: {fileID: 0}
+  Date_Array: {fileID: 0}
 --- !u!114 &6491128410595227581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,10 +592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e49466a2189e54ebf3f244fa62b2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Blus_Enemy_Hp: 5
   Shrink_Speed: 0.5
   Enemy_Particle: {fileID: 187534602998800414, guid: cae97960dce9f014fa3f5c2ea9f6f77b, type: 3}
-  TargetR: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+  Wave_System: {fileID: 0}
 --- !u!114 &4235095433888374602
 MonoBehaviour:
   m_ObjectHideFlags: 0

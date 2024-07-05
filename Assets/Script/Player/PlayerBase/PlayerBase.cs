@@ -1,19 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerBase : MonoBehaviour
 {
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
     private GameObject This_Player_GameObject;
 
     [Header("Playerのhpの画像を参照"), SerializeField]
-    private GameObject Player_Hp_image;
-
-
-    [Header("PlayerのHpを指定"), SerializeField]
-    private int Player_Hp;
+    private GameObject Player_Hp_Image;
 
     [Tooltip("PlayerのMaxHpを設定")]
     private const int PLAYER_HP_MAX = 3;
+
+    [Tooltip(""),SerializeField]
+    public int Player_Health_Count { get; private set; }
 
 
     [Header("Playerの回復したときの表示するEffect"), SerializeField]
@@ -33,42 +34,30 @@ public class PlayerScript : MonoBehaviour
     [Header("PlayerのAnimatorを参照"), SerializeField]
     private Animator Player_Animator;
 
-
-    [Header("PlayerRedのScriptを参照"), SerializeField]
-    private PlayerRed Player_Red;
-
-    [Header("PlayerBlueのScriptを参照"), SerializeField]
-    private PlayerBlue Player_Blue;
-
-
     [Header("PlayerManagerのScriptを参照"), SerializeField]
     private PlayerManager Player_Manager;
 
     [Header("Playerが動く際に参照するプログラム"), SerializeField]
     private PlayerMove Player_Move;
 
-
     [Header("PlayerのHpのプログラムを参照"), SerializeField]
-    private health Player_health;
+    private Health Player_Health;
+
+    [Tooltip("自分が死んだかを判定する"), HideInInspector]
+    public bool Player_Dead_Flag;
 
 
-    [Tooltip("自分が死んだかを判定する"),HideInInspector]
-    public bool Player_Green_Dead_Flag;
-
-    [Tooltip("自分が生き返ったかを判定")]
-    public bool Player_Green_Revival_Flag { get; private set; }
 
     private void Start()
     {
-        Player_Green_Dead_Flag 　 = false;
-        Player_Green_Revival_Flag = false;
+        Player_Dead_Flag = false;
     }
 
     private void Update()
     {
-        if (Player_Green_Dead_Flag)
+        if (Player_Dead_Flag)
             return;
-            Player_Move.Player_Move();
+        Player_Move.Player_Move();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -76,46 +65,34 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Heart"))
         {
-            if (Player_Hp >= PLAYER_HP_MAX)
+            if (Player_Health_Count >= PLAYER_HP_MAX)
             {
                 Destroy(collision.gameObject);
                 return;
             }
-            ++Player_Hp;
-            Player_health.Player_Recovery_Function();
+            ++Player_Health_Count;
+            Player_Health.Player_Recovery_Function();
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.CompareTag("EnemyW1"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Player_Damaged();
         }
 
-        if (collision.gameObject.CompareTag("EnemyW2"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Player_Damaged();
-        }
+             var playerBase =  collision.gameObject.GetComponent<PlayerBase>();
 
-        if (collision.gameObject.CompareTag("EnemyW3"))
-        {
-            Player_Damaged();
-        }
-
-        if (collision.gameObject.CompareTag("PlayerBlue"))
-        {
-            if (Player_Green_Dead_Flag && Player_Hp <= 0)
+            if (Player_Dead_Flag && Player_Health_Count <= 0)
             {
-                Player_Blue.Player_Blue_Recovery_Hp();
+                Player_Dead_Flag = false;
                 Player_Revival();
             }
-        }
 
-        if (collision.gameObject.CompareTag("PlayerRed"))
-        {
-            if (Player_Green_Dead_Flag && Player_Hp <= 0)
+            if (playerBase.Player_Dead_Flag)
             {
-                Player_Red.Player_Red_Recovery_Hp();
-                Player_Revival();
+                Player_Damaged();
             }
         }
     }
@@ -124,19 +101,17 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// 自分が生き返った場合実行するプログラム
     /// </summary>
-    private void Player_Revival()
+    public void Player_Revival()
     {
-        ++Player_Hp;
+        ++Player_Health_Count;
 
         Player_Animator.SetBool("Down", false);
 
         Player_Manager.ListAdd(this.transform);
 
-        Player_health.Player_Recovery_Function();
+        Player_Health.Player_Recovery_Function();
 
-        Player_Green_Dead_Flag    = false;
-
-        Player_Green_Revival_Flag = true;
+        Player_Dead_Flag = false;
 
         Player_Heel_Effect_Position = Instantiate(Player_Heel_Effect);
         Player_Heel_Effect_Position.transform.position = this.transform.position;
@@ -144,16 +119,23 @@ public class PlayerScript : MonoBehaviour
     }
     #endregion
 
-　　#region　Player自身がダメージをくらった時に実行するプログラム
+    #region　Player自身がダメージをくらった時に実行するプログラム
     /// <summary>
     /// Player自身がダメージをくらった時に実行するプログラム
     /// </summary>
     private void Player_Damaged()
     {
-        Player_health.Health_Function();
-        Player_Hp_image.SetActive(true);
+        if (Player_Health_Count <= 0)
+            return;
+        --Player_Health_Count;
+        Player_Health.Health_Function();
+        Player_Hp_Image.SetActive(true);
         Player_Damage_Audio_Source.PlayOneShot(Player_Damage_AudioClip);
-        --Player_Hp;
+       
+        if (Player_Health_Count == 0)
+        {
+            Player_Die_Animator();
+        }
     }
     #endregion
 
@@ -163,17 +145,7 @@ public class PlayerScript : MonoBehaviour
     public void Player_Die_Animator()
     {
         Player_Animator.SetBool("Down", true);
-        Player_Green_Dead_Flag = true;
+        Player_Dead_Flag = true;
         Player_Manager.List_Remove(this.transform);
     }
-
-    /// <summary>
-    /// Playerが生き返ったときに実行する関数
-    /// </summary>
-    public void Player_Green_Recovery_Hp()
-    {
-        --Player_Hp;
-        Player_health.Health_Function();
-    }
 }
-
