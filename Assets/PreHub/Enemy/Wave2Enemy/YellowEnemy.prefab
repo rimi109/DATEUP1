@@ -783,9 +783,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
   anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  Players: []
   col: {fileID: 8486749416610440369}
   MeshRen: {fileID: 6406357049807593362}
+  Player_Manager: {fileID: 0}
+  Date_Array: {fileID: 0}
 --- !u!114 &1441787504606894689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,8 +804,11 @@ MonoBehaviour:
   Effective_Colour_Green_On: {fileID: 132349293502274295}
   Effective_Colour_Green_Off: {fileID: 177985112154802185}
   particle: {fileID: 187534602998800414, guid: 6687d54aa5100274b8cebb80b1ea716f, type: 3}
-  Purple_Enemy_Hp: 30
+  Enemy_Hp: 10
   targetR: {fileID: 0}
+  Wave_System: {fileID: 0}
+  Monster_Date_Array: {fileID: 0}
+  Shrink_Speed: 0.5
 --- !u!1 &6657130685683642255
 GameObject:
   m_ObjectHideFlags: 0

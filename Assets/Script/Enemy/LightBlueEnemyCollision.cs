@@ -36,7 +36,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
     [Tooltip("")]
     private bool ParticleSystem;
 
-    [Tooltip("Enemy‚ÌHp‚ð“ü‚ê‚Ä‚¨‚­")]
+    [Tooltip("Enemy‚ÌHp‚ð“ü‚ê‚Ä‚¨‚­"),SerializeField]
     private int Enemy_Hp;
 
     [Tooltip("")]
@@ -92,7 +92,7 @@ public class LightBlueEnemyCollision : MonoBehaviour
 
             if (Enemy_Hit_Time > Hit_Cool_Time)
             {
-                Enemy_Hp -= 2;
+                Enemy_Hp -= 1;
              
                 Enemy_Hit_Time = 0;
                 if (Enemy_Hp <= 0)
