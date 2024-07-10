@@ -3,29 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class GameOverSeceChange : MonoBehaviour
 {
-    private int GameOverCount;
+    private int gameOverCounter;
 
     void Start()
     {
-        GameOverCount = 0;
+        gameOverCounter = 0;
     }
 
     private void Update()
     {
-        if (GameOverCount == 3)
+        if (gameOverCounter == 3)
         {
             SceneManager.LoadScene("GameOver");
         }
     }
 
-    public void GameOver_Count()
+    public void GameOverCount()
     {
-        ++GameOverCount;
+        ++gameOverCounter;
     }
-    public void GameOver_Minus()
+    public void GameOverMinus()
     {
-        if (GameOverCount == 0) return;
+        if (gameOverCounter == 0) return;
 
-        --GameOverCount;
+        --gameOverCounter;
     }
 }
