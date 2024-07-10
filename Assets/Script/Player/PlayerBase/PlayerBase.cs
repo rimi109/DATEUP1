@@ -1,63 +1,66 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
     [Header("PlayerのModelのGameObjectを取得"), SerializeField]
-    private GameObject This_Player_GameObject;
+    private GameObject       thisGameObject;
 
     [Header("Playerのhpの画像を参照"), SerializeField]
-    private GameObject Player_Hp_Image;
+    private GameObject       hpImage;
 
     [Tooltip("PlayerのMaxHpを設定")]
-    private const int PLAYER_HP_MAX = 3;
+    private const int        HP_MAX = 3;
 
-    [Tooltip(""),SerializeField]
-    public int Player_Health_Count { get; private set; }
+    [Tooltip("PlayerのHPが今いくつかを測る")]
+    public int               healthCount { get; private set; }
+
+    [Header("PlayerのHpの初期値を設定"), SerializeField]
+    private int              healthInitialValue;
 
 
     [Header("Playerの回復したときの表示するEffect"), SerializeField]
-    private ParticleSystem Player_Heel_Effect;
+    private ParticleSystem   heelEffect;
 
     [Tooltip("Playerの回復したときの表示するEffect")]
-    private ParticleSystem Player_Heel_Effect_Position;
+    private ParticleSystem   heelEffectPosition;
 
 
     [Header("Playerがダメージをくらったときに再生するAudioClipを参照"), SerializeField]
-    private AudioClip Player_Damage_AudioClip;
+    private AudioClip        damageAudioClip;
 
     [Header("Playerがダメージをくらったときに再生するAudioSourceを参照"), SerializeField]
-    private AudioSource Player_Damage_Audio_Source;
+    private AudioSource      damageAudioSource;
 
 
     [Header("PlayerのAnimatorを参照"), SerializeField]
-    private Animator Player_Animator;
+    private Animator         animator;
 
     [Header("PlayerManagerのScriptを参照"), SerializeField]
-    private PlayerManager Player_Manager;
+    private PlayerManager    manager;
 
     [Header("Playerが動く際に参照するプログラム"), SerializeField]
-    private PlayerMove Player_Move;
+    private PlayerMove       move;
 
     [Header("PlayerのHpのプログラムを参照"), SerializeField]
-    private Health Player_Health;
+    private Health           health;
+
 
     [Tooltip("自分が死んだかを判定する"), HideInInspector]
-    public bool Player_Dead_Flag;
-
-
+    public bool              deadFlag;
 
     private void Start()
     {
-        Player_Dead_Flag = false;
+        deadFlag = false;
+        healthCount = healthInitialValue;
     }
 
     private void Update()
     {
-        if (Player_Dead_Flag)
+
+        if (deadFlag)
             return;
-        Player_Move.Player_Move();
+        move.Player_Move();
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -65,34 +68,29 @@ public class PlayerBase : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Heart"))
         {
-            if (Player_Health_Count >= PLAYER_HP_MAX)
+            if (healthCount >= HP_MAX)
             {
                 Destroy(collision.gameObject);
                 return;
             }
-            ++Player_Health_Count;
-            Player_Health.Player_Recovery_Function();
+            ++healthCount;
+            health.PlayerRecoveryFunction();
             Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Player_Damaged();
+            PlayerDamaged();
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
              var playerBase =  collision.gameObject.GetComponent<PlayerBase>();
 
-            if (Player_Dead_Flag && Player_Health_Count <= 0)
+            if (!deadFlag && playerBase.deadFlag)
             {
-                Player_Dead_Flag = false;
-                Player_Revival();
-            }
-
-            if (playerBase.Player_Dead_Flag)
-            {
-                Player_Damaged();
+                playerBase.PlayerRevival();
+                PlayerDamaged();
             }
         }
     }
@@ -101,21 +99,21 @@ public class PlayerBase : MonoBehaviour
     /// <summary>
     /// 自分が生き返った場合実行するプログラム
     /// </summary>
-    public void Player_Revival()
+    public void PlayerRevival()
     {
-        ++Player_Health_Count;
+        ++healthCount;
 
-        Player_Animator.SetBool("Down", false);
+        animator.SetBool("Down", false);
 
-        Player_Manager.ListAdd(this.transform);
+        manager.ListAdd(this.transform);
 
-        Player_Health.Player_Recovery_Function();
+        health.PlayerRecoveryFunction();
 
-        Player_Dead_Flag = false;
+        deadFlag = false;
 
-        Player_Heel_Effect_Position = Instantiate(Player_Heel_Effect);
-        Player_Heel_Effect_Position.transform.position = this.transform.position;
-        Player_Heel_Effect_Position.Play();
+        heelEffectPosition = Instantiate(heelEffect);
+        heelEffectPosition.transform.position = this.transform.position;
+        heelEffectPosition.Play();
     }
     #endregion
 
@@ -123,29 +121,37 @@ public class PlayerBase : MonoBehaviour
     /// <summary>
     /// Player自身がダメージをくらった時に実行するプログラム
     /// </summary>
-    private void Player_Damaged()
+    public void PlayerDamaged()
     {
-        if (Player_Health_Count <= 0)
+        if (healthCount <= 0)
             return;
-        --Player_Health_Count;
-        Player_Health.Health_Function();
-        Player_Hp_Image.SetActive(true);
-        Player_Damage_Audio_Source.PlayOneShot(Player_Damage_AudioClip);
+
+        --healthCount;
+
+        health.HealthFunction();
+
+        hpImage.SetActive(true);
+
+        damageAudioSource.PlayOneShot(damageAudioClip);
        
-        if (Player_Health_Count == 0)
+        if (healthCount == 0)
         {
-            Player_Die_Animator();
+            PlayerDieAnimator();
         }
     }
     #endregion
 
+    #region Playerが死んだとき実行する関数
     /// <summary>
     /// Playerが死んだとき実行する関数
     /// </summary>
-    public void Player_Die_Animator()
+    public void PlayerDieAnimator()
     {
-        Player_Animator.SetBool("Down", true);
-        Player_Dead_Flag = true;
-        Player_Manager.List_Remove(this.transform);
+      
+        deadFlag = true;
+        animator.SetBool("Down", true);
+        manager.List_Remove(this.transform);
     }
+    #endregion
+
 }
