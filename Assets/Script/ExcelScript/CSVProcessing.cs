@@ -5,50 +5,50 @@ using UnityEngine;
 public class CSVProcessing : MonoBehaviour
 {
     [Header("“G‚Ìî•ñ‚ğæ“¾")]
-    public MonsterData[] Monster_Data;
+    public MonsterData[] monsterData;
 
     [Tooltip("Enemy‚ÌTextAsset‚ğİ’è")]
-    private TextAsset Enemy_Text_Asset;
+    private TextAsset enemyTextAsset;
 
     [Header("Wave‚Ìî•ñ‚ğæ“¾")]
-    public WaveDate[] Wave_Date;
+    public WaveDate[] waveDate;
 
     [Tooltip("Wave‚ÌTextAsset‚ğİ’è")]
-    private TextAsset Wave_Date_Text_Asset;
+    private TextAsset waveDateTextAsset;
 
     [Header("Enemy‚ªˆê‰ñWave‚ÅoŒ»‚·‚éÅ‘åŒÂ”‚Ìî•ñ‚ğæ“¾")]
-    public EnemySpawnMaxDate[] Enemy_Spawn_Max_Date;
+    public EnemySpawnMaxDate[] enemySpawnMaxDate;
 
     [Tooltip("EnemySpawnMaxDate‚ÌTextAsset‚ğİ’è")]
-    private TextAsset Enemy_Spawn_Max_Date_Text_Asset;
+    private TextAsset enemySpawnMaxDateTextAsset;
 
 
     void Start()
     {
         //“G‚ÌExcel‚ğæ“¾
-        Enemy_Text_Asset = Resources.Load("MonsterDate", typeof(TextAsset)) as TextAsset;
-        Monster_Data = CSVSerializer.Deserialize<MonsterData>(Enemy_Text_Asset.text);
+        enemyTextAsset = Resources.Load("MonsterDate", typeof(TextAsset)) as TextAsset;
+        monsterData = CSVSerializer.Deserialize<MonsterData>(enemyTextAsset.text);
 
         //Wave1‚ÌExcel‚ğæ“¾
-        Wave_Date_Text_Asset = Resources.Load("Wave1Date", typeof(TextAsset)) as TextAsset;
-        Wave_Date = CSVSerializer.Deserialize<WaveDate>(Wave_Date_Text_Asset.text);
+        waveDateTextAsset = Resources.Load("Wave1Date", typeof(TextAsset)) as TextAsset;
+        waveDate = CSVSerializer.Deserialize<WaveDate>(waveDateTextAsset.text);
 
         //EnemySpawnMaxDate‚ÌExcel‚ğæ“¾
-        Enemy_Spawn_Max_Date_Text_Asset = Resources.Load("EnemySpawnMaxDate", typeof(TextAsset)) as TextAsset;
-        Enemy_Spawn_Max_Date = CSVSerializer.Deserialize<EnemySpawnMaxDate>(Enemy_Spawn_Max_Date_Text_Asset.text);
+        enemySpawnMaxDateTextAsset = Resources.Load("EnemySpawnMaxDate", typeof(TextAsset)) as TextAsset;
+        enemySpawnMaxDate = CSVSerializer.Deserialize<EnemySpawnMaxDate>(enemySpawnMaxDateTextAsset.text);
     }
 
-    public void Wave_2()
+    public void Wave2()
     {
         //Wave2‚ÌCSV‚ğæ“¾
-        Wave_Date_Text_Asset = Resources.Load("Wave2Date", typeof(TextAsset)) as TextAsset;
-        Wave_Date = CSVSerializer.Deserialize<WaveDate>(Wave_Date_Text_Asset.text);
+        waveDateTextAsset = Resources.Load("Wave2Date", typeof(TextAsset)) as TextAsset;
+        waveDate = CSVSerializer.Deserialize<WaveDate>(waveDateTextAsset.text);
     }
 
-    public void Wave_3()
+    public void Wave3()
     {
         //Wave3‚ÌCSV‚ğæ“¾
-        Wave_Date_Text_Asset = Resources.Load("Wave3Date", typeof(TextAsset)) as TextAsset;
-        Wave_Date = CSVSerializer.Deserialize<WaveDate>(Wave_Date_Text_Asset.text);
+        waveDateTextAsset = Resources.Load("Wave3Date", typeof(TextAsset)) as TextAsset;
+        waveDate = CSVSerializer.Deserialize<WaveDate>(waveDateTextAsset.text);
     }
 }

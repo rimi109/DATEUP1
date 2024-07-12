@@ -51,7 +51,7 @@ public class GreenEnemyCollision : MonoBehaviour
         ParticleSystem = false;
         Monster_Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
-        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
+        Enemy_Hp = Monster_Date_Array.monsterData[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
@@ -89,7 +89,7 @@ public class GreenEnemyCollision : MonoBehaviour
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
-                Wave_System.Enemy_Destroy_Count_System();
+                Wave_System.EnemyDestroyCountSystem();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }

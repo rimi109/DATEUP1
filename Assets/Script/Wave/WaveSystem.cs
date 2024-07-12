@@ -4,19 +4,19 @@ using UnityEngine;
 public class WaveSystem : MonoBehaviour
 {
     [Header("CSVからデータを取得"), SerializeField]
-    private CSVProcessing Date_Array;
+    private CSVProcessing dateArray;
 
     [Header("全種類の敵を取得"), SerializeField]
-    private GameObject[] Enemy_S;
+    private GameObject[] enemyS;
 
     [Tooltip("Enemyの湧いた数を数える")]
-    private int Wave_Spawn_Count;
+    private int waveSpawnCount;
 
     [Tooltip("敵が何対倒されたかを数える")]
-    private int Enemy_Destroy_Count;
+    private int enemyDestroyCount;
 
     [Tooltip("Switch文のケースの値")]
-    private int Wave_Switch_Nunber;
+    private int waveSwitchNunber;
 
     [Tooltip("一体づつ出現する敵かどうかを確認する")]
     private const int ENEMY_SPWAN_SOLO_VALUE = 1;
@@ -31,10 +31,10 @@ public class WaveSystem : MonoBehaviour
     private const float LEFT_BOTTOM_CAMERA_COORDINATES_MINUS = 100.0f;
 
     [Tooltip("敵が死んだかどうかを確認")]
-    private bool Enemy_Destroy_Flag;
+    private bool enemyDestroyFlag;
 
 
-    Dictionary<string, int> Enemy_Dictionary = new Dictionary<string, int>()
+    Dictionary<string, int> EnemyDictionary = new Dictionary<string, int>()
     {
         {"BlueEnemy",0},
         {"RedEnemy",1},
@@ -47,44 +47,44 @@ public class WaveSystem : MonoBehaviour
 
 private void Update()
     {
-            switch (Wave_Switch_Nunber) { 
+            switch (waveSwitchNunber) { 
              case  0:
-                    if (Wave_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
+                    if (waveSpawnCount < dateArray.enemySpawnMaxDate[0].Wave1MaxEnemy)
                     {
-                         Wave_Spwan_Function();
+                         waveSpwanFunction();
                     }
 
-                    if (Enemy_Destroy_Count >= Date_Array.Enemy_Spawn_Max_Date[0].Wave1MaxEnemy)
+                    if (enemyDestroyCount >= dateArray.enemySpawnMaxDate[0].Wave1MaxEnemy)
                     {
-                        Date_Array.Wave_2();
-                        Wave_Switch_Nunber++;
-                        Wave_Spawn_Count = 0;
-                        Enemy_Destroy_Count = 0;
+                        dateArray.Wave2();
+                        waveSwitchNunber++;
+                        waveSpawnCount = 0;
+                        enemyDestroyCount = 0;
                     }
 
                 break;
 
              case 1:
-                    if (Wave_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
+                    if (waveSpawnCount < dateArray.enemySpawnMaxDate[0].Wave2MaxEnemy)
                     {
 
-                        Wave_Spwan_Function();
+                        waveSpwanFunction();
                         
                     }
 
-                    if(Enemy_Destroy_Count >= Date_Array.Enemy_Spawn_Max_Date[0].Wave2MaxEnemy)
+                    if(enemyDestroyCount >= dateArray.enemySpawnMaxDate[0].Wave2MaxEnemy)
                     {
-                        Date_Array.Wave_3();
-                        Wave_Switch_Nunber++;
-                        Wave_Spawn_Count = 0;
-                        Enemy_Destroy_Count = 0;
+                        dateArray.Wave3();
+                        waveSwitchNunber++;
+                        waveSpawnCount = 0;
+                        enemyDestroyCount = 0;
                     }
                 break;
 
              case 2:
-                    if (Wave_Spawn_Count < Date_Array.Enemy_Spawn_Max_Date[0].Wave3MaxEnemy)
+                    if (waveSpawnCount < dateArray.enemySpawnMaxDate[0].Wave3MaxEnemy)
                     {
-                      Wave_Spwan_Function();
+                      waveSpwanFunction();
                     }
                 break;
             }
@@ -95,7 +95,7 @@ private void Update()
     /// <summary>
     /// Waveで出現する敵を設定
     /// </summary>
-    private void Wave_Spwan_Function()
+    private void waveSpwanFunction()
     {
         //MaineCameraの座標を設定
         var rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
@@ -107,28 +107,28 @@ private void Update()
         var randomPosX = Random.Range(leftBottom.z, rightTop.z);
         var randomPosZ = Random.Range(leftBottom.x, rightTop.x);
 
-        var waveDate = Date_Array.Wave_Date;
+        var waveDate = dateArray.waveDate;
         int enemyValue;
         int enemySpawnWaveValue;
 
-        enemyValue = Enemy_Dictionary[waveDate[Wave_Spawn_Count].wave];
-        enemySpawnWaveValue = waveDate[Wave_Spawn_Count].WaveSpawnPutter;
+        enemyValue = EnemyDictionary[waveDate[waveSpawnCount].wave];
+        enemySpawnWaveValue = waveDate[waveSpawnCount].WaveSpawnPutter;
 
         if (enemySpawnWaveValue == 0)
         {
             //enemyをインスタンス化する(生成する)
             //生成した敵の位置をランダムに設定する
-            GameObject waveEnemy = Instantiate(Enemy_S[enemyValue]);
+            GameObject waveEnemy = Instantiate(enemyS[enemyValue]);
             waveEnemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave_Spawn_Count++;
+            waveSpawnCount++;
         }
 
-        if (enemySpawnWaveValue == ENEMY_SPWAN_SOLO_VALUE && Enemy_Destroy_Flag)
+        if (enemySpawnWaveValue == ENEMY_SPWAN_SOLO_VALUE && enemyDestroyFlag)
         {
-            GameObject waveEnemy = Instantiate(Enemy_S[enemyValue]);
+            GameObject waveEnemy = Instantiate(enemyS[enemyValue]);
             waveEnemy.transform.position = new Vector3(randomPosX, ENEMY_CAVEIN_Y, randomPosZ);
-            Wave_Spawn_Count++;
-            Enemy_Destroy_Flag = false;
+            waveSpawnCount++;
+            enemyDestroyFlag = false;
         }
     }
     #endregion
@@ -137,10 +137,10 @@ private void Update()
     /// <summary>
     /// 敵が死んだときにWaveを進める
     /// </summary>
-    public void Enemy_Destroy_Count_System()
+    public void EnemyDestroyCountSystem()
     {
-        Enemy_Destroy_Count++;
-        Enemy_Destroy_Flag = true;
+        enemyDestroyCount++;
+        enemyDestroyFlag = true;
     }
     #endregion
 }

@@ -12,7 +12,7 @@ public class PlayerBase : MonoBehaviour
     private const int        HP_MAX = 3;
 
     [Tooltip("Player‚ÌHP‚ª¡‚¢‚­‚Â‚©‚ğ‘ª‚é")]
-    public int               healthCount { get; private set; }
+    public  int              healthCount { get; private set; }
 
     [Header("Player‚ÌHp‚Ì‰Šú’l‚ğİ’è"), SerializeField]
     private int              healthInitialValue;
@@ -59,6 +59,7 @@ public class PlayerBase : MonoBehaviour
 
         if (deadFlag)
             return;
+
         move.Player_Move();
 
     }

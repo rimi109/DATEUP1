@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 6491128410595227581}
   - component: {fileID: 4235095433888374602}
   m_Layer: 0
-  m_Name: blueEnemy
+  m_Name: BlueEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,12 +574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14823c8188a297242b72f16b083dc4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
-  anime: {fileID: 3853619459707174173, guid: b84078f4ca27bc144a2035913620e9d5, type: 3}
-  col: {fileID: 4122016615164251570}
-  MeshRen: {fileID: 5513613473069682839}
-  Player_Manager: {fileID: 0}
-  Date_Array: {fileID: 0}
+  parTicle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
+  capsuleCollider: {fileID: 4122016615164251570}
+  playerManager: {fileID: 0}
+  dateArray: {fileID: 0}
 --- !u!114 &6491128410595227581
 MonoBehaviour:
   m_ObjectHideFlags: 0

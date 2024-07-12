@@ -73,7 +73,7 @@ public class YellowEnemyCollision : MonoBehaviour
         Red_Attack_Flag = false;
         ParticleSystem = false;
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
-        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
+        Enemy_Hp = Monster_Date_Array.monsterData[ENEMY_DATE_NUMBER].Hp;
     }
 
     void Update()
@@ -110,7 +110,7 @@ public class YellowEnemyCollision : MonoBehaviour
             Enemy_Destroy_Time += Time.deltaTime;
             if (Enemy_Destroy_Time > 1)
             {
-                Wave_System.Enemy_Destroy_Count_System();
+                Wave_System.EnemyDestroyCountSystem();
                 Destroy(newParticle);
                 Destroy(this.gameObject);
             }
