@@ -56,7 +56,7 @@ public class whiteEnemyCollision : MonoBehaviour
         Red_Attack_Flag = false;
         ParticleSystem = false;
         Wave_System = GameObject.FindObjectOfType<WaveSystem>();
-        Enemy_Hp = Monster_Date_Array.Monster_Data[ENEMY_DATE_NUMBER].Hp;
+        Enemy_Hp = Monster_Date_Array.monsterData[ENEMY_DATE_NUMBER].Hp;
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class whiteEnemyCollision : MonoBehaviour
                 Enemy_Hit_Time = 0;
                 if (Enemy_Hp <= 0)
                 {
-                    Wave_System.Enemy_Destroy_Count_System();
+                    Wave_System.EnemyDestroyCountSystem();
                     Destroy(this.gameObject);
                     Destroy(newParticle);
                     SceneManager.LoadScene("GameClear");

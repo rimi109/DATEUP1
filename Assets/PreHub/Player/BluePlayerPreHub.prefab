@@ -2390,7 +2390,7 @@ MonoBehaviour:
   animator: {fileID: 7139841294988037125}
   manager: {fileID: 0}
   move: {fileID: 5934111074062132244}
-  health: {fileID: 7139841295107931931}
+  health: {fileID: 0}
   deadFlag: 0
 --- !u!1 &8178705217005271478
 GameObject:

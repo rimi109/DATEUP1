@@ -5,79 +5,94 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField]
-    private ParticleSystem particle;
+    [Header(""),SerializeField]
+    private ParticleSystem     parTicle;
 
-    public GameObject anime;
+    [Tooltip("")]
+    private GameObject         anime;
 
-    private bool Anime;
-    private bool EffectStart;
-    private bool Effect;
+    [Tooltip("")]
+    private bool               animeFlag;
 
-    private NavMeshAgent agent;
-    public CapsuleCollider col;
-    public Renderer MeshRen;
+    [Tooltip("")]
+    private bool               effectStartFlag;
+
+    [Tooltip("")]
+    private bool               effectFlag;
+
+    [Tooltip("")]
+    private NavMeshAgent       agent;
+
+    [Tooltip("")]
+    private MeshRenderer meshRenderer;
+
+    [Header(""),SerializeField]
+    private CapsuleCollider    capsuleCollider;
 
     [Header("PlayerManagerのScriptを取得"), SerializeField]
-    private PlayerManager Player_Manager;
+    private PlayerManager      playerManager;
 
-    
-    private float EffectTime;
-    private float AnimeTime;
+    [Tooltip("")]
+    private float              effectTime;
+      
+    [Tooltip("")]
+    private float              animeTime;
+
     [Header("CSVからデータを取得"), SerializeField]
-    private CSVProcessing Date_Array;
+    private CSVProcessing      dateArray;
 
     [Tooltip("Enemyの移動スピードのデータ番号を設定")]
-    private const int ENEMY_MOVE_SPEED_INDEX = 6;
+    private const int          ENEMY_MOVE_SPEED_INDEX = 6;
     void Start()
     {
-        EffectTime = 0.0f;
-        AnimeTime = 0.0f;
+        effectTime = 0.0f;
+        animeTime  = 0.0f;
 
-        Anime = false;
-        EffectStart = false;
-        Effect = false;
-        col.enabled = false;
+        animeFlag = false;
+        effectStartFlag = false;
+        effectFlag = false;
+        capsuleCollider.enabled = false;
 
         agent = GetComponent<NavMeshAgent>();
-        Player_Manager = FindObjectOfType<PlayerManager>();
-        Date_Array = GameObject.FindObjectOfType<CSVProcessing>();
+        playerManager = FindObjectOfType<PlayerManager>();
+        dateArray = GameObject.FindObjectOfType<CSVProcessing>();
     }
 
     void Update()
     {
-        AnimeTime += 1.0f * Time.deltaTime;
+        animeTime += 1.0f * Time.deltaTime;
 
-        if (!Anime)
+        if (!animeFlag)
         {
             GameObject newAnim = Instantiate(anime);
-            newAnim.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 10, this.transform.position.z);
-            Anime = true;
+            newAnim.transform.position = new Vector3(this.transform.position.x,
+                                                     this.transform.position.y + 10,
+                                                     this.transform.position.z);
+            animeFlag = true;
         }
 
-        if (!Effect && AnimeTime >= 2.0f)
+        if (!effectFlag && animeTime >= 2.0f)
         {
-            if (!EffectStart)
+            if (!effectStartFlag)
             {
-                ParticleSystem newParticle = Instantiate(particle);
+                ParticleSystem newParticle = Instantiate(parTicle);
                 newParticle.transform.position = this.transform.position;
                 newParticle.Play();
                 Destroy(newParticle, 1.0f);
-                EffectTime += 1.0f * Time.deltaTime;
-                Effect = true;
-                MeshRen.enabled = true;
-
-                if (EffectTime >= 1.0f)
+                effectTime += 1.0f * Time.deltaTime;
+                effectFlag = true;
+           
+                if (effectTime >= 1.0f)
                 {
-                    EffectStart = true;
+                    effectStartFlag = true;
                 }
             }
         }
 
-        if (!EffectStart && !Effect)
+        if (!effectStartFlag && !effectFlag)
             return;
 
-        col.enabled = true;
+        capsuleCollider.enabled = true;
 
         Enemy_Move();
 
@@ -92,21 +107,21 @@ public class Enemy : MonoBehaviour
         float closestPlayerDistance = float.MaxValue;
         Transform closestPlayer = null;
 
-        for (int i = 0; i < Player_Manager.Players.Count; i++)
+        for (int i = 0; i < playerManager.Players.Count; i++)
         {
-            float playerDistance = Vector3.Distance(this.transform.position, Player_Manager.Players[i].transform.position);
+            float playerDistance = Vector3.Distance(this.transform.position, playerManager.Players[i].transform.position);
 
             if (playerDistance < closestPlayerDistance)
             {
                 closestPlayerDistance = playerDistance;
-                closestPlayer = Player_Manager.Players[i];
+                closestPlayer = playerManager.Players[i];
             }
         }
 
         if (closestPlayer != null)
         {
             agent.destination = closestPlayer.transform.position;
-            agent.speed = Date_Array.Monster_Data[ENEMY_MOVE_SPEED_INDEX].Speed;
+            agent.speed = dateArray.monsterData[ENEMY_MOVE_SPEED_INDEX].Speed;
         }
     }
     #endregion
