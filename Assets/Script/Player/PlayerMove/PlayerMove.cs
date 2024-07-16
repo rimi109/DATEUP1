@@ -7,19 +7,16 @@ public class PlayerMove : MonoBehaviour
     private Transform Player_Transform;
 
     [Header("PlayerのMoveSpeedを参照"), SerializeField]
-    private float Player_Move_Speed;
+    private float     Player_Move_Speed;
 
     [Header("Playerが何人目のPlayerかを指定"), SerializeField]
-    private int Player_Numbers;
+    private int       Player_Numbers;
 
     [Header("PlayerのRigidbodyを参照"), SerializeField]
     private Rigidbody Player_Rd;
 
     [Header("PlayerのAnimatorを参照"), SerializeField]
-    private Animator Player_Animator;
-
-    [Header("Playerが持っているライトのデッドゾーンの値"), SerializeField]
-    private Vector3 Player_Dead_Zone = new Vector3(0.2f, 0, 0.2f);
+    private Animator  Player_Animator;
 
     #region　Playerが動く際に実行するプログラム
     /// <summary>
@@ -27,9 +24,9 @@ public class PlayerMove : MonoBehaviour
     /// </summary>
     public void Player_Move()
     {
-        var Velocity = Player_Rd.velocity;
+        var Velocity              = Player_Rd.velocity;
         var GamepadLeftStickValue = Gamepad.all[Player_Numbers].leftStick.ReadValue();
-        var LeftStickvalue = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
+        var LeftStickvalue        = new Vector3(GamepadLeftStickValue.x, 0, GamepadLeftStickValue.y);
         if (LeftStickvalue != Vector3.zero)
         {
             Velocity = LeftStickvalue * Player_Move_Speed;
@@ -44,7 +41,7 @@ public class PlayerMove : MonoBehaviour
         Player_Rd.velocity = Velocity;
 
         var GamepadrightStickValue = Gamepad.all[Player_Numbers].rightStick.ReadValue();
-        var RightStickvalue = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
+        var RightStickvalue        = new Vector3(GamepadrightStickValue.x, 0, GamepadrightStickValue.y);
 
         if (RightStickvalue != Vector3.zero)
         {

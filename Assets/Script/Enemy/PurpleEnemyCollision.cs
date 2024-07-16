@@ -141,7 +141,7 @@ public class PurpleEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("redlight"))
         {
             Red_Attack_Flag = false;
-            ParticleSystem = false;
+            ParticleSystem  = false;
             Destroy(newParticle);
             Effective_Colour_Red_On.SetActive(false);
             Effective_Colour_Red_Off.SetActive(true);
@@ -150,7 +150,7 @@ public class PurpleEnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("bluelight"))
         {
             Blue_Attack_Flag = false;
-            ParticleSystem = false;
+            ParticleSystem   = false;
             Destroy(newParticle);
             Effective_Colour_Blue_On.SetActive(false);
             Effective_Colour_Blue_Off.SetActive(true);
