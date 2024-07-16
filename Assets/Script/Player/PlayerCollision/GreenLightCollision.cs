@@ -6,10 +6,10 @@ public class GreenLightCollision : MonoBehaviour
     private GameObject Green_Player_Object;
 
     [Header("player‚Ì‹–ì”ÍˆÍ‚ğİ’è"), SerializeField]
-    private float Player_Angle;
+    private float      Player_Angle;
 
     [Tooltip("‰©F‚ÌUŒ‚‚ª—LŒø‚©–³Œø"), HideInInspector]
-    public bool Yellow_Attack_Flag { get; private set; } = false;
+    public bool        Yellow_Attack_Flag { get; private set; } = false;
 
     private void OnTriggerStay(Collider other)
     {

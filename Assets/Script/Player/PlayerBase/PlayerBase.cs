@@ -12,7 +12,7 @@ public class PlayerBase : MonoBehaviour
     private const int        HP_MAX = 3;
 
     [Tooltip("Player‚ÌHP‚ª¡‚¢‚­‚Â‚©‚ð‘ª‚é")]
-    public  int              healthCount { get; private set; }
+    public  int              HealthCount { get; private set; }
 
     [Header("Player‚ÌHp‚Ì‰Šú’l‚ðÝ’è"), SerializeField]
     private int              healthInitialValue;
@@ -51,7 +51,7 @@ public class PlayerBase : MonoBehaviour
     private void Start()
     {
         deadFlag = false;
-        healthCount = healthInitialValue;
+        HealthCount = healthInitialValue;
     }
 
     private void Update()
@@ -69,12 +69,12 @@ public class PlayerBase : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Heart"))
         {
-            if (healthCount >= HP_MAX)
+            if (HealthCount >= HP_MAX)
             {
                 Destroy(collision.gameObject);
                 return;
             }
-            ++healthCount;
+            ++HealthCount;
             health.PlayerRecoveryFunction();
             Destroy(collision.gameObject);
         }
@@ -102,7 +102,7 @@ public class PlayerBase : MonoBehaviour
     /// </summary>
     public void PlayerRevival()
     {
-        ++healthCount;
+        ++HealthCount;
 
         animator.SetBool("Down", false);
 
@@ -124,10 +124,10 @@ public class PlayerBase : MonoBehaviour
     /// </summary>
     public void PlayerDamaged()
     {
-        if (healthCount <= 0)
+        if (HealthCount <= 0)
             return;
 
-        --healthCount;
+        --HealthCount;
 
         health.HealthFunction();
 
@@ -135,7 +135,7 @@ public class PlayerBase : MonoBehaviour
 
         damageAudioSource.PlayOneShot(damageAudioClip);
        
-        if (healthCount == 0)
+        if (HealthCount == 0)
         {
             PlayerDieAnimator();
         }
