@@ -78,7 +78,7 @@ public class YellowEnemyCollision : MonoBehaviour
 
     void Update()
     {
-        if (Red_Attack_Flag && Green_Attack_Flag && Player_Green_Flag.Yellow_Attack_Flag)
+        if (Red_Attack_Flag && Green_Attack_Flag && Player_Green_Flag.yellowAttackFlag)
         {
             Enemy_Hit_Time += Time.deltaTime;
 
