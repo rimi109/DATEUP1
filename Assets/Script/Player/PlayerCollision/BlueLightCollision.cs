@@ -6,10 +6,10 @@ public class BlueLightCollision : MonoBehaviour
     private GameObject Blue_Player_Object;
 
     [Header("player‚Ì‹–ì”ÍˆÍ‚ğİ’è"),SerializeField]
-    private float Player_Angle;
+    private float      Player_Angle;
 
     [Tooltip("…F‚ÌUŒ‚‚ª—LŒø‚©–³Œø"),HideInInspector]
-    public bool Light_Blue_Attack_Flag { get; private set; } = false;
+    public bool       Light_Blue_Attack_Flag { get; private set; } = false;
 
     private void OnTriggerStay(Collider other)
     {

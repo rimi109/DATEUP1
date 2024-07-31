@@ -67,7 +67,7 @@ public class whiteEnemyCollision : MonoBehaviour
             Blue_Attack_Flag &&
             Red_Attack_Flag &&
             Player_Light_Blue_Flag.Light_Blue_Attack_Flag &&
-            Player_Green_Flag.Yellow_Attack_Flag &&
+            Player_Green_Flag.yellowAttackFlag &&
             Player_Purple_Flag.Purple_Attack_Flag)
 
         {
