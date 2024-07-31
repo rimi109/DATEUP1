@@ -502,8 +502,9 @@ GameObject:
   - component: {fileID: 4019098117284960207}
   - component: {fileID: 6491128410595227581}
   - component: {fileID: 4235095433888374602}
+  - component: {fileID: -6228344524071464081}
   m_Layer: 0
-  m_Name: BlueEnemy
+  m_Name: blueEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,8 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14823c8188a297242b72f16b083dc4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parTicle: {fileID: 187534602998800414, guid: f8fdf0498ee4222408311255234ba719, type: 3}
-  capsuleCollider: {fileID: 4122016615164251570}
   playerManager: {fileID: 0}
   dateArray: {fileID: 0}
 --- !u!114 &6491128410595227581
@@ -612,6 +611,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &-6228344524071464081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989669618973776032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c5cba504b0154395fbd01bec0083c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parTicle: {fileID: 0}
+  capsuleCollider: {fileID: 0}
 --- !u!1 &7577370431306747987
 GameObject:
   m_ObjectHideFlags: 0
